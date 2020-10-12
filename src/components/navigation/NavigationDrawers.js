@@ -9,6 +9,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
+const listItemTextStyle = {
+  paddingRight: '10vh',
+};
+
 const NavigationDrawers = ({ navigationDrawersHandler, navOpen }) => {
   const list = () => (
     <div
@@ -23,7 +27,7 @@ const NavigationDrawers = ({ navigationDrawersHandler, navOpen }) => {
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={text} style={listItemTextStyle} />
             </ListItem>
           ),
         )}
@@ -37,7 +41,7 @@ const NavigationDrawers = ({ navigationDrawersHandler, navOpen }) => {
         <MoreVertIcon fontSize="large" color="action" />
       </Button>
       <Drawer
-        anchor="top"
+        anchor="left"
         open={navOpen}
         onClose={navigationDrawersHandler(false)}
       >
