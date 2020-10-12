@@ -1,28 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import Tooltips from './components/Tooltips';
+import TooltipsDialog from './components/TooltipsDialog';
+
+const App = () => {
+  const [toolTipsOpen, setTooltipsOpen] = React.useState(false);
+
+  const handleCloseTooltips = () => {
+    setTooltipsOpen(false);
+  };
+
+  const handleOnClickTooltips = () => {
+    setTooltipsOpen(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>src/App.js</code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TooltipsDialog
+        toolTipsOpen={toolTipsOpen}
+        handleCloseTooltips={handleCloseTooltips}
+      />
+      <Tooltips handleOnClickTooltip={handleOnClickTooltips} />
     </div>
   );
-}
+};
 
 export default App;
