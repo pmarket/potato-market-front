@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Tooltips from './components/Tooltips';
-import TooltipsDialog from './components/TooltipsDialog';
+import Tooltips from './components/tooltips/Tooltips';
+import TooltipsDialog from './components/tooltips/TooltipsDialog';
 import NavigationDrawers from './components/navigation/NavigationDrawers';
 
 const App = () => {
