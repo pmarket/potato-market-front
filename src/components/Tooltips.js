@@ -14,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Tooltips = ({ handleOnClickTooltip }) => {
   const classes = useStyles();
+
   return (
-    <Tooltip title="Add" aria-label="add">
+    <Tooltip title="test" aria-label="add">
       <Fab
         color="primary"
         className={classes.absolute}
