@@ -4,7 +4,7 @@ import Tooltips from 'components/tooltips/Tooltips';
 import TooltipsDialog from 'components/tooltips/TooltipsDialog';
 import NavigationDrawers from 'components/navigation/NavigationDrawers';
 
-const App = () => {
+const MarketLine = () => {
   const [state, setState] = React.useState({
     nav: false,
     toolTipsOpen: false,
@@ -43,4 +43,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default MarketLine;
