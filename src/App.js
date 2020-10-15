@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Tooltips from './components/tooltips/Tooltips';
-import TooltipsDialog from './components/tooltips/TooltipsDialog';
-import NavigationDrawers from './components/navigation/NavigationDrawers';
+import Tooltips from 'components/tooltips/Tooltips';
+import TooltipsDialog from 'components/tooltips/TooltipsDialog';
+import NavigationDrawers from 'components/navigation/NavigationDrawers';
 
 const App = () => {
   const [state, setState] = React.useState({
