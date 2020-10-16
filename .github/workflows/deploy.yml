@@ -4,7 +4,7 @@ on:
     branches:
       - develop
 jobs:
-  update:
+  deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,6 +33,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          BRANCH: gh-pages
+          BRANCH: deploy
           FOLDER: build
           CLEAN: true
