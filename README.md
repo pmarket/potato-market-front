@@ -1,10 +1,6 @@
 # 감자마켓 프론트엔드
 
-<img src="/public/favicon.png" width="45%" height="30%" title="감자마켓" alt="감자마켓"></img><br/>
-
-## Deploy
-
-https://2team-gamza.github.io/potato-market-front/
+> React.js로 만드는 중고 거래 클라이언트.
 
 ### Install
 
@@ -17,11 +13,3 @@ https://2team-gamza.github.io/potato-market-front/
 ### Run
 
 `yarn start`
-
-### Test
-
-`yarn test`
-
-### Deploy
-
-`yarn deploy`
