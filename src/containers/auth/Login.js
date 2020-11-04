@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <div>
       <Button variant="contained" href={GOOGLE_OAUTH_URL}>
-        Google OAuth
+        Continue with Google
       </Button>
     </div>
   );
