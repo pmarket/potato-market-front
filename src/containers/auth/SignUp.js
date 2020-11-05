@@ -10,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
 
+const { REACT_APP_API_URI } = process.env;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -52,11 +54,12 @@ const SignUp = ({ profile }) => {
   });
 
   const signUpButtonOnClick = async () => {
-    const response = await axios.post('http://localhost:8000/api/v1/member', {
+    const response = await axios.post(`${REACT_APP_API_URI}/api/v1/member`, {
       email: profile.email,
       name: profile.name,
       profileUrl: profile.profileUrl,
     });
+    console.log(response);
     // 토큰 체크 후 로컬 스토리지에 저장해야함.
     history.push('/');
   };

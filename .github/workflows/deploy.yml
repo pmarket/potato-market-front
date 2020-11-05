@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+      - feature/google-oauth
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,6 +16,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Make .env
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_REACT_APP_API_URI: ${{secrets.REACT_APP_API_URI}}
+          envkey_REACT_APP_CLIENT_ID: ${{secrets.REACT_APP_CLIENT_ID}}
+          envkey_REACT_APP_REDIRECT_URI: ${{secrets.REACT_APP_REDIRECT_URI}}
+          file_name: .env
 
       - name: Cache node_modules 🚀
         uses: actions/cache@v1
