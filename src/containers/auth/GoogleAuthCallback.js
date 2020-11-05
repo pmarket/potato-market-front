@@ -22,8 +22,8 @@ const GoogleAuthCallback = ({ setProfile }) => {
             history.push('/auth/signup');
             return;
           }
+          localStorage.setItem('token', response.data.data.token);
           history.push('/auth');
-          // 로그인 처리
         })
         .catch(() => {
           alert('에러가 발생하였습니다');

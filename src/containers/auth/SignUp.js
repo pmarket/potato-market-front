@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -43,25 +43,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = ({ profile }) => {
+const SignUp = ({ profile, setProfile }) => {
   const classes = useStyles();
   const history = useHistory();
+
+  const [name, setName] = useState(profile.name);
 
   useEffect(() => {
     if (profile.email === undefined) {
       history.push('/auth');
     }
-  });
+  }, [history, profile.email]);
 
   const signUpButtonOnClick = async () => {
     const response = await axios.post(`${REACT_APP_API_URI}/api/v1/member`, {
       email: profile.email,
-      name: profile.name,
+      name: name,
       profileUrl: profile.profileUrl,
     });
-    console.log(response);
-    // 토큰 체크 후 로컬 스토리지에 저장해야함.
-    history.push('/');
+    localStorage.setItem('token', response.data.data);
+    history.push('/auth');
+  };
+
+  const onChangeName = (e) => {
+    setName(e.target.value);
   };
 
   return (
@@ -76,19 +81,10 @@ const SignUp = ({ profile }) => {
               src={profile.profileUrl}
             />
             <div>
-              <TextField
-                label="Email"
-                defaultValue={profile.email}
-                size="small"
-                disabled
-              />
+              <TextField value={profile.email} size="small" disabled />
             </div>
             <div>
-              <TextField
-                label="Name"
-                defaultValue={profile.name}
-                size="small"
-              />
+              <TextField value={name} size="small" onChange={onChangeName} />
             </div>
             <Button
               variant="contained"

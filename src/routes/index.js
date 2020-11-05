@@ -19,7 +19,7 @@ const Routes = ({ profile, setProfile }) => (
     <Route
       exact
       path="/auth/signup"
-      component={() => <SignUp profile={profile} />}
+      component={() => <SignUp profile={profile} setProfile={setProfile} />}
     />
   </Switch>
 );
