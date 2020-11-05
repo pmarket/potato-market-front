@@ -8,9 +8,9 @@ import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
 
 const Routes = ({ profile, setProfile }) => (
   <Switch>
-    <Route exact path="/" component={MarketLine} />
+    {/* <Route exact path="/" component={MarketLine} /> */}
     <Route exact path="/404" component={NotFound} />
-    <Route exact path="/auth" component={Login} />
+    <Route exact path="/" component={Login} />
     <Route
       exact
       path="/auth/google/callback"

@@ -62,7 +62,7 @@ const SignUp = ({ profile, setProfile }) => {
       profileUrl: profile.profileUrl,
     });
     localStorage.setItem('token', response.data.data);
-    history.push('/auth');
+    history.push('/');
   };
 
   const onChangeName = (e) => {

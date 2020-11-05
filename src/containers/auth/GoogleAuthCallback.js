@@ -23,7 +23,7 @@ const GoogleAuthCallback = ({ setProfile }) => {
             return;
           }
           localStorage.setItem('token', response.data.data.token);
-          history.push('/auth');
+          history.push('/');
         })
         .catch(() => {
           alert('에러가 발생하였습니다');
