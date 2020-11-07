@@ -1,4 +1,6 @@
 import React from 'react';
+import Navigation from './Nav.js';
+import gamza from '../images/hansei.jpg'
 
 /**
  * /potato-market-front/product 페이지
@@ -6,7 +8,9 @@ import React from 'react';
 const MarketProduct = () => {
   return (
     <div>
-      <h1>Product</h1>
+      <Navigation />
+
+      <img class="bg" src={gamza} />
     </div>
   );
 };
