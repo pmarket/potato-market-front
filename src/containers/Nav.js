@@ -12,7 +12,7 @@ const Navigation = () => {
                 <Nav className="mr-auto">
                     <Nav.Link href="/about">감자마켓이란?</Nav.Link>
                     <Nav.Link href="/board">게시판</Nav.Link>
-                    <Nav.Link href="#pricing">장바구니</Nav.Link>
+                    <Nav.Link href="/wishlist">장바구니</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
