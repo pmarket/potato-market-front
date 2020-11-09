@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import querystring from 'querystring';
 
-const { REACT_APP_API_URI } = process.env;
+const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
 const GoogleAuthCallback = ({ setProfile }) => {
   const history = useHistory();
@@ -11,7 +11,9 @@ const GoogleAuthCallback = ({ setProfile }) => {
     if (window.location.search) {
       const { code } = querystring.parse(window.location.search);
       axios
-        .get(`${REACT_APP_API_URI}/api/v1/auth/google?code=${code}`)
+        .get(
+          `${REACT_APP_API_URI}/api/v1/auth/google?code=${code}&redirectUri=${REACT_APP_REDIRECT_URI}`,
+        )
         .then((response) => {
           if (response.data.data.type === 'SIGN_UP') {
             setProfile({
