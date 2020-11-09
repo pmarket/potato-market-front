@@ -1,9 +1,7 @@
 import React from 'react';
 import Navigation from './Nav.js';
 import { Link } from 'react-router-dom';
-import List from './List.js'
-
-
+import List from './List.js';
 
 /**
  * /potato-market-front/product 페이지
@@ -11,30 +9,24 @@ import List from './List.js'
  */
 
 const Board = () => {
+  return (
+    <div>
+      <Navigation />
 
-
-    return (
-        <div>
-            <Navigation />
-
-            <div className="grid-container">
-                <tools>
-                    <div>
-                        <button><Link to="/write">글쓰기</Link></button>
-
-
-                    </div>
-                </tools>
-                <main>
-
-
-                    <List />
-
-                </main>
-            </div>
-        </div>
-
-    );
+      <div className="grid-container">
+        <tools>
+          <div>
+            <button>
+              <Link to="/write">글쓰기</Link>
+            </button>
+          </div>
+        </tools>
+        <main>
+          <List />
+        </main>
+      </div>
+    </div>
+  );
 };
 
 export default Board;
