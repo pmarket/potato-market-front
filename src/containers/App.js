@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Routes from 'routes';
 
 const App = () => {
+  const [profile, setProfile] = useState({});
+
   return (
     <>
-      <Routes />
+      <Routes profile={profile} setProfile={setProfile} />
     </>
   );
 };
