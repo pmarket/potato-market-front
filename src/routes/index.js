@@ -6,6 +6,7 @@ import MarketProduct from 'containers/MarketProduct';
 import AboutGamza from 'containers/AboutGamza';
 import Board from 'containers/Board';
 
+
 const Routes = () => (
   <Switch>
     <Route exact path="/product" component={MarketProduct} />
@@ -14,6 +15,9 @@ const Routes = () => (
 
     <Route exact path="/about" component={AboutGamza} />
     <Route exact path="/board" component={Board} />
+
+
+
   </Switch>
 );
 
