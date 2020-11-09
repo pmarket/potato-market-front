@@ -1,14 +1,13 @@
 import React from 'react';
 import Navigation from './Nav.js';
-import { Button } from 'antd';
 import { Link } from 'react-router-dom';
-import 'antd/dist/antd.css';
 import List from './List.js'
 
 
 
 /**
  * /potato-market-front/product 페이지
+ * 여기에 글쓰기 button?? 거기 ant design 가져다 썼는디 왜안됐을까... :(
  */
 
 const Board = () => {
@@ -20,8 +19,9 @@ const Board = () => {
 
             <div className="grid-container">
                 <tools>
-                    <div className="site-button-ghost-wrapper">
-                        <Button ghost><Link to="/write">글쓰기</Link></Button>
+                    <div>
+                        <button><Link to="/write">글쓰기</Link></button>
+
 
                     </div>
                 </tools>
