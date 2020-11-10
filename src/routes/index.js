@@ -7,6 +7,7 @@ import Board from 'containers/Board';
 import Login from 'containers/auth/Login';
 import SignUp from 'containers/auth/SignUp';
 import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
+import MarketLine from 'containers/MarketLine';
 
 const Routes = ({ profile, setProfile }) => (
   <Switch>
@@ -26,6 +27,7 @@ const Routes = ({ profile, setProfile }) => (
       path="/auth/signup"
       component={() => <SignUp profile={profile} setProfile={setProfile} />}
     />
+    <Route path="/product/register" component={MarketLine} />
   </Switch>
 );
 
