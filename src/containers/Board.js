@@ -1,33 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import List from './List';
-import Navigation from './Nav';
-
-/**
- * /potato-market-front/product 페이지
- * 여기에 글쓰기 button?? 거기 ant design 가져다 썼는디 왜안됐을까... :(
- */
+import List from './List.js';
+import data from './data.js';
 
 const Board = () => {
   return (
     <div>
-      <Navigation />
+      <div className="row center">
+        {data.products.map(product => (
+          <List key={product._id} product={product}></List>))
+        }
 
-      <div className="grid-container">
-        <tools>
-          <div>
-            <button>
-              <Link to="/write">글쓰기</Link>
-            </button>
-          </div>
-        </tools>
-        <main>
-          <List />
-        </main>
       </div>
+
     </div>
-  );
-};
+  )
+}
 
 export default Board;
