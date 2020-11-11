@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import { makeStyles, TextField, Icon, Grid } from '@material-ui/core';
+import potato from 'assets/images/gamza1.jpg';
 
 import Paper from 'elements/Paper';
 import Avatar from 'elements/Avatar';
@@ -35,13 +36,13 @@ const SignUp = ({ profile }) => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [name, setName] = useState(profile.name);
+  const [name, setName] = useState(profile.name || 'Potato (Mock for test)');
 
-  useEffect(() => {
-    if (profile.email === undefined) {
-      history.push('/auth');
-    }
-  }, [history, profile.email]);
+  // useEffect(() => {
+  //   if (profile.email === undefined) {
+  //     history.push('/auth');
+  //   }
+  // }, [history, profile.email]);
 
   const signUpButtonOnClick = async () => {
     const response = await axios.post(`${REACT_APP_API_URI}/api/v1/member`, {
@@ -62,9 +63,13 @@ const SignUp = ({ profile }) => {
       <Paper>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item xs zeroMinWidth>
-            <Avatar alt="Remy Sharp" src={profile.profileUrl} />
+            <Avatar alt="Remy Sharp" src={profile.profileUrl || potato} />
             <div>
-              <TextField value={profile.email} size="small" disabled />
+              <TextField
+                value={profile.email || 'potato@gmail.com'}
+                size="small"
+                disabled
+              />
             </div>
             <div>
               <TextField value={name} size="small" onChange={onChangeName} />
