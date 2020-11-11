@@ -4,10 +4,23 @@ import { Button, DialogActions, DialogTitle } from '@material-ui/core';
 import Dialog from 'elements/Dialog';
 import RegisterCard from 'components/product/RegisterCard';
 
+const { REACT_APP_API_URI } = process.env;
+
 const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
   const [name, setName] = React.useState('');
   const [price, setPrice] = React.useState(0);
   const [content, setContent] = React.useState('');
+
+  const clearField = () => {
+    setName('');
+    setPrice(0);
+    setContent('');
+  };
+
+  const handleOnCloseTooltips = () => {
+    handleCloseTooltips();
+    clearField();
+  };
 
   const handleChange = (event) => {
     setName(event.target.value);
@@ -21,21 +34,25 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
     setContent(event.target.value);
   };
 
-  const onClickRegisterButton = () => {
-    axios
-      .post('https://api.pmarket.space/api/v1/product', {
+  const onClickRegisterButton = async () => {
+    if (!(name && price && content)) {
+      alert('정보를 입력해주세요!');
+      return;
+    }
+    try {
+      await axios.post(`${REACT_APP_API_URI}/api/v1/product`, {
         name,
         price,
         content,
-      })
-      .then(() => {
-        alert('등록되었습니다');
-      })
-      .catch((err) => {
-        alert('에러가 발생하였습니다');
       });
+      alert('등록 되었습니다!');
+      clearField();
+    } catch {
+      alert('에러가 발생하였습니다');
+    }
     handleCloseTooltips();
   };
+
   return (
     <Dialog
       toolTipsOpen={toolTipsOpen}
@@ -51,7 +68,7 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
         handleOnChangeContent={handleOnChangeContent}
       />
       <DialogActions>
-        <Button onClick={handleCloseTooltips} color="primary">
+        <Button onClick={handleOnCloseTooltips} color="primary">
           취소하기
         </Button>
         <Button onClick={onClickRegisterButton} color="primary">

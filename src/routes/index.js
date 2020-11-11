@@ -9,14 +9,18 @@ import SignUp from 'containers/auth/SignUp';
 import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
 import MarketLine from 'containers/MarketLine';
 
-const Routes = ({ profile, setProfile }) => (
+const Routes = ({ profile, setProfile, token, setToken }) => (
   <Switch>
     <Route exact path="/product" component={MarketProduct} />
     <Route exact path="/404" component={NotFound} />
     <Route exact path="/about" component={AboutGamza} />
     <Route exact path="/board" component={Board} />
     <Route exact path="/404" component={NotFound} />
-    <Route exact path="/" component={Login} />
+    <Route
+      exact
+      path="/"
+      component={() => <Login token={token} setToken={setToken} />}
+    />
     <Route
       exact
       path="/auth/google/callback"
