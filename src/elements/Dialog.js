@@ -8,7 +8,7 @@ const Modal = ({ children, toolTipsOpen, handleCloseTooltips }) => {
       maxWidth="md"
       fullWidth
       onClose={handleCloseTooltips}
-      disableEscapeKeyDown="true"
+      disableEscapeKeyDown
       scroll="body"
     >
       {children}

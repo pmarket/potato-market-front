@@ -4,6 +4,8 @@ import { Button, DialogActions, DialogTitle } from '@material-ui/core';
 import Dialog from 'elements/Dialog';
 import RegisterCard from 'components/product/RegisterCard';
 
+const { REACT_APP_API_URI } = process.env;
+
 const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
   const [name, setName] = React.useState('');
   const [price, setPrice] = React.useState(0);
@@ -23,7 +25,7 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
 
   const onClickRegisterButton = () => {
     axios
-      .post('https://api.pmarket.space/api/v1/product', {
+      .post(`${REACT_APP_API_URI}/api/v1/product`, {
         name,
         price,
         content,

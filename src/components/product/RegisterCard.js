@@ -54,8 +54,8 @@ const RegisterCard = ({
             margin="dense"
             placeholder="제목을 입력해주세요"
             size="small"
-            required="true"
-            autoFocus="true"
+            required
+            autoFocus
           />
           <TextField
             id="outlined-uncontrolled"
@@ -67,7 +67,7 @@ const RegisterCard = ({
             placeholder="가격을 입력해주세요"
             size="small"
             type="number"
-            required="true"
+            required
           />
           <TextField
             id="standard-multiline-static"
