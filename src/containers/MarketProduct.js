@@ -5,6 +5,7 @@ const MarketProduct = () => {
   return (
     <div>
       <img className="bg" src={gamza} alt="" />
+      
     </div>
   );
 };
