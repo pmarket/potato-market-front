@@ -1,7 +1,5 @@
 import React from 'react';
-
 import AddIcon from '@material-ui/icons/Add';
-
 import Tooltips from 'elements/Tooltips';
 import RegisterModal from 'components/product/RegisterModal';
 
