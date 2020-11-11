@@ -26,16 +26,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const RegisterCard = () => {
+const RegisterCard = ({ name, price, handleChange, handleOnChangePrice }) => {
   const classes = useStyles();
-  const [name, setName] = React.useState();
-  const [price, setPrice] = React.useState();
-  const handleChange = (event) => {
-    setName(event.target.value);
-  };
-  const handleOnChangePrice = (event) => {
-    setPrice(event.target.value);
-  };
 
   return (
     <div>
