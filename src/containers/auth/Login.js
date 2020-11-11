@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import GOOGLE_OAUTH_URL from 'constants/GoogleOAuth';
-import MarketLine from '../MarketLine';
-import googleIcon from '../../assets/icon/google_icon.png';
+import MarketLine from 'containers/MarketLine';
+import GoogleButton from 'components/auth/GoogleButton';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -36,10 +35,7 @@ const Login = () => {
         <h4>{profile.email}</h4>
         <h4>{profile.name}</h4>
       </div>
-
-      <a href={GOOGLE_OAUTH_URL}>
-        <img src={googleIcon} alt="google" />
-      </a>
+      <GoogleButton />
       <MarketLine />
     </div>
   );

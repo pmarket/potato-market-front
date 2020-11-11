@@ -1,8 +1,6 @@
 import React from 'react';
 
-import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField, Card, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
   root: {

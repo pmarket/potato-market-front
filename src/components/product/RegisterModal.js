@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, DialogActions, DialogTitle } from '@material-ui/core';
 import Dialog from 'elements/Dialog';
-import RegisterCard from './RegisterCard';
+import RegisterCard from 'components/product/RegisterCard';
 
 const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
   const onClickRegisterButton = () => {
