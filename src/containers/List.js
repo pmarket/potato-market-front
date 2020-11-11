@@ -4,10 +4,9 @@ const List = (props) => {
   const { product } = props;
 
   return (
-
     <div key={product.id} className="card">
       <a href="">
-        <img className="medium" src={product.profie_url}></img>
+        <img className="medium" src={product.profile_url}></img>
       </a>
       <div className="card-body">
         <a href="">
@@ -16,16 +15,10 @@ const List = (props) => {
         <div className="price">{product.price}</div>
       </div>
     </div>
-
-  )
-
-
-
-
-}
+  );
+};
 
 export default List;
-
 
 // <div key={product._id} className="card">
 // <a href={`/product/${product._id}`}>
