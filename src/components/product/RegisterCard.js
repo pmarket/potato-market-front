@@ -1,11 +1,8 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
+
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,7 +28,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const TooltipsDialog = ({ toolTipsOpen, handleCloseTooltips }) => {
+const RegisterCard = () => {
   const classes = useStyles();
   const [name, setName] = React.useState();
   const [price, setPrice] = React.useState();
@@ -41,23 +38,9 @@ const TooltipsDialog = ({ toolTipsOpen, handleCloseTooltips }) => {
   const handleOnChangePrice = (event) => {
     setPrice(event.target.value);
   };
-  const onClickRegisterButton = () => {
-    alert('등록되었습니다');
-    handleCloseTooltips();
-  };
 
   return (
-    <Dialog
-      open={toolTipsOpen}
-      maxWidth="md"
-      fullWidth
-      onClose={handleCloseTooltips}
-      disableEscapeKeyDown="true"
-      scroll="body"
-    >
-      <DialogTitle id="alert-dialog-slide-title" className={classes.title}>
-        상품 등록하기
-      </DialogTitle>
+    <div>
       <Card className={classes.root}>
         <form className={classes.form} noValidate autoComplete="off">
           <img
@@ -101,15 +84,8 @@ const TooltipsDialog = ({ toolTipsOpen, handleCloseTooltips }) => {
           />
         </form>
       </Card>
-      <DialogActions>
-        <Button onClick={handleCloseTooltips} color="primary">
-          취소하기
-        </Button>
-        <Button onClick={onClickRegisterButton} color="primary">
-          등록하기
-        </Button>
-      </DialogActions>
-    </Dialog>
+    </div>
   );
 };
-export default TooltipsDialog;
+
+export default RegisterCard;

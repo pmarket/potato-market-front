@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Tooltips from 'components/tooltips/Tooltips';
-import TooltipsDialog from 'components/tooltips/TooltipsDialog';
+import AddIcon from '@material-ui/icons/Add';
+
+import Tooltips from 'elements/Tooltips';
+import RegisterModal from 'components/product/RegisterModal';
 
 const MarketLine = () => {
   const [state, setState] = React.useState({
@@ -19,11 +21,13 @@ const MarketLine = () => {
 
   return (
     <div>
-      <TooltipsDialog
+      <RegisterModal
         toolTipsOpen={state.toolTipsOpen}
         handleCloseTooltips={handleCloseTooltips}
       />
-      <Tooltips handleOnClickTooltip={handleOnClickTooltips} />
+      <Tooltips handleOnClickTooltip={handleOnClickTooltips} title="등록하기">
+        <AddIcon />
+      </Tooltips>
     </div>
   );
 };

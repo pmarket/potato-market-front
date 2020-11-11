@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Nav.js';
+import Navigation from './Nav';
 
 const AboutGamza = () => {
   return (

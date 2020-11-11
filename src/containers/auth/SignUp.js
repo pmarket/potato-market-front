@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
-import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
+
+import { makeStyles, TextField, Icon, Grid } from '@material-ui/core';
+
+import Paper from 'elements/Paper';
+import Avatar from 'elements/Avatar';
+import Button from 'elements/Button';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -31,19 +29,9 @@ const useStyles = makeStyles((theme) => ({
     margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(4),
   },
-  button: {
-    margin: theme.spacing(3),
-    width: '80%',
-    marginLeft: '10%',
-  },
-  avatar: {
-    width: '40%',
-    height: 'auto',
-    left: '30%',
-  },
 }));
 
-const SignUp = ({ profile, setProfile }) => {
+const SignUp = ({ profile }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -58,7 +46,7 @@ const SignUp = ({ profile, setProfile }) => {
   const signUpButtonOnClick = async () => {
     const response = await axios.post(`${REACT_APP_API_URI}/api/v1/member`, {
       email: profile.email,
-      name: name,
+      name,
       profileUrl: profile.profileUrl,
     });
     localStorage.setItem('token', response.data.data);
@@ -71,15 +59,10 @@ const SignUp = ({ profile, setProfile }) => {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
+      <Paper>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item xs zeroMinWidth>
-            <Avatar
-              className={classes.avatar}
-              variant="circle"
-              alt="Remy Sharp"
-              src={profile.profileUrl}
-            />
+            <Avatar alt="Remy Sharp" src={profile.profileUrl} />
             <div>
               <TextField value={profile.email} size="small" disabled />
             </div>
@@ -89,8 +72,7 @@ const SignUp = ({ profile, setProfile }) => {
             <Button
               variant="contained"
               color="primary"
-              className={classes.button}
-              endIcon={<Icon>send</Icon>}
+              icon={<Icon>send</Icon>}
               onClick={signUpButtonOnClick}
             >
               SignUp

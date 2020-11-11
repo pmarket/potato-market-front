@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Tooltips from 'components/tooltips/Tooltips';
-import TooltipsDialog from 'components/tooltips/TooltipsDialog';
+import axios from 'axios';
 
 import GOOGLE_OAUTH_URL from 'constants/GoogleOAuth';
-import axios from 'axios';
+import MarketLine from '../MarketLine';
 import googleIcon from '../../assets/icon/google_icon.png';
 
 const { REACT_APP_API_URI } = process.env;
@@ -14,18 +13,6 @@ const Login = () => {
     name: '',
     profileUrl: '',
   });
-  const [state, setState] = React.useState({
-    nav: false,
-    toolTipsOpen: false,
-  });
-
-  const handleCloseTooltips = () => {
-    setState({ ...state, toolTipsOpen: false });
-  };
-
-  const handleOnClickTooltips = () => {
-    setState({ ...state, toolTipsOpen: true });
-  };
 
   const authToken = localStorage.getItem('token');
 
@@ -53,13 +40,7 @@ const Login = () => {
       <a href={GOOGLE_OAUTH_URL}>
         <img src={googleIcon} alt="google" />
       </a>
-      <div>
-        <TooltipsDialog
-          toolTipsOpen={state.toolTipsOpen}
-          handleCloseTooltips={handleCloseTooltips}
-        />
-        <Tooltips handleOnClickTooltip={handleOnClickTooltips} />
-      </div>
+      <MarketLine />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import gamza from '../images/main.jpg';
+import gamza from 'assets/images/main.jpg';
 
 const MarketProduct = () => {
   return (

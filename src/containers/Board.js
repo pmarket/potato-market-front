@@ -1,7 +1,8 @@
 import React from 'react';
-import Navigation from './Nav.js';
 import { Link } from 'react-router-dom';
-import List from './List.js';
+
+import List from './List';
+import Navigation from './Nav';
 
 /**
  * /potato-market-front/product 페이지
