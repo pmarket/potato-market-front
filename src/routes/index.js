@@ -15,10 +15,9 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
     <Route exact path="/404" component={NotFound} />
     <Route exact path="/about" component={AboutGamza} />
     <Route exact path="/board" component={Board} />
-    <Route exact path="/404" component={NotFound} />
     <Route
       exact
-      path="/"
+      path="/auth/login"
       component={() => <Login token={token} setToken={setToken} />}
     />
     <Route
@@ -31,7 +30,7 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
       path="/auth/signup"
       component={() => <SignUp profile={profile} setProfile={setProfile} />}
     />
-    <Route path="/product/register" component={MarketLine} />
+    <Route path="/" component={MarketLine} />
   </Switch>
 );
 
