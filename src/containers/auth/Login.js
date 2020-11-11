@@ -6,27 +6,25 @@ import GoogleButton from 'components/auth/GoogleButton';
 
 const { REACT_APP_API_URI } = process.env;
 
-const Login = () => {
+const Login = ({ token }) => {
   const [profile, setProfile] = useState({
     email: '',
     name: '',
     profileUrl: '',
   });
 
-  const authToken = localStorage.getItem('token');
-
   useEffect(() => {
     axios
       .get(`${REACT_APP_API_URI}/api/v1/member`, {
         headers: {
-          Authorization: `Bearer ${authToken}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       })
       .then((response) => {
         setProfile(response.data.data);
       });
-  }, [authToken]);
+  }, [token]);
 
   return (
     <div>
@@ -36,7 +34,7 @@ const Login = () => {
         <h4>{profile.name}</h4>
       </div>
       <GoogleButton />
-      <MarketLine />
+      <MarketLine token={token} />
     </div>
   );
 };

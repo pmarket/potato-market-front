@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Tooltips from 'elements/Tooltips';
 import RegisterModal from 'components/product/RegisterModal';
 
-const MarketLine = () => {
+const MarketLine = ({ token }) => {
   const [state, setState] = React.useState({
     nav: false,
     toolTipsOpen: false,
@@ -24,6 +24,7 @@ const MarketLine = () => {
       <RegisterModal
         toolTipsOpen={state.toolTipsOpen}
         handleCloseTooltips={handleCloseTooltips}
+        token={token}
       />
       <Tooltips handleOnClickTooltip={handleOnClickTooltips} title="등록하기">
         <AddIcon />

@@ -5,7 +5,7 @@ import querystring from 'querystring';
 
 const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
-const GoogleAuthCallback = ({ setProfile }) => {
+const GoogleAuthCallback = () => {
   const history = useHistory();
   useEffect(() => {
     if (window.location.search) {
@@ -16,11 +16,6 @@ const GoogleAuthCallback = ({ setProfile }) => {
         )
         .then((response) => {
           if (response.data.data.type === 'SIGN_UP') {
-            setProfile({
-              email: response.data.data.email,
-              name: response.data.data.name,
-              profileUrl: response.data.data.profileUrl,
-            });
             history.push('/auth/signup');
             return;
           }
@@ -29,6 +24,7 @@ const GoogleAuthCallback = ({ setProfile }) => {
         })
         .catch(() => {
           alert('에러가 발생하였습니다');
+          history.push('/');
         });
     }
   });
