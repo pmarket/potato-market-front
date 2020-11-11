@@ -26,7 +26,14 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const RegisterCard = ({ name, price, handleChange, handleOnChangePrice }) => {
+const RegisterCard = ({
+  name,
+  price,
+  handleChange,
+  handleOnChangePrice,
+  content,
+  handleOnChangeContent,
+}) => {
   const classes = useStyles();
 
   return (
@@ -71,6 +78,8 @@ const RegisterCard = ({ name, price, handleChange, handleOnChangePrice }) => {
             rows={5}
             placeholder="상세 내용을 입력해주세요."
             size="small"
+            value={content}
+            onChange={handleOnChangeContent}
           />
         </form>
       </Card>
