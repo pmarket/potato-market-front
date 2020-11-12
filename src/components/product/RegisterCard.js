@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { TextField, Card, makeStyles } from '@material-ui/core';
+import { TextField, Card, makeStyles, IconButton } from '@material-ui/core';
+import { PhotoCamera } from '@material-ui/icons';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       marginTop: '1%',
@@ -17,12 +18,17 @@ const useStyles = makeStyles(() => ({
     paddingBottom: '3%',
   },
   img: {
-    width: '60%',
     marginLeft: '20%',
     marginBottom: '4%',
+    width: '500px',
+    height: '300px',
   },
   title: {
     textAlign: 'center',
+  },
+  input: {
+    display: 'none',
+    margin: theme.spacing(1),
   },
 }));
 
@@ -33,6 +39,8 @@ const RegisterCard = ({
   handleOnChangePrice,
   content,
   handleOnChangeContent,
+  profileUrl,
+  fileOnChange,
 }) => {
   const classes = useStyles();
 
@@ -40,11 +48,23 @@ const RegisterCard = ({
     <div>
       <Card className={classes.root}>
         <form className={classes.form} noValidate autoComplete="off">
-          <img
-            className={classes.img}
-            src="https://byline.network/wp-content/uploads/2017/07/mac_1.jpg"
-            alt="상품"
+          <img className={classes.img} src={profileUrl} alt="상품" />
+          <input
+            accept="image/*"
+            className={classes.input}
+            id="icon-button-file"
+            type="file"
+            onChange={fileOnChange}
           />
+          <label htmlFor="icon-button-file">
+            <IconButton
+              color="primary"
+              aria-label="upload profileUrl"
+              component="span"
+            >
+              <PhotoCamera />
+            </IconButton>
+          </label>
           <TextField
             id="outlined-name"
             label="Title"

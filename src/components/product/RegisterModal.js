@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, DialogActions, DialogTitle } from '@material-ui/core';
 import Dialog from 'elements/Dialog';
@@ -6,10 +6,13 @@ import RegisterCard from 'components/product/RegisterCard';
 
 const { REACT_APP_API_URI } = process.env;
 
+const baseImage = 'https://byline.network/wp-content/uploads/2017/07/mac_1.jpg';
+
 const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
-  const [name, setName] = React.useState('');
-  const [price, setPrice] = React.useState(0);
-  const [content, setContent] = React.useState('');
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState();
+  const [content, setContent] = useState('');
+  const [profileUrl, setProfileUrl] = useState(baseImage);
 
   const clearField = () => {
     setName('');
@@ -44,6 +47,7 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
         name,
         price,
         content,
+        profileUrl,
       });
       alert('등록 되었습니다!');
       clearField();
@@ -53,6 +57,15 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
     handleCloseTooltips();
   };
 
+  const fileOnChange = (e) => {
+    const formData = new FormData();
+    formData.append('file', e.target.files[0]);
+    axios
+      .post(`${REACT_APP_API_URI}/api/v1/upload`, formData)
+      .then((response) => {
+        setProfileUrl(response.data.data);
+      });
+  };
   return (
     <Dialog
       toolTipsOpen={toolTipsOpen}
@@ -66,6 +79,8 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
         handleChange={handleChange}
         handleOnChangePrice={handleOnChangePrice}
         handleOnChangeContent={handleOnChangeContent}
+        profileUrl={profileUrl}
+        fileOnChange={fileOnChange}
       />
       <DialogActions>
         <Button onClick={handleOnCloseTooltips} color="primary">
