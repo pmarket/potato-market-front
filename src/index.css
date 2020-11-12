@@ -13,6 +13,17 @@ code {
 }
 /* LAYOUT */
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row.center {
+  justify-content: center;
+}
+
 .grid-container {
   display: grid;
   grid-template-areas:
