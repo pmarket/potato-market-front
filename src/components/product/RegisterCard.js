@@ -18,17 +18,21 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '3%',
   },
   img: {
-    marginLeft: '20%',
+    marginLeft: '10%',
+    marginRight: '10%',
     marginBottom: '4%',
-    width: '500px',
-    height: '300px',
+    maxWidth: '80%',
+    maxHeight: '500px',
+    height: 'auto',
   },
   title: {
     textAlign: 'center',
   },
   input: {
     display: 'none',
-    margin: theme.spacing(1),
+  },
+  fileForm: {
+    marginLeft: '48%',
   },
 }));
 
@@ -49,22 +53,24 @@ const RegisterCard = ({
       <Card className={classes.root}>
         <form className={classes.form} noValidate autoComplete="off">
           <img className={classes.img} src={profileUrl} alt="상품" />
-          <input
-            accept="image/*"
-            className={classes.input}
-            id="icon-button-file"
-            type="file"
-            onChange={fileOnChange}
-          />
-          <label htmlFor="icon-button-file">
-            <IconButton
-              color="primary"
-              aria-label="upload profileUrl"
-              component="span"
-            >
-              <PhotoCamera />
-            </IconButton>
-          </label>
+          <div className={classes.fileForm}>
+            <input
+              accept="image/*"
+              className={classes.input}
+              id="icon-button-file"
+              type="file"
+              onChange={fileOnChange}
+            />
+            <label htmlFor="icon-button-file">
+              <IconButton
+                color="primary"
+                aria-label="upload profileUrl"
+                component="span"
+              >
+                <PhotoCamera />
+              </IconButton>
+            </label>
+          </div>
           <TextField
             id="outlined-name"
             label="Title"
