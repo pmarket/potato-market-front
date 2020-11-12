@@ -18,6 +18,7 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
     setName('');
     setPrice(0);
     setContent('');
+    setProfileUrl(baseImage);
   };
 
   const handleOnCloseTooltips = () => {
