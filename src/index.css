@@ -12,31 +12,29 @@ code {
     monospace;
 }
 /* LAYOUT */
-.row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
 
-.container {
+.grid-container {
   display: grid;
   grid-template-areas:
-    'tools'
-    'main';
+    'header'
+    'main'
+    'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 2fr;
+  grid-template-rows: 5rem 2fr 5rem;
   height: 100%;
 }
 
-tools {
-  display: flex;
-  justify-content: flex-end;
-  background-color: #595959;
+header {
+  background-color: aqua;
+  grid-area: header;
 }
 main {
-  display: flex;
-  justify-content: flex-start;
-  align-items: space-around;
+  align-content: center;
+  grid-area: main;
+}
+footer {
+  background-color: aqua;
+  grid-area: footer;
 }
 
 /*images*/
@@ -46,6 +44,9 @@ img {
 img.medium {
   max-width: 29rem;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /*CARD*/
