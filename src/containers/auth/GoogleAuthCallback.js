@@ -20,11 +20,11 @@ const GoogleAuthCallback = () => {
             return;
           }
           localStorage.setItem('token', response.data.data.token);
-          history.push('/');
+          history.push('/auth/login');
         })
         .catch(() => {
           alert('에러가 발생하였습니다');
-          history.push('/');
+          history.push('/auth/login');
         });
     }
   });

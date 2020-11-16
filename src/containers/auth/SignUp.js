@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     overflow: 'hidden',
     padding: theme.spacing(0, 3),
-    marginTop: '10%',
+    marginTop: '5%',
     height: '100%',
     '& .MuiTextField-root': {
       margin: theme.spacing(2.5),
