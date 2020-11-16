@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Routes from 'routes';
 import Navigator from 'components/navigator/Navigator';
-import Form from './Form';
 
 const App = () => {
   const [profile, setProfile] = useState({});
@@ -32,9 +31,6 @@ const App = () => {
         token={token}
         setToken={setToken}
       />
-      <div>
-        <Form />
-      </div>
     </>
   );
 };
