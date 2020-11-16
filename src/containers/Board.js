@@ -1,30 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState, useEffect } from 'react';
 import List from './List';
-import Navigation from './Nav';
+import axios from 'axios';
 
-/**
- * /potato-market-front/product 페이지
- * 여기에 글쓰기 button?? 거기 ant design 가져다 썼는디 왜안됐을까... :(
- */
+const { REACT_APP_API_URI } = process.env;
 
 const Board = () => {
+  const [products, setProduct] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${REACT_APP_API_URI}/api/v1/products`).then((response) => {
+      setProduct(response.data);
+    });
+  }, []);
   return (
     <div>
-      <Navigation />
-
-      <div className="grid-container">
-        <tools>
-          <div>
-            <button>
-              <Link to="/write">글쓰기</Link>
-            </button>
-          </div>
-        </tools>
-        <main>
-          <List />
-        </main>
+      <div className="row center">
+        {products.map((product) => (
+          <List key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );

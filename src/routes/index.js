@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from 'containers/NotFound';
 import MarketProduct from 'containers/MarketProduct';
-import AboutGamza from 'containers/AboutGamza';
 import Board from 'containers/Board';
 import Login from 'containers/auth/Login';
 import SignUp from 'containers/auth/SignUp';
@@ -13,7 +12,6 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
   <Switch>
     <Route exact path="/product" component={MarketProduct} />
     <Route exact path="/404" component={NotFound} />
-    <Route exact path="/about" component={AboutGamza} />
     <Route exact path="/board" component={Board} />
     <Route
       exact
