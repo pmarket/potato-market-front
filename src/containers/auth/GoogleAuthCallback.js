@@ -5,7 +5,7 @@ import querystring from 'querystring';
 
 const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
-const GoogleAuthCallback = () => {
+const GoogleAuthCallback = ({ setProfile }) => {
   const history = useHistory();
   useEffect(() => {
     if (window.location.search) {
@@ -16,6 +16,7 @@ const GoogleAuthCallback = () => {
         )
         .then((response) => {
           if (response.data.data.type === 'SIGN_UP') {
+            setProfile(response.data.data);
             history.push('/auth/signup');
             return;
           }

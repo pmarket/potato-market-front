@@ -45,11 +45,14 @@ const SignUp = ({ profile }) => {
   // }, [history, profile.email]);
 
   const signUpButtonOnClick = async () => {
-    const response = await axios.post(`${REACT_APP_API_URI}/api/v1/member`, {
-      email: profile.email,
-      name,
-      profileUrl: profile.profileUrl,
-    });
+    const response = await axios.post(
+      `${REACT_APP_API_URI}/api/v1/signup/google`,
+      {
+        email: profile.email,
+        name,
+        profileUrl: profile.profileUrl,
+      },
+    );
     localStorage.setItem('token', response.data.data);
     history.push('/');
   };
