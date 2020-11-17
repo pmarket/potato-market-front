@@ -2,7 +2,7 @@ export default function validateInfo(values) {
   let errors = {};
 
   if (!values.username.trim()) {
-    errors.username = '아이디를 입력하지 않았습니다.';
+    errors.username = '닉네임을 설정하지 않았습니다.';
   }
 
   if (!values.email) {

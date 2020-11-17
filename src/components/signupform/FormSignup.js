@@ -13,21 +13,7 @@ const FormSignup = (submitForm) => {
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit}>
         <h1>CREATE YOUR ACCOUNT</h1>
-        <div className="form-inputs">
-          <label htmlFor="username" className="form-label">
-            아이디
-          </label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            className="form-input"
-            placeholder="아이디를 입력하시오"
-            value={values.username}
-            onChange={handleChange}
-          />
-          {errors.username && <p>{errors.username}</p>}
-        </div>
+
         <div className="form-inputs">
           <label htmlFor="email" className="form-label">
             이메일
@@ -74,6 +60,21 @@ const FormSignup = (submitForm) => {
             onChange={handleChange}
           />
           {errors.password2 && <p>{errors.password2}</p>}
+        </div>
+        <div className="form-inputs">
+          <label htmlFor="username" className="form-label">
+            닉네임
+          </label>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            className="form-input"
+            placeholder="아이디를 입력하시오"
+            value={values.username}
+            onChange={handleChange}
+          />
+          {errors.username && <p>{errors.username}</p>}
         </div>
         <button className="form-input-btn" type="submit">
           회원가입하기
