@@ -6,9 +6,9 @@ import './MarketProduct.css';
 const MarketProduct = () => {
   return (
     <div className="container">
-      <div>
-        <h1>POTATO MARKET</h1>
-        <p>한세대 학우를 위한 중고마켓!</p>
+      <h1>POTATO MARKET</h1>
+      <p>한세대 학우를 위한 중고마켓!</p>
+      <div className="btns">
         <ButtonSignUp
           className="btns"
           buttonStyle="btn--outline"
