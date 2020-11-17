@@ -80,7 +80,7 @@ const FormSignup = (submitForm) => {
           회원가입하기
         </button>
         <span className="form-input-login">
-          이미 아이디가 있으신가요? 로그인 <a href="#">HERE</a>
+          이미 아이디가 있으신가요? 로그인 <a href="/login">HERE</a>
         </span>
       </form>
     </div>

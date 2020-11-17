@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ButtonSignUp.css';
-import GOOGLE_OAUTH_URL from 'constants/GoogleOAuth';
 
 const STYLES = ['btn--primary', 'btn--outline'];
 const SIZES = ['btn--medium', 'btn--large'];
