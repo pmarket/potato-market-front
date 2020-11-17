@@ -1,6 +1,5 @@
 import ButtonSignUp from 'elements/ButtonSignUp';
 import React from 'react';
-import gamza from 'assets/images/main.jpg';
 import './MarketProduct.css';
 
 const MarketProduct = () => {
