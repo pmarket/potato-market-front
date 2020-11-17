@@ -4,6 +4,8 @@ on:
     branches:
       - develop
       - feature/google-oauth
+env:
+  CI: ''
 jobs:
   deploy:
     runs-on: ubuntu-latest
