@@ -1,6 +1,7 @@
 import React from 'react';
 import './ButtonSignUp.css';
-import { Link } from 'react-router-dom';
+
+import GOOGLE_OAUTH_URL from 'constants/GoogleOAuth';
 
 const STYLES = ['btn--primary', 'btn--outline'];
 const SIZES = ['btn--medium', 'btn--large'];
@@ -19,7 +20,7 @@ export const ButtonSignUp = ({
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-    <Link to="/auth/signup" className="btn-mobile">
+    <a href={GOOGLE_OAUTH_URL}>
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
@@ -27,7 +28,7 @@ export const ButtonSignUp = ({
       >
         {children}
       </button>
-    </Link>
+    </a>
   );
 };
 
