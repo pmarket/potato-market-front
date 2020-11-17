@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '3%',
   },
   img: {
-    marginLeft: '10%',
-    marginRight: '10%',
+    marginLeft: '20%',
+    marginRight: '20%',
     marginBottom: '4%',
-    maxWidth: '80%',
+    width: '60%',
     maxHeight: '500px',
     height: 'auto',
   },

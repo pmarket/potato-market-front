@@ -10,7 +10,7 @@ const baseImage = 'https://byline.network/wp-content/uploads/2017/07/mac_1.jpg';
 
 const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
   const [name, setName] = useState('');
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState('');
   const [content, setContent] = useState('');
   const [profileUrl, setProfileUrl] = useState(baseImage);
 

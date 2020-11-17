@@ -10,7 +10,6 @@ import GamzaSignup from 'components/signupform/GamzaSignup';
 
 const Routes = ({ profile, setProfile, token, setToken }) => (
   <Switch>
-    <Route exact path="/404" component={NotFound} />
     <Route exact path="/board" component={Board} />
     <Route
       exact
@@ -29,6 +28,7 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
     />
     <Route exact path="/" component={Home} />
     <Route path="/signup" component={GamzaSignup} />
+    <Route component={NotFound} />
   </Switch>
 );
 
