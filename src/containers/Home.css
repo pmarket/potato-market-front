@@ -1,6 +1,6 @@
 .container {
-  background-repeat: no-repeat;
   background: url('../assets/images/gamza1.jpg');
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
   display: flex;

@@ -1,16 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NotFound from 'containers/NotFound';
-import MarketProduct from 'containers/MarketProduct';
 import Board from 'containers/Board';
 import Login from 'containers/auth/Login';
 import SignUp from 'containers/auth/SignUp';
 import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
-import MarketLine from 'containers/MarketLine';
+import Home from 'containers/Home';
 
 const Routes = ({ profile, setProfile, token, setToken }) => (
   <Switch>
-    <Route exact path="/product" component={MarketProduct} />
     <Route exact path="/404" component={NotFound} />
     <Route exact path="/board" component={Board} />
     <Route
@@ -28,7 +26,7 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
       path="/auth/signup"
       component={() => <SignUp profile={profile} setProfile={setProfile} />}
     />
-    <Route path="/" component={MarketLine} />
+    <Route exact path="/" component={Home} />
   </Switch>
 );
 

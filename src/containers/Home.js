@@ -1,8 +1,8 @@
 import ButtonSignUp from 'elements/ButtonSignUp';
 import React from 'react';
-import './MarketProduct.css';
+import './Home.css';
 
-const MarketProduct = () => {
+const Home = () => {
   return (
     <div className="container">
       <h1>POTATO MARKET</h1>
@@ -20,4 +20,4 @@ const MarketProduct = () => {
   );
 };
 
-export default MarketProduct;
+export default Home;
