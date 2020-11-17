@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import List from './List';
 import axios from 'axios';
+import List from './List';
+import './Board.css';
+import MarketLine from './MarketLine';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -13,13 +15,16 @@ const Board = () => {
     });
   }, []);
   return (
-    <div>
-      <div className="row center">
-        {products.map((product) => (
-          <List key={product.id} product={product} />
-        ))}
+    <>
+      <MarketLine />
+      <div className="row">
+        <div className="row center">
+          {products.map((product) => (
+            <List key={product.id} product={product} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

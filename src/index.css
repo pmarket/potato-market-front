@@ -11,42 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* LAYOUT */
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.row.center {
-  justify-content: center;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header'
-    'main'
-    'footer';
-  grid-template-columns: 1fr;
-  grid-template-rows: 5rem 2fr 5rem;
-  height: 100%;
-}
-
-header {
-  background-color: aqua;
-  grid-area: header;
-}
-main {
-  align-content: center;
-  grid-area: main;
-}
-footer {
-  background-color: aqua;
-  grid-area: footer;
-}
 
 /*images*/
 img {
