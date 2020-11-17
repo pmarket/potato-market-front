@@ -1,6 +1,5 @@
 import React from 'react';
 import './ButtonSignUp.css';
-
 import GOOGLE_OAUTH_URL from 'constants/GoogleOAuth';
 
 const STYLES = ['btn--primary', 'btn--outline'];

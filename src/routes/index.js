@@ -6,6 +6,7 @@ import Login from 'containers/auth/Login';
 import SignUp from 'containers/auth/SignUp';
 import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
 import Home from 'containers/Home';
+import Form from 'components/signupform/Form';
 
 const Routes = ({ profile, setProfile, token, setToken }) => (
   <Switch>
@@ -27,6 +28,7 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
       component={() => <SignUp profile={profile} setProfile={setProfile} />}
     />
     <Route exact path="/" component={Home} />
+    <Route path="/form" component={Form} />
   </Switch>
 );
 
