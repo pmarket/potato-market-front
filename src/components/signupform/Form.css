@@ -131,10 +131,16 @@
 }
 
 .form-input-btn:hover {
-  background: linear-gradient(90deg, rgb(167, 150, 5) 0%, rgb(63, 39, 3) 100%);
-  background-image: url(../../assets/images/favicon.png);
+  /* background-color: linear-gradient(
+    90deg,
+    rgb(167, 150, 5) 0%,
+    rgb(63, 39, 3) 100%
+  ); */
+  background-image: url(../../assets/images/gamzaicon.png);
   cursor: pointer;
   transition: all 0.4s ease-out;
+  color: rgb(255, 255, 255);
+  font-size: bold;
 }
 
 .form-input-login {
