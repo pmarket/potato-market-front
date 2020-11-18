@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/potato-market-front/static/css/main.f34c7680.chunk.css",
-    "main.js": "/potato-market-front/static/js/main.3c9984ea.chunk.js",
-    "main.js.map": "/potato-market-front/static/js/main.3c9984ea.chunk.js.map",
+    "main.js": "/potato-market-front/static/js/main.fded294d.chunk.js",
+    "main.js.map": "/potato-market-front/static/js/main.fded294d.chunk.js.map",
     "runtime-main.js": "/potato-market-front/static/js/runtime-main.9595b021.js",
     "runtime-main.js.map": "/potato-market-front/static/js/runtime-main.9595b021.js.map",
-    "static/js/2.6ff47790.chunk.js": "/potato-market-front/static/js/2.6ff47790.chunk.js",
-    "static/js/2.6ff47790.chunk.js.map": "/potato-market-front/static/js/2.6ff47790.chunk.js.map",
+    "static/js/2.db6b3300.chunk.js": "/potato-market-front/static/js/2.db6b3300.chunk.js",
+    "static/js/2.db6b3300.chunk.js.map": "/potato-market-front/static/js/2.db6b3300.chunk.js.map",
     "index.html": "/potato-market-front/index.html",
-    "precache-manifest.a62f32fed4b784f036d553eaabc7f57a.js": "/potato-market-front/precache-manifest.a62f32fed4b784f036d553eaabc7f57a.js",
+    "precache-manifest.63a7877efd6ec2847ac3ee475677d4e8.js": "/potato-market-front/precache-manifest.63a7877efd6ec2847ac3ee475677d4e8.js",
     "service-worker.js": "/potato-market-front/service-worker.js",
     "static/css/main.f34c7680.chunk.css.map": "/potato-market-front/static/css/main.f34c7680.chunk.css.map",
-    "static/js/2.6ff47790.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.6ff47790.chunk.js.LICENSE.txt",
+    "static/js/2.db6b3300.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.db6b3300.chunk.js.LICENSE.txt",
     "static/media/Home.css": "/potato-market-front/static/media/gamza1.8ad44ac4.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.9595b021.js",
-    "static/js/2.6ff47790.chunk.js",
+    "static/js/2.db6b3300.chunk.js",
     "static/css/main.f34c7680.chunk.css",
-    "static/js/main.3c9984ea.chunk.js"
+    "static/js/main.fded294d.chunk.js"
   ]
 }
