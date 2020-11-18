@@ -44,12 +44,24 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
       return;
     }
     try {
-      await axios.post(`${REACT_APP_API_URI}/api/v1/product`, {
-        name,
-        price,
-        content,
-        profileUrl,
-      });
+      const token = localStorage.getItem('token');
+      console.log(token);
+      await axios.post(
+        `${REACT_APP_API_URI}/api/v1/product`,
+        {
+          name,
+          price,
+          content,
+          profileUrl,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
       alert('등록 되었습니다!');
       clearField();
     } catch {
