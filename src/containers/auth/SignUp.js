@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -38,11 +38,11 @@ const SignUp = ({ profile }) => {
 
   const [name, setName] = useState(profile.name || 'Potato (Mock for test)');
 
-  // useEffect(() => {
-  //   if (profile.email === undefined) {
-  //     history.push('/auth');
-  //   }
-  // }, [history, profile.email]);
+  useEffect(() => {
+    if (profile.email === undefined) {
+      history.push('/');
+    }
+  }, [history, profile.email]);
 
   const signUpButtonOnClick = async () => {
     const response = await axios.post(

@@ -34,8 +34,8 @@ const useForm = (callback, validate) => {
         localStorage.setItem('token', response.data.data);
         history.push('/');
       })
-      .catch((e) => {
-        alert('에러가발생했습니다.');
+      .catch((error) => {
+        alert(error.response.data.message);
       });
     e.preventDefault();
     setIsSubmitting(true);

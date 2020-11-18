@@ -70,7 +70,7 @@ const FormSignup = (submitForm) => {
             type="text"
             name="username"
             className="form-input"
-            placeholder="아이디를 입력하시오"
+            placeholder="닉네임을 입력하시오"
             value={values.username}
             onChange={handleChange}
           />

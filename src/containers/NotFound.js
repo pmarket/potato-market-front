@@ -5,9 +5,8 @@ const NotFound = () => {
   return (
     <div className="App">
       404 not pages !
-      <img src={gamza} />
+      <img src={gamza} alt="Not Found" />
     </div>
-
   );
 };
 
