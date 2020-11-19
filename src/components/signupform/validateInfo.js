@@ -1,5 +1,8 @@
 export default function validateInfo(values) {
-  let errors = {};
+  const errors = {};
+
+  const emailRegex = /\S+@\S+\.\S+/;
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}/;
 
   if (!values.username.trim()) {
     errors.username = '닉네임을 설정하지 않았습니다.';
@@ -7,14 +10,15 @@ export default function validateInfo(values) {
 
   if (!values.email) {
     errors.email = '이메일을 입력하지 않았습니다.';
-  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+  } else if (!emailRegex.test(values.email)) {
     errors.email = '이메일주소 형식 틀림.';
   }
 
   if (!values.password) {
     errors.password = '비밀번호를 입력하지 않았습니다.';
-  } else if (values.password.length < 6) {
-    errors.password = '비밀번호는 6자 이상이어야 합니다.';
+  } else if (!passwordRegex.test(values.password)) {
+    errors.password =
+      '비밀번호는 최소 8자, 문자, 숫자, 특수문자의 조합이어야 합니다. ';
   }
 
   if (!values.password2) {

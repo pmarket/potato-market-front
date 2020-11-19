@@ -8,14 +8,10 @@ import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
 import Home from 'containers/Home';
 import GamzaSignup from 'components/signupform/GamzaSignup';
 
-const Routes = ({ profile, setProfile, token, setToken }) => (
+const Routes = ({ profile, setProfile }) => (
   <Switch>
     <Route exact path="/board" component={Board} />
-    <Route
-      exact
-      path="/auth/login"
-      component={() => <Login token={token} setToken={setToken} />}
-    />
+    <Route exact path="/auth/login" component={() => <Login />} />
     <Route
       exact
       path="/auth/google/callback"

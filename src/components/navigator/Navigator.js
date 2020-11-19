@@ -23,8 +23,8 @@ const listItemTextStyle = {
 const navigatorList = [
   { id: 1, title: '메인 페이지', link: '/' },
   { id: 2, title: '거래 게시판', link: '/board' },
-  { id: 3, title: '구글 로그인 테스트', link: '/auth/login' },
-  { id: 4, title: '회원가입 테스트', link: '/signup' },
+  { id: 4, title: '회원 기입', link: '/signup' },
+  { id: 3, title: '마이 페이지', link: '/auth/login' },
 ];
 
 const Navigator = ({ navigationDrawersHandler, navOpen }) => {

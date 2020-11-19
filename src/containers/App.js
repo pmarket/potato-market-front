@@ -8,8 +8,6 @@ const App = () => {
     nav: false,
     toolTipsOpen: false,
   });
-  const [token, setToken] = useState(localStorage.getItem('token'));
-
   const navigationDrawersHandler = (open) => (event) => {
     if (
       event.type === 'keydown' &&
@@ -25,12 +23,7 @@ const App = () => {
         navOpen={state.navOpen}
         navigationDrawersHandler={navigationDrawersHandler}
       />
-      <Routes
-        profile={profile}
-        setProfile={setProfile}
-        token={token}
-        setToken={setToken}
-      />
+      <Routes profile={profile} setProfile={setProfile} />
     </>
   );
 };

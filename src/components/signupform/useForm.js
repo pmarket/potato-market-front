@@ -23,7 +23,12 @@ const useForm = (callback, validate) => {
   };
 
   const handleSubmit = (e) => {
-    setErrors(validate(values));
+    const validateError = validate(values);
+    setErrors(validateError);
+    if (Object.keys(validateError).length !== 0) {
+      e.preventDefault();
+      return;
+    }
     axios
       .post(`${REACT_APP_API_URI}/api/v1/signup/local`, {
         email: values.email,
@@ -32,7 +37,7 @@ const useForm = (callback, validate) => {
       })
       .then((response) => {
         localStorage.setItem('token', response.data.data);
-        history.push('/');
+        history.push('/board');
       })
       .catch((error) => {
         alert(error.response.data.message);
