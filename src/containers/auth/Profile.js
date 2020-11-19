@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { makeStyles, Grid } from '@material-ui/core';
+import { makeStyles, Grid, Avatar } from '@material-ui/core';
 import Paper from 'elements/Paper';
 
 const { REACT_APP_API_URI } = process.env;
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = () => {
+const Profile = () => {
   const classes = useStyles();
   const [profile, setProfile] = useState({
     email: '',
@@ -44,6 +44,11 @@ const Login = () => {
           <Grid item xs zeroMinWidth>
             <div>
               <h2>마이 페이지</h2>
+              <Avatar
+                alt="Remy Sharp"
+                src="/static/images/avatar/1.jpg"
+                className={classes.large}
+              />
               <h4>{profile.email}</h4>
               <h4>{profile.name}</h4>
             </div>
@@ -54,4 +59,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Profile;

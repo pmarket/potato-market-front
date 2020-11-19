@@ -3,7 +3,7 @@ import Routes from 'routes';
 import Navigator from 'components/navigator/Navigator';
 
 const App = () => {
-  const [profile, setProfile] = useState({});
+  const [googleProfile, setGoogleProfile] = useState({});
   const [state, setState] = React.useState({
     nav: false,
     toolTipsOpen: false,
@@ -23,7 +23,10 @@ const App = () => {
         navOpen={state.navOpen}
         navigationDrawersHandler={navigationDrawersHandler}
       />
-      <Routes profile={profile} setProfile={setProfile} />
+      <Routes
+        googleProfile={googleProfile}
+        setGoogleProfile={setGoogleProfile}
+      />
     </>
   );
 };

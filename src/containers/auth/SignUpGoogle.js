@@ -32,25 +32,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = ({ profile }) => {
+const SignUpGoogle = ({ googleProfile }) => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [name, setName] = useState(profile.name || 'Potato (Mock for test)');
+  const [name, setName] = useState(
+    googleProfile.name || 'Potato (Mock for test)',
+  );
 
   useEffect(() => {
-    if (profile.email === undefined) {
+    if (googleProfile.email === undefined) {
       history.push('/');
     }
-  }, [history, profile.email]);
+  }, [history, googleProfile.email]);
 
   const signUpButtonOnClick = async () => {
     const response = await axios.post(
       `${REACT_APP_API_URI}/api/v1/signup/google`,
       {
-        email: profile.email,
+        email: googleProfile.email,
         name,
-        profileUrl: profile.profileUrl,
+        profileUrl: googleProfile.profileUrl,
       },
     );
     localStorage.setItem('token', response.data.data);
@@ -66,10 +68,10 @@ const SignUp = ({ profile }) => {
       <Paper>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item xs zeroMinWidth>
-            <Avatar alt="Remy Sharp" src={profile.profileUrl || potato} />
+            <Avatar alt="Remy Sharp" src={googleProfile.profileUrl || potato} />
             <div>
               <TextField
-                value={profile.email || 'potato@gmail.com'}
+                value={googleProfile.email || 'potato@gmail.com'}
                 size="small"
                 disabled
               />
@@ -92,4 +94,4 @@ const SignUp = ({ profile }) => {
   );
 };
 
-export default SignUp;
+export default SignUpGoogle;

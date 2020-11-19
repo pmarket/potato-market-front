@@ -5,7 +5,7 @@ import querystring from 'querystring';
 
 const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
-const GoogleAuthCallback = ({ setProfile }) => {
+const GoogleAuthCallback = ({ setGoogleProfile }) => {
   const history = useHistory();
   useEffect(() => {
     if (window.location.search) {
@@ -16,16 +16,16 @@ const GoogleAuthCallback = ({ setProfile }) => {
         )
         .then((response) => {
           if (response.data.data.type === 'SIGN_UP') {
-            setProfile(response.data.data);
-            history.push('/auth/signup');
+            setGoogleProfile(response.data.data);
+            history.push('/signup/google');
             return;
           }
           localStorage.setItem('token', response.data.data.token);
-          history.push('/auth/login');
+          history.push('/board');
         })
         .catch((error) => {
           alert(error.response.data.message);
-          history.push('/auth/login');
+          history.push('/signup');
         });
     }
   });
