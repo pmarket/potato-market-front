@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import querystring from 'querystring';
+import Loading from 'components/loading/Loading';
 
 const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
@@ -30,7 +31,7 @@ const GoogleAuthCallback = ({ setGoogleProfile }) => {
     }
   });
 
-  return <>Loading</>;
+  return <Loading />;
 };
 
 export default GoogleAuthCallback;
