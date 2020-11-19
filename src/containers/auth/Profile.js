@@ -46,7 +46,7 @@ const Profile = () => {
               <h2>마이 페이지</h2>
               <Avatar
                 alt="Remy Sharp"
-                src="/static/images/avatar/1.jpg"
+                src={profile.profileUrl}
                 className={classes.large}
               />
               <h4>{profile.email}</h4>
