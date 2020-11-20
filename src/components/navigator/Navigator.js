@@ -23,9 +23,9 @@ const listItemTextStyle = {
 const navigatorList = [
   { id: 1, title: '메인 페이지', link: '/' },
   { id: 2, title: '거래 게시판', link: '/board' },
+  { id: 3, title: '나의 판매 관리', link: '/myproduct' },
   { id: 4, title: '회원 가입', link: '/signup' },
-  { id: 3, title: '마이 페이지', link: '/profile' },
-  { id: 5, title: '나의 판매 관리', link: '/myproduct' },
+  { id: 5, title: '마이 페이지', link: '/profile' },
 ];
 
 const Navigator = ({ navigationDrawersHandler, navOpen }) => {

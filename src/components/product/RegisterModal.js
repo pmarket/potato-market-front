@@ -44,7 +44,7 @@ const RegisterModal = ({
   };
 
   const onClickRegisterButton = async () => {
-    if (!(name && price && content)) {
+    if (!(name && price)) {
       alert('정보를 입력해주세요!');
       return;
     }
