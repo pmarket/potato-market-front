@@ -8,6 +8,7 @@ import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
 import Home from 'containers/Home';
 import GamzaSignup from 'components/signupform/GamzaSignup';
 import LoginMain from 'containers/login/LoginMain';
+import MyProduct from 'containers/myProduct/MyProduct';
 
 const Routes = ({ googleProfile, setGoogleProfile }) => (
   <Switch>
@@ -28,6 +29,7 @@ const Routes = ({ googleProfile, setGoogleProfile }) => (
     <Route exact path="/" component={Home} />
     <Route path="/signup" component={GamzaSignup} />
     <Route exact path="/loginmain" component={LoginMain} />
+    <Route exact path="/myproduct" component={MyProduct} />
     <Route component={NotFound} />
   </Switch>
 );

@@ -7,16 +7,15 @@ import MarketLine from './MarketLine';
 const { REACT_APP_API_URI } = process.env;
 
 const Board = () => {
-  const [products, setProduct] = useState([]);
-
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     axios.get(`${REACT_APP_API_URI}/api/v1/products`).then((response) => {
-      setProduct(response.data);
+      setProducts(response.data);
     });
   }, []);
   return (
     <>
-      <MarketLine />
+      <MarketLine products={products} setProducts={setProducts} />
       <div className="row">
         <div className="row center">
           {products.map((product) => (

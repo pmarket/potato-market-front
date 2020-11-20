@@ -5,13 +5,7 @@ import './ButtonSignUp.css';
 const STYLES = ['btn--primary', 'btn--outline'];
 const SIZES = ['btn--medium', 'btn--large'];
 
-export const ButtonSignUp = ({
-  children,
-  type,
-  onClick,
-  buttonStyle,
-  buttonSize,
-}) => {
+const ButtonSignUp = ({ children, type, onClick, buttonStyle, buttonSize }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
     : STYLES[0];
