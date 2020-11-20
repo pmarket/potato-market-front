@@ -8,7 +8,12 @@ const { REACT_APP_API_URI } = process.env;
 
 const baseImage = 'https://byline.network/wp-content/uploads/2017/07/mac_1.jpg';
 
-const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
+const RegisterModal = ({
+  toolTipsOpen,
+  handleCloseTooltips,
+  products,
+  setProducts,
+}) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [content, setContent] = useState('');
@@ -61,9 +66,17 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
         },
       )
       .then(() => {
-        alert('등록 되었습니다!');
         clearField();
         handleCloseTooltips();
+        setProducts(
+          products.concat({
+            id: products[products.length - 1].id + 1,
+            name,
+            price,
+            content,
+            profile_url: profileUrl,
+          }),
+        );
       })
       .catch((error) => {
         alert(error.response.data.message);

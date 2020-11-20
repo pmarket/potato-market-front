@@ -3,7 +3,7 @@ import React from 'react';
 import { TextField, Card, makeStyles, IconButton } from '@material-ui/core';
 import { PhotoCamera } from '@material-ui/icons';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     '& .MuiTextField-root': {
       marginTop: '1%',
