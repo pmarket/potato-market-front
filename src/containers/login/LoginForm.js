@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './LoginMain.css';
 import axios from 'axios';
 
+const { REACT_APP_API_URI } = process.env;
+
 const LoginForm = () => {
   const [values, setValues] = useState({
     email: '',
@@ -15,12 +17,37 @@ const LoginForm = () => {
       [name]: value,
     });
   };
-  //여기서부터이따구현해보기
-  const onSubmitLogin = (e) => {};
+  //여기작동안됨 개빢치므ㅡㅡㅡㅡㅡ
+  const onSubmitLogin = (e) => {
+    axios
+      .post(
+        `${REACT_APP_API_URI}/api/v1/auth/local`,
+        {
+          email: values.email,
+          password: values.password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.data.data) {
+          localStorage.setItem('token', response.data.data);
+        } else if (!response.data.data) {
+          alert('회원이 아닙니다');
+        }
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
+  };
 
   return (
     <div className="login-container-bottom">
-      <form className="login">
+      <form className="login" onSubmit={onSubmitLogin}>
         <div className="login-inputs">
           <label className="login-label">이메일</label>
           <input
