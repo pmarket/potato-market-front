@@ -7,6 +7,7 @@ import SignUp from 'containers/auth/SignUp';
 import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
 import Home from 'containers/Home';
 import GamzaSignup from 'components/signupform/GamzaSignup';
+import LoginMain from 'containers/login/LoginMain';
 
 const Routes = ({ profile, setProfile, token, setToken }) => (
   <Switch>
@@ -28,6 +29,7 @@ const Routes = ({ profile, setProfile, token, setToken }) => (
     />
     <Route exact path="/" component={Home} />
     <Route path="/signup" component={GamzaSignup} />
+    <Route exact path="/loginmain" component={LoginMain} />
     <Route component={NotFound} />
   </Switch>
 );
