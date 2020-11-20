@@ -1,12 +1,12 @@
 .login-container {
   margin: 100px auto;
-  width: 500px;
+  width: 400px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 700px;
+  height: 600px;
   display: grid;
-  grid-template-rows: 1fr, 2fr;
+  grid-template-rows: 200px 400px;
 }
 
 .login-container-top {
@@ -38,11 +38,11 @@
 }
 
 .login-img {
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 60%;
   position: absolute;
-  top: 70%;
-  left: 70%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
