@@ -1,12 +1,12 @@
-import ButtonSignUp from 'elements/ButtonSignUp';
 import React from 'react';
+import ButtonSignUp from 'elements/ButtonSignUp';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="container">
       <h1>POTATO MARKET</h1>
-      <p>한세대 학우를 위한 중고마켓!</p>
+      <p>대학생 학우들을 위한 중고 마켓!</p>
       <div className="btns">
         <ButtonSignUp
           className="btns"
