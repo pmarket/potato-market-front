@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: '80%',
     marginLeft: '10%',
     marginRight: '10%',
-    marginTop: '8%',
+    marginTop: '6%',
   },
 }));
 
@@ -139,7 +139,6 @@ const Profile = () => {
           <Button
             className={classes.button}
             variant="contained"
-            color="primary"
             onClick={handleLogout}
           >
             로그아웃 하기

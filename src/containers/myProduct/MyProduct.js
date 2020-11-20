@@ -12,6 +12,9 @@ const useStyles = makeStyles(() => ({
     marginLeft: '7%',
     width: '86%',
   },
+  list: {
+    backgroundColor: '#eacca8',
+  },
 }));
 
 export default function MyProduct() {
@@ -59,12 +62,12 @@ export default function MyProduct() {
   };
 
   const onDetailButtonOnClick = () => {
-    alert('세부 정보 버튼');
+    alert('개발 중 - 세부 정보 및 수정 폼');
   };
 
   return (
     <div className={classes.root}>
-      <List>
+      <List className={classes.list}>
         <Grid container spacing={2} alignContent="center">
           <MyProductItemList
             myProducts={myProducts}
