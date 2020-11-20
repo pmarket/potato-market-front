@@ -5,7 +5,7 @@ import './ButtonSignUp.css';
 const STYLES = ['btn--primary', 'btn--outline'];
 const SIZES = ['btn--medium', 'btn--large'];
 
-const ButtonSignUp = ({ children, type, onClick, buttonStyle, buttonSize }) => {
+const ButtonSignUp = ({ children, onClick, buttonStyle, buttonSize }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
     : STYLES[0];
@@ -17,7 +17,7 @@ const ButtonSignUp = ({ children, type, onClick, buttonStyle, buttonSize }) => {
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
-        type={type}
+        type="button"
       >
         {children}
       </button>
