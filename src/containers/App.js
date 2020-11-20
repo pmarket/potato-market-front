@@ -3,13 +3,11 @@ import Routes from 'routes';
 import Navigator from 'components/navigator/Navigator';
 
 const App = () => {
-  const [profile, setProfile] = useState({});
+  const [googleProfile, setGoogleProfile] = useState({});
   const [state, setState] = React.useState({
     nav: false,
     toolTipsOpen: false,
   });
-  const [token, setToken] = useState(localStorage.getItem('token'));
-
   const navigationDrawersHandler = (open) => (event) => {
     if (
       event.type === 'keydown' &&
@@ -26,10 +24,8 @@ const App = () => {
         navigationDrawersHandler={navigationDrawersHandler}
       />
       <Routes
-        profile={profile}
-        setProfile={setProfile}
-        token={token}
-        setToken={setToken}
+        googleProfile={googleProfile}
+        setGoogleProfile={setGoogleProfile}
       />
     </>
   );

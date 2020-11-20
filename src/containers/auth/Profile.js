@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { makeStyles, Grid } from '@material-ui/core';
-import GoogleButton from 'components/auth/GoogleButton';
+import { makeStyles, Grid, Avatar } from '@material-ui/core';
 import Paper from 'elements/Paper';
 
 const { REACT_APP_API_URI } = process.env;
@@ -16,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = ({ token }) => {
+const Profile = () => {
   const classes = useStyles();
   const [profile, setProfile] = useState({
     email: '',
@@ -25,6 +24,7 @@ const Login = ({ token }) => {
   });
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
     axios
       .get(`${REACT_APP_API_URI}/api/v1/member`, {
         headers: {
@@ -35,7 +35,7 @@ const Login = ({ token }) => {
       .then((response) => {
         setProfile(response.data.data);
       });
-  }, [token]);
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -43,11 +43,15 @@ const Login = ({ token }) => {
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item xs zeroMinWidth>
             <div>
-              <h2>로그인 테스트</h2>
+              <h2>마이 페이지</h2>
+              <Avatar
+                alt="Remy Sharp"
+                src={profile.profileUrl}
+                className={classes.large}
+              />
               <h4>{profile.email}</h4>
               <h4>{profile.name}</h4>
             </div>
-            <GoogleButton />
           </Grid>
         </Grid>
       </Paper>
@@ -55,4 +59,4 @@ const Login = ({ token }) => {
   );
 };
 
-export default Login;
+export default Profile;

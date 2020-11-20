@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import querystring from 'querystring';
+import Loading from 'components/loading/Loading';
 
 const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
-const GoogleAuthCallback = ({ setProfile }) => {
+const GoogleAuthCallback = ({ setGoogleProfile }) => {
   const history = useHistory();
   useEffect(() => {
     if (window.location.search) {
@@ -16,21 +17,21 @@ const GoogleAuthCallback = ({ setProfile }) => {
         )
         .then((response) => {
           if (response.data.data.type === 'SIGN_UP') {
-            setProfile(response.data.data);
-            history.push('/auth/signup');
+            setGoogleProfile(response.data.data);
+            history.push('/signup/google');
             return;
           }
           localStorage.setItem('token', response.data.data.token);
-          history.push('/auth/login');
+          history.push('/board');
         })
-        .catch(() => {
-          alert('에러가 발생하였습니다');
-          history.push('/auth/login');
+        .catch((error) => {
+          alert(error.response.data.message);
+          history.push('/signup');
         });
     }
   });
 
-  return <>Loading</>;
+  return <Loading />;
 };
 
 export default GoogleAuthCallback;

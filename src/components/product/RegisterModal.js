@@ -43,10 +43,9 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
       alert('정보를 입력해주세요!');
       return;
     }
-    try {
-      const token = localStorage.getItem('token');
-      console.log(token);
-      await axios.post(
+    const token = localStorage.getItem('token');
+    axios
+      .post(
         `${REACT_APP_API_URI}/api/v1/product`,
         {
           name,
@@ -60,14 +59,15 @@ const RegisterModal = ({ toolTipsOpen, handleCloseTooltips }) => {
             'Content-Type': 'application/json',
           },
         },
-      );
-
-      alert('등록 되었습니다!');
-      clearField();
-    } catch {
-      alert('에러가 발생하였습니다');
-    }
-    handleCloseTooltips();
+      )
+      .then(() => {
+        alert('등록 되었습니다!');
+        clearField();
+        handleCloseTooltips();
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   };
 
   const fileOnChange = (e) => {

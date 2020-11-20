@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleButton from 'components/auth/GoogleButton';
 import useForm from './useForm';
 import validate from './validateInfo';
 import './Form.css';
@@ -70,7 +71,7 @@ const FormSignup = (submitForm) => {
             type="text"
             name="username"
             className="form-input"
-            placeholder="아이디를 입력하시오"
+            placeholder="닉네임을 입력하시오"
             value={values.username}
             onChange={handleChange}
           />
@@ -80,8 +81,9 @@ const FormSignup = (submitForm) => {
           회원가입하기
         </button>
         <span className="form-input-login">
-          이미 아이디가 있으신가요? 로그인 <a href="/login">HERE</a>
+          이미 아이디가 있으신가요? 로그인 <a href="#">HERE</a>
         </span>
+        <GoogleButton />
       </form>
     </div>
   );
