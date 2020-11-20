@@ -22,7 +22,7 @@ const MyProductSellingItem = ({
   onDetailButtonOnClick,
 }) => {
   return (
-    <div key={product.id}>
+    <div>
       <ListItem>
         <ListItemAvatar>
           <Avatar src={product.profile_url} />
@@ -38,7 +38,9 @@ const MyProductSellingItem = ({
           <IconButton
             edge="end"
             aria-label="delete"
-            onClick={onDeleteButtonClick}
+            onClick={() => {
+              onDeleteButtonClick(product.id);
+            }}
           >
             <DeleteIcon />
           </IconButton>

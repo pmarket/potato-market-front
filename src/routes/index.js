@@ -29,7 +29,7 @@ const Routes = ({ googleProfile, setGoogleProfile }) => (
     <Route exact path="/" component={Home} />
     <Route path="/signup" component={GamzaSignup} />
     <Route exact path="/loginmain" component={LoginMain} />
-    <Route exact path="/myProduct" component={MyProduct} />
+    <Route exact path="/myproduct" component={MyProduct} />
     <Route component={NotFound} />
   </Switch>
 );

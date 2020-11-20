@@ -12,7 +12,7 @@ import { Help as HelpIcon } from '@material-ui/icons';
 
 const MySoldProductItem = ({ product, onDetailButtonOnClick }) => {
   return (
-    <div key={product.id}>
+    <div>
       <ListItem>
         <ListItemAvatar>
           <Avatar src={product.profile_url} />
