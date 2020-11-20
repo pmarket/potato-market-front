@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/potato-market-front/static/css/main.f34c7680.chunk.css",
-    "main.js": "/potato-market-front/static/js/main.0cdd9595.chunk.js",
-    "main.js.map": "/potato-market-front/static/js/main.0cdd9595.chunk.js.map",
+    "main.css": "/potato-market-front/static/css/main.ca6e65cb.chunk.css",
+    "main.js": "/potato-market-front/static/js/main.7e8609bb.chunk.js",
+    "main.js.map": "/potato-market-front/static/js/main.7e8609bb.chunk.js.map",
     "runtime-main.js": "/potato-market-front/static/js/runtime-main.9595b021.js",
     "runtime-main.js.map": "/potato-market-front/static/js/runtime-main.9595b021.js.map",
-    "static/js/2.e71e85a5.chunk.js": "/potato-market-front/static/js/2.e71e85a5.chunk.js",
-    "static/js/2.e71e85a5.chunk.js.map": "/potato-market-front/static/js/2.e71e85a5.chunk.js.map",
+    "static/js/2.e0e425c1.chunk.js": "/potato-market-front/static/js/2.e0e425c1.chunk.js",
+    "static/js/2.e0e425c1.chunk.js.map": "/potato-market-front/static/js/2.e0e425c1.chunk.js.map",
     "index.html": "/potato-market-front/index.html",
-    "precache-manifest.eda6ad7a5c367d44b30e4f3ce8fa6eda.js": "/potato-market-front/precache-manifest.eda6ad7a5c367d44b30e4f3ce8fa6eda.js",
+    "precache-manifest.151350cafffb058c5972b94774e31608.js": "/potato-market-front/precache-manifest.151350cafffb058c5972b94774e31608.js",
     "service-worker.js": "/potato-market-front/service-worker.js",
-    "static/css/main.f34c7680.chunk.css.map": "/potato-market-front/static/css/main.f34c7680.chunk.css.map",
-    "static/js/2.e71e85a5.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.e71e85a5.chunk.js.LICENSE.txt",
+    "static/css/main.ca6e65cb.chunk.css.map": "/potato-market-front/static/css/main.ca6e65cb.chunk.css.map",
+    "static/js/2.e0e425c1.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.e0e425c1.chunk.js.LICENSE.txt",
     "static/media/gamza.jpg": "/potato-market-front/static/media/gamza.77b701be.jpg",
     "static/media/Home.css": "/potato-market-front/static/media/gamza1.8ad44ac4.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.9595b021.js",
-    "static/js/2.e71e85a5.chunk.js",
-    "static/css/main.f34c7680.chunk.css",
-    "static/js/main.0cdd9595.chunk.js"
+    "static/js/2.e0e425c1.chunk.js",
+    "static/css/main.ca6e65cb.chunk.css",
+    "static/js/main.7e8609bb.chunk.js"
   ]
 }
