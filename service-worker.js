@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/potato-market-front/precache-manifest.7f7d5d4dff553df36f2972f6e8829b46.js"
+  "/potato-market-front/precache-manifest.7b742cb16009beacb9e400dd0dc9b250.js"
 );
 
 self.addEventListener('message', (event) => {
