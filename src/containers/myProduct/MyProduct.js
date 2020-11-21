@@ -36,7 +36,7 @@ export default function MyProduct() {
       })
       .catch((error) => {
         alert(error.response.data.message);
-        history.push('/signup');
+        history.push('/loginmain');
       });
   }, [history]);
 

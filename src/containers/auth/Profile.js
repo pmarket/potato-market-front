@@ -57,7 +57,7 @@ const Profile = () => {
       })
       .catch((error) => {
         alert(error.response.data.message);
-        history.push('/');
+        history.push('/loginmain');
       });
   }, [history]);
 
