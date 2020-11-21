@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+
+import GoogleButton from 'components/auth/GoogleButton';
 import './LoginMain.css';
 
 const { REACT_APP_API_URI } = process.env;
@@ -63,6 +65,14 @@ const LoginForm = () => {
         <button className="login-input-btn" type="submit">
           로그인
         </button>
+        <GoogleButton
+          style={{
+            marginTop: '25px',
+            marginLeft: '9%',
+            width: '83%',
+            height: '70%',
+          }}
+        />
       </form>
     </div>
   );

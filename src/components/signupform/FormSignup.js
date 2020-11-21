@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import GoogleButton from 'components/auth/GoogleButton';
 import useForm from './useForm';
 import validate from './validateInfo';
@@ -81,9 +83,11 @@ const FormSignup = (submitForm) => {
           회원가입하기
         </button>
         <span className="form-input-login">
-          이미 아이디가 있으신가요? 로그인 <a href="/loginmain">HERE</a>
+          이미 아이디가 있으신가요? 로그인 <Link to="/loginmain">HERE</Link>
         </span>
-        <GoogleButton />
+        <GoogleButton
+          style={{ marginTop: '20px', width: '100%', height: '70%' }}
+        />
       </form>
     </div>
   );

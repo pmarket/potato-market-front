@@ -25,7 +25,8 @@ const navigatorList = [
   { id: 2, title: '거래 게시판', link: '/board' },
   { id: 3, title: '나의 판매 관리', link: '/myproduct' },
   { id: 4, title: '회원 가입', link: '/signup' },
-  { id: 5, title: '마이 페이지', link: '/profile' },
+  { id: 5, title: '로그인', link: '/loginmain' },
+  { id: 6, title: '마이 페이지', link: '/profile' },
 ];
 
 const Navigator = ({ navigationDrawersHandler, navOpen }) => {
