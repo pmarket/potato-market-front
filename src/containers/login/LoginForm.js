@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import './LoginMain.css';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import './LoginMain.css';
 
 const { REACT_APP_API_URI } = process.env;
 
 const LoginForm = () => {
+  const history = useHistory();
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -17,28 +19,16 @@ const LoginForm = () => {
       [name]: value,
     });
   };
-  //여기작동안됨 개빢치므ㅡㅡㅡㅡㅡ
   const onSubmitLogin = (e) => {
+    e.preventDefault();
     axios
-      .post(
-        `${REACT_APP_API_URI}/api/v1/auth/local`,
-        {
-          email: values.email,
-          password: values.password,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-      .then((response) => response.json())
+      .post(`${REACT_APP_API_URI}/api/v1/auth/local`, {
+        email: values.email,
+        password: values.password,
+      })
       .then((response) => {
-        if (response.data.data) {
-          localStorage.setItem('token', response.data.data);
-        } else if (!response.data.data) {
-          alert('회원이 아닙니다');
-        }
+        localStorage.setItem('token', response.data.data);
+        history.push('/board');
       })
       .catch((error) => {
         alert(error.response.data.message);
