@@ -19,11 +19,13 @@ const Header = () => {
     <div className="container-header">
       <div className="container-header-login">
         {isloggedin ? (
-          <a href="/" onClick={logOut}>
+          <a href="/" className="alogin" onClick={logOut}>
             로그아웃
           </a>
         ) : (
-          <a href="/loginmain">로그인</a>
+          <a href="/loginmain" className="alogin">
+            로그인
+          </a>
         )}
       </div>
     </div>
