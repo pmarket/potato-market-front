@@ -9,15 +9,17 @@ const Pagination = ({ productsperpage, totalPosts, paginate }) => {
   }
 
   return (
-    <ul className="pagination">
-      {pageNumbers.map((pageNum) => (
-        <li key={pageNum} className="page_item">
-          <a className="page-link" onClick={() => paginate(pageNum)}>
-            {pageNum}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="pagination-container">
+      <ul className="pagination">
+        {pageNumbers.map((pageNum) => (
+          <li key={pageNum}>
+            <a href="#" claaName="" onClick={() => paginate(pageNum)}>
+              {pageNum}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
