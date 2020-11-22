@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Routes from 'routes';
 import Navigator from 'components/navigator/Navigator';
+import Header from './Header';
 
 const App = () => {
   const [googleProfile, setGoogleProfile] = useState({});
@@ -17,12 +18,16 @@ const App = () => {
     }
     setState({ ...state, navOpen: open });
   };
+
   return (
     <>
-      <Navigator
-        navOpen={state.navOpen}
-        navigationDrawersHandler={navigationDrawersHandler}
-      />
+      <div className="navheader">
+        <Navigator
+          navOpen={state.navOpen}
+          navigationDrawersHandler={navigationDrawersHandler}
+        />
+        <Header />
+      </div>
       <Routes
         googleProfile={googleProfile}
         setGoogleProfile={setGoogleProfile}

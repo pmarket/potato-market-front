@@ -34,3 +34,47 @@
 .container .btn {
   margin: 6px;
 }
+
+/* NAVBAR & HEADER */
+
+.navheader {
+  background: rgb(119, 96, 66);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container-header {
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.container-header-login {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.navbtn {
+  color: white;
+}
+
+.alogin {
+  padding: 8px 20px;
+
+  transition: all 0.3s ease-out;
+  width: 100%;
+  height: 50px;
+  border-radius: 2px;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  border: 1px solid;
+  font-size: 20px;
+}
+
+.alogin:hover {
+  background: #fff;
+  color: #242424;
+  transition: all 0.3s ease-out;
+}

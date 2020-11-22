@@ -16,6 +16,8 @@ import {
 
 import { useHistory } from 'react-router-dom';
 
+import '../../containers/Home.css';
+
 const listItemTextStyle = {
   paddingRight: '10vh',
 };
@@ -64,6 +66,7 @@ const Navigator = ({ navigationDrawersHandler, navOpen }) => {
       <Button onClick={navigationDrawersHandler(true)}>
         <MoreVertIcon fontSize="large" color="action" />
       </Button>
+
       <Drawer
         anchor="left"
         open={navOpen}
