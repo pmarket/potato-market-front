@@ -8,6 +8,9 @@ const { REACT_APP_API_URI } = process.env;
 
 const Board = () => {
   const [products, setProducts] = useState([]);
+  // const [currentpage, setCurrentpage] = useState(1);
+  // const [postperpage, setPostperpage] = useState(8);
+
   useEffect(() => {
     axios.get(`${REACT_APP_API_URI}/api/v1/products`).then((response) => {
       setProducts(response.data);
