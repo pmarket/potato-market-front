@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css';
+import AuthService from './AuthService';
 
 const Header = () => {
+  const [isloggedin, setIsloggedin] = useState(undefined);
+
+  useEffect(() => {
+    const token = AuthService.getCurrentToken();
+    if (token) {
+      setIsloggedin(token);
+    }
+  }, [isloggedin]);
+
+  const logOut = () => {
+    AuthService.logout();
+  };
+
   return (
     <div className="container-header">
       <div className="container-header-login">
-        <Link to="/loginmain">
-          <button className="btnlogin">로그인</button>
-        </Link>
+        {isloggedin ? (
+          <a href="/">로그아웃</a>
+        ) : (
+          <a href="/loginmain">로그인</a>
+        )}
       </div>
     </div>
   );
