@@ -15,12 +15,13 @@ const Header = () => {
   const logOut = () => {
     AuthService.logout();
   };
-
   return (
     <div className="container-header">
       <div className="container-header-login">
         {isloggedin ? (
-          <a href="/">로그아웃</a>
+          <a href="/" onClick={logOut}>
+            로그아웃
+          </a>
         ) : (
           <a href="/loginmain">로그인</a>
         )}

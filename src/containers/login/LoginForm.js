@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LoginMain.css';
 import AuthService from '../AuthService';
@@ -24,11 +24,13 @@ const LoginForm = (props) => {
       const token = localStorage.getItem('token');
       if (token) {
         history.push('/board');
+        window.location.reload();
       } else {
         history.push('/signup');
       }
     });
   };
+
   // e.preventDefault();
   // axios
   //   .post(`${REACT_APP_API_URI}/api/v1/auth/local`, {

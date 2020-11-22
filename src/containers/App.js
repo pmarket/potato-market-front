@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Routes from 'routes';
 import Navigator from 'components/navigator/Navigator';
 import AuthService from './AuthService';
@@ -19,13 +19,16 @@ const App = () => {
     }
     setState({ ...state, navOpen: open });
   };
+
   return (
     <>
-      <Navigator
-        navOpen={state.navOpen}
-        navigationDrawersHandler={navigationDrawersHandler}
-      />
-      <Header />
+      <div className="navheader">
+        <Navigator
+          navOpen={state.navOpen}
+          navigationDrawersHandler={navigationDrawersHandler}
+        />
+        <Header />
+      </div>
       <Routes
         googleProfile={googleProfile}
         setGoogleProfile={setGoogleProfile}
