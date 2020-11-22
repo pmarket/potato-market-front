@@ -1,39 +1,47 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import './LoginMain.css';
+import AuthService from '../AuthService';
 
-const { REACT_APP_API_URI } = process.env;
-
-const LoginForm = () => {
+const LoginForm = (props) => {
   const history = useHistory();
-  const [values, setValues] = useState({
-    email: '',
-    password: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const OnChangeLogin = (e) => {
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
+  const OnChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
   };
+  const OnChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
   const onSubmitLogin = (e) => {
     e.preventDefault();
-    axios
-      .post(`${REACT_APP_API_URI}/api/v1/auth/local`, {
-        email: values.email,
-        password: values.password,
-      })
-      .then((response) => {
-        localStorage.setItem('token', response.data.data);
+
+    AuthService.login(email, password).then(() => {
+      const token = localStorage.getItem('token');
+      if (token) {
         history.push('/board');
-      })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
+      } else {
+        history.push('/signup');
+      }
+    });
   };
+  // e.preventDefault();
+  // axios
+  //   .post(`${REACT_APP_API_URI}/api/v1/auth/local`, {
+  //     email: values.email,
+  //     password: values.password,
+  //   })
+  //   .then((response) => {
+  //     localStorage.setItem('token', response.data.data);
+  //     history.push('/board');
+  //   })
+  //   .catch((error) => {
+  //     alert(error.response.data.message);
+  //   });
 
   return (
     <div className="login-container-bottom">
@@ -43,8 +51,8 @@ const LoginForm = () => {
           <input
             type="email"
             name="email"
-            value={values.email}
-            onChange={OnChangeLogin}
+            value={email}
+            onChange={OnChangeEmail}
             className="login-input"
             placeholder="이메일을 입력하시오"
           />
@@ -54,8 +62,8 @@ const LoginForm = () => {
           <input
             type="password"
             name="password"
-            onChange={OnChangeLogin}
-            value={values.password}
+            onChange={OnChangePassword}
+            value={password}
             className="login-input"
             placeholder="비밀번호를 입력하시오"
           />

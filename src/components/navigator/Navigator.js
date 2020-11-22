@@ -15,6 +15,8 @@ import {
 } from '@material-ui/icons';
 
 import { useHistory } from 'react-router-dom';
+import Header from '../../containers/Header';
+import '../../containers/Home.css';
 
 const listItemTextStyle = {
   paddingRight: '10vh',
@@ -59,10 +61,11 @@ const Navigator = ({ navigationDrawersHandler, navOpen }) => {
   );
 
   return (
-    <div>
+    <div className="navheader">
       <Button onClick={navigationDrawersHandler(true)}>
         <MoreVertIcon fontSize="large" color="action" />
       </Button>
+      <Header />
       <Drawer
         anchor="left"
         open={navOpen}

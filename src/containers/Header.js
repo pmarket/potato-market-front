@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Header = () => {
   return (
-    <div>
-      <p>헤더를만들거임</p>
+    <div className="container-header">
+      <div className="container-header-login">
+        <Link to="/loginmain">
+          <button className="btnlogin">로그인</button>
+        </Link>
+      </div>
     </div>
   );
 };
