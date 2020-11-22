@@ -10,7 +10,7 @@ const { REACT_APP_API_URI } = process.env;
 const Board = () => {
   const [products, setProducts] = useState([]);
   const [currentpage, setCurrentpage] = useState(1);
-  const [productsperpage] = useState(10);
+  const [productsperpage] = useState(5);
 
   const index_lastproduct = currentpage * productsperpage;
   const index_firstproduct = index_lastproduct - productsperpage;
