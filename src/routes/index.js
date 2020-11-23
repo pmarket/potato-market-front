@@ -13,7 +13,11 @@ import MyProduct from 'containers/myProduct/MyProduct';
 const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
   <Switch>
     <Route exact path="/board" component={Board} />
-    <Route exact path="/profile" component={() => <Profile />} />
+    <Route
+      exact
+      path="/profile"
+      component={() => <Profile setIsloggedin={setIsloggedin} />}
+    />
     <Route
       exact
       path="/auth/google/callback"

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Profile = () => {
+const Profile = ({ setIsloggedin }) => {
   const classes = useStyles();
   const history = useHistory();
   const [profile, setProfile] = useState({
@@ -57,6 +57,7 @@ const Profile = () => {
   const handleLogout = () => {
     AuthService.logout();
     history.push('/');
+    setIsloggedin(false);
   };
 
   const nameOnChange = (e) => {
