@@ -12,7 +12,7 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     maxWidth: 400,
     maxHeight: 600,
@@ -36,19 +36,17 @@ const List = (props) => {
         <CardHeader
           avatar={
             <Avatar
-              aria-label={product.sender_name}
+              aria-label={product.senderName}
               className={classes.avatar}
-              alt={product.sender_name}
-            >
-              {product.sender_name}
-            </Avatar>
+              alt={product.senderName}
+            />
           }
           title={product.name}
-          subheader={product.updated_date_time}
+          subheader={product.createdDateTime}
         />
         <CardMedia
           className={classes.media}
-          image={product.profile_url}
+          image={product.profileUrl}
           title={product.name}
         />
         <CardContent>

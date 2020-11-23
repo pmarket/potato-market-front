@@ -47,7 +47,7 @@ const SignUpGoogle = ({ googleProfile }) => {
 
   const signUpButtonOnClick = async () => {
     try {
-      const response = await AuthApi.googleSignUp(
+      const response = await AuthApi.googleSignup(
         googleProfile.email,
         name,
         googleProfile.profileUrl,

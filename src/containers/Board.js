@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import querystring from 'querystring';
 import axios from 'axios';
 import List from './List';
 import './Board.css';
@@ -9,35 +10,32 @@ const { REACT_APP_API_URI } = process.env;
 
 const Board = () => {
   const [products, setProducts] = useState([]);
-  const [currentpage, setCurrentpage] = useState(1);
-  const [productsperpage] = useState(5);
+  const [totalCount, setTotalCount] = useState(1);
 
-  const index_lastproduct = currentpage * productsperpage;
-  const index_firstproduct = index_lastproduct - productsperpage;
-  const currentproducts = products.slice(index_firstproduct, index_lastproduct);
-
-  const paginate = (pageNumber) => setCurrentpage(pageNumber);
+  const limit = 8; // 한 페이지에 보여줄 상품 갯수
+  const offset = querystring.parse(window.location.search)['?offset'] || 0; // 페이지 번호
 
   useEffect(() => {
-    axios.get(`${REACT_APP_API_URI}/api/v1/products`).then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
+    axios
+      .get(
+        `${REACT_APP_API_URI}/api/v1/product/list?offset=${offset}&limit=${limit}`,
+      )
+      .then((response) => {
+        setTotalCount(response.data.data[0].totalCount);
+        setProducts(response.data.data.slice(1));
+      });
+  }, [offset]);
   return (
     <>
       <MarketLine products={products} setProducts={setProducts} />
       <div className="row">
         <div className="row center">
-          {currentproducts.map((product) => (
+          {products.map((product) => (
             <List key={product.id} product={product} />
           ))}
         </div>
       </div>
-      <Pagination
-        productsperpage={productsperpage}
-        totalPosts={products.length}
-        paginate={paginate}
-      />
+      <Pagination productsperpage={limit} totalPosts={totalCount} />
     </>
   );
 };
