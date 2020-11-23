@@ -10,7 +10,7 @@ import GamzaSignup from 'components/signupform/GamzaSignup';
 import LoginMain from 'containers/login/LoginMain';
 import MyProduct from 'containers/myProduct/MyProduct';
 
-const Routes = ({ googleProfile, setGoogleProfile }) => (
+const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
   <Switch>
     <Route exact path="/board" component={Board} />
     <Route exact path="/profile" component={() => <Profile />} />
@@ -18,7 +18,10 @@ const Routes = ({ googleProfile, setGoogleProfile }) => (
       exact
       path="/auth/google/callback"
       component={() => (
-        <GoogleAuthCallback setGoogleProfile={setGoogleProfile} />
+        <GoogleAuthCallback
+          setGoogleProfile={setGoogleProfile}
+          setIsloggedin={setIsloggedin}
+        />
       )}
     />
     <Route
@@ -27,8 +30,15 @@ const Routes = ({ googleProfile, setGoogleProfile }) => (
       component={() => <SignUpGoogle googleProfile={googleProfile} />}
     />
     <Route exact path="/" component={Home} />
-    <Route path="/signup" component={GamzaSignup} />
-    <Route exact path="/loginmain" component={LoginMain} />
+    <Route
+      path="/signup"
+      component={() => <GamzaSignup setIsloggedin={setIsloggedin} />}
+    />
+    <Route
+      exact
+      path="/loginmain"
+      component={() => <LoginMain setIsloggedin={setIsloggedin} />}
+    />
     <Route exact path="/myproduct" component={MyProduct} />
     <Route component={NotFound} />
   </Switch>

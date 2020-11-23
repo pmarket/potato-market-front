@@ -3,11 +3,12 @@ import FormSignup from './FormSignup';
 import FormSuccess from './FormSuccess';
 import './Form.css';
 
-const Form = () => {
+const Form = ({ setIsloggedin }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
     setIsSubmitted(true);
+    setIsloggedin(true);
   }
 
   return (
@@ -17,7 +18,7 @@ const Form = () => {
           <img src="img/logingamza.jpg" alt="success" className="form-img" />
         </div>
         {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
+          <FormSignup submitForm={submitForm} setIsloggedin={setIsloggedin} />
         ) : (
           <FormSuccess />
         )}

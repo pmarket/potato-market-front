@@ -1,10 +1,10 @@
 import React from 'react';
 import Form from './Form';
 
-const GamzaSignup = () => {
+const GamzaSignup = ({ setIsloggedin }) => {
   return (
     <div>
-      <Form />
+      <Form setIsloggedin={setIsloggedin} />
     </div>
   );
 };

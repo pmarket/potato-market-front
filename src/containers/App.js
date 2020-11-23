@@ -9,6 +9,8 @@ const App = () => {
     nav: false,
     toolTipsOpen: false,
   });
+  const [isloggedin, setIsloggedin] = useState(undefined);
+
   const navigationDrawersHandler = (open) => (event) => {
     if (
       event.type === 'keydown' &&
@@ -26,11 +28,12 @@ const App = () => {
           navOpen={state.navOpen}
           navigationDrawersHandler={navigationDrawersHandler}
         />
-        <Header />
+        <Header isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
       </div>
       <Routes
         googleProfile={googleProfile}
         setGoogleProfile={setGoogleProfile}
+        setIsloggedin={setIsloggedin}
       />
     </>
   );

@@ -6,7 +6,7 @@ import Loading from 'components/loading/Loading';
 import AuthApi from 'apis/AuthApi';
 import AuthService from 'services/AuthService';
 
-const GoogleAuthCallback = ({ setGoogleProfile }) => {
+const GoogleAuthCallback = ({ setGoogleProfile, setIsloggedin }) => {
   const history = useHistory();
   useEffect(() => {
     if (!window.location.search) {
@@ -22,6 +22,7 @@ const GoogleAuthCallback = ({ setGoogleProfile }) => {
         }
         AuthService.setAuthToken(response.data.data.token);
         history.push('/board');
+        setIsloggedin(true);
       })
       .catch((error) => {
         alert(error.response.data.message);

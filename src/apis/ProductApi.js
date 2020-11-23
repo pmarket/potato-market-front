@@ -1,5 +1,6 @@
 import axios from 'axios';
 import HttpService from 'services/HttpService';
+import AuthService from 'services/AuthService';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -12,21 +13,21 @@ const registerProduct = (name, price, content, profileUrl) => {
       content,
       profileUrl,
     },
-    HttpService.AuthorizationHeader,
+    HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };
 
 const retrieveMyProduct = () => {
   return axios.get(
     `${REACT_APP_API_URI}/api/v1/product/my`,
-    HttpService.AuthorizationHeader,
+    HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };
 
 const deleteMyProduct = (productId) => {
   return axios.delete(
     `${REACT_APP_API_URI}/api/v1/product?productId=${productId}`,
-    HttpService.AuthorizationHeader,
+    HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };
 

@@ -8,9 +8,6 @@ const useStyles = makeStyles(() => ({
     marginTop: '40vh',
     width: '50vh',
   },
-  loading: {
-    marginLeft: '30vh',
-  },
 }));
 
 export default function Loading() {
@@ -18,11 +15,7 @@ export default function Loading() {
 
   return (
     <div className={classes.root}>
-      <CircularProgress
-        className-={classes.loading}
-        color="secondary"
-        size={70}
-      />
+      <CircularProgress color="secondary" size={70} />
     </div>
   );
 }

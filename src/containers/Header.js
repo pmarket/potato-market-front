@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import AuthService from '../services/AuthService';
 
-const Header = () => {
-  const [isloggedin, setIsloggedin] = useState(undefined);
-
+const Header = ({ isloggedin, setIsloggedin }) => {
   useEffect(() => {
     const token = AuthService.getCurrentToken();
     if (token) {
       setIsloggedin(token);
     }
-  }, [isloggedin]);
+  }, [setIsloggedin]);
 
   const logOut = () => {
     AuthService.logout();
+    setIsloggedin(false);
   };
   return (
     <div className="container-header">
       <div className="container-header-login">
         {isloggedin ? (
-          <a href="/" className="alogin" onClick={logOut}>
+          <Link to="/" className="alogin" onClick={logOut}>
             로그아웃
-          </a>
+          </Link>
         ) : (
-          <a href="/loginmain" className="alogin">
+          <Link to="/loginmain" className="alogin">
             로그인
-          </a>
+          </Link>
         )}
       </div>
     </div>

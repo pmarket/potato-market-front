@@ -6,7 +6,7 @@ import AuthApi from 'apis/AuthApi';
 import AuthService from 'services/AuthService';
 import './LoginMain.css';
 
-const LoginForm = () => {
+const LoginForm = ({ setIsloggedin }) => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +24,7 @@ const LoginForm = () => {
       const response = await AuthApi.localLogin(email, password);
       AuthService.setAuthToken(response.data.data);
       history.push('/board');
+      setIsloggedin(true);
     } catch (error) {
       alert(error.response.data.message);
     }
