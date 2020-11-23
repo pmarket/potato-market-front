@@ -12,7 +12,7 @@ const Board = () => {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(1);
 
-  const limit = 8; // 한 페이지에 보여줄 상품 갯수
+  const limit = 12; // 한 페이지에 보여줄 상품 갯수
   const offset = querystring.parse(window.location.search)['?offset'] || 0; // 페이지 번호
 
   useEffect(() => {
