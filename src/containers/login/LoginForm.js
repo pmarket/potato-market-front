@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import GoogleButton from 'components/auth/GoogleButton';
 import './LoginMain.css';
-import AuthService from '../AuthService';
+import AuthService from '../../services/AuthService';
 
 const LoginForm = (props) => {
   const history = useHistory();
@@ -32,20 +31,6 @@ const LoginForm = (props) => {
       }
     });
   };
-
-  // e.preventDefault();
-  // axios
-  //   .post(`${REACT_APP_API_URI}/api/v1/auth/local`, {
-  //     email: values.email,
-  //     password: values.password,
-  //   })
-  //   .then((response) => {
-  //     localStorage.setItem('token', response.data.data);
-  //     history.push('/board');
-  //   })
-  //   .catch((error) => {
-  //     alert(error.response.data.message);
-  //   });
 
   return (
     <div className="login-container-bottom">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
-import AuthService from './AuthService';
+import AuthService from '../services/AuthService';
 
 const Header = () => {
   const [isloggedin, setIsloggedin] = useState(undefined);
