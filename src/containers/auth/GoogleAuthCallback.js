@@ -4,6 +4,7 @@ import querystring from 'querystring';
 
 import Loading from 'components/loading/Loading';
 import AuthApi from 'apis/AuthApi';
+import AuthService from 'services/AuthService';
 
 const GoogleAuthCallback = ({ setGoogleProfile }) => {
   const history = useHistory();
@@ -19,7 +20,7 @@ const GoogleAuthCallback = ({ setGoogleProfile }) => {
           history.push('/signup/google');
           return;
         }
-        localStorage.setItem('token', response.data.data.token);
+        AuthService.setAuthToken(response.data.data.token);
         history.push('/board');
       })
       .catch((error) => {

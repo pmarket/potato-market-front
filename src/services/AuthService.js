@@ -10,4 +10,8 @@ const setAuthToken = (token) => {
   localStorage.setItem('token', token);
 };
 
-export default { logout, getCurrentToken, setAuthToken };
+export default {
+  logout,
+  getCurrentToken,
+  setAuthToken,
+};

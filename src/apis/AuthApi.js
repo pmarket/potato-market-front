@@ -1,5 +1,4 @@
 import axios from 'axios';
-import AuthService from 'services/AuthService';
 
 const { REACT_APP_API_URI, REACT_APP_REDIRECT_URI } = process.env;
 
@@ -32,38 +31,9 @@ const googleLogin = (code) => {
   );
 };
 
-const getProfile = () => {
-  const token = AuthService.getCurrentToken();
-  return axios.get(`${REACT_APP_API_URI}/api/v1/member`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  });
-};
-
-const updateProfile = (name, profileUrl) => {
-  const token = AuthService.getCurrentToken();
-  return axios.put(
-    `${REACT_APP_API_URI}/api/v1/member`,
-    {
-      name,
-      profileUrl,
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    },
-  );
-};
-
 export default {
   localSignUp,
   localLogin,
   googleSignup,
   googleLogin,
-  getProfile,
-  updateProfile,
 };

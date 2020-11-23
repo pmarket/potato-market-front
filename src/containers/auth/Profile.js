@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { makeStyles, Grid, Avatar, Button, TextField } from '@material-ui/core';
 
 import Paper from 'elements/Paper';
-import AuthApi from 'apis/AuthApi';
+import MemberApi from 'apis/MemberApi';
 import AuthService from 'services/AuthService';
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +44,7 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    AuthApi.getProfile()
+    MemberApi.getProfile()
       .then((response) => {
         setProfile(response.data.data);
       })
@@ -71,7 +71,7 @@ const Profile = () => {
 
   const handleUpdateProfile = async () => {
     try {
-      await AuthApi.updateProfile(profile.name, profile.profileUrl);
+      await MemberApi.updateProfile(profile.name, profile.profileUrl);
       alert('수정되었습니다');
     } catch (error) {
       alert(error.response.data.message);

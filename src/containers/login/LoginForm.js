@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom';
 
 import GoogleButton from 'components/auth/GoogleButton';
 import AuthApi from 'apis/AuthApi';
-import 'containers/login/LoginMain.css';
+import AuthService from 'services/AuthService';
+import './LoginMain.css';
 
 const LoginForm = () => {
   const history = useHistory();
@@ -21,7 +22,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const response = await AuthApi.localLogin(email, password);
-      localStorage.setItem('token', response.data.data);
+      AuthService.setAuthToken(response.data.data);
       history.push('/board');
     } catch (error) {
       alert(error.response.data.message);
