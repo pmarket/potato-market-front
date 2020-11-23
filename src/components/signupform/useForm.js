@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import AuthApi from 'apis/AuthApi';
 import AuthService from 'services/AuthService';
 
-const useForm = (validate) => {
+const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     username: '',
     email: '',
