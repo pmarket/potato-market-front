@@ -21,8 +21,8 @@ const Board = () => {
         `${REACT_APP_API_URI}/api/v1/product/list?offset=${offset}&limit=${limit}`,
       )
       .then((response) => {
-        setTotalCount(response.data.data[0].totalCount);
-        setProducts(response.data.data.slice(1));
+        setTotalCount(response.data.data.page.totalCount);
+        setProducts(response.data.data.products);
       });
   }, [offset]);
   return (
