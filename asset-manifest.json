@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/potato-market-front/static/css/main.f0884b0d.chunk.css",
-    "main.js": "/potato-market-front/static/js/main.4df044f5.chunk.js",
-    "main.js.map": "/potato-market-front/static/js/main.4df044f5.chunk.js.map",
+    "main.js": "/potato-market-front/static/js/main.d62bdf53.chunk.js",
+    "main.js.map": "/potato-market-front/static/js/main.d62bdf53.chunk.js.map",
     "runtime-main.js": "/potato-market-front/static/js/runtime-main.9595b021.js",
     "runtime-main.js.map": "/potato-market-front/static/js/runtime-main.9595b021.js.map",
     "static/js/2.b9d2fcec.chunk.js": "/potato-market-front/static/js/2.b9d2fcec.chunk.js",
     "static/js/2.b9d2fcec.chunk.js.map": "/potato-market-front/static/js/2.b9d2fcec.chunk.js.map",
     "index.html": "/potato-market-front/index.html",
-    "precache-manifest.5d56a16fb7407af5243ae290c7f778b1.js": "/potato-market-front/precache-manifest.5d56a16fb7407af5243ae290c7f778b1.js",
+    "precache-manifest.3a358afb1240c64fe1795ee78dde3462.js": "/potato-market-front/precache-manifest.3a358afb1240c64fe1795ee78dde3462.js",
     "service-worker.js": "/potato-market-front/service-worker.js",
     "static/css/main.f0884b0d.chunk.css.map": "/potato-market-front/static/css/main.f0884b0d.chunk.css.map",
     "static/js/2.b9d2fcec.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.b9d2fcec.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.9595b021.js",
     "static/js/2.b9d2fcec.chunk.js",
     "static/css/main.f0884b0d.chunk.css",
-    "static/js/main.4df044f5.chunk.js"
+    "static/js/main.d62bdf53.chunk.js"
   ]
 }
