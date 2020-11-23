@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Button, DialogActions, DialogTitle } from '@material-ui/core';
 import Dialog from 'elements/Dialog';
 import RegisterCard from 'components/product/RegisterCard';
-
-const { REACT_APP_API_URI } = process.env;
+import ProductApi from 'apis/ProductApi';
+import UploadApi from 'apis/UploadApi';
 
 const baseImage = 'https://byline.network/wp-content/uploads/2017/07/mac_1.jpg';
 
@@ -48,50 +47,30 @@ const RegisterModal = ({
       alert('정보를 입력해주세요!');
       return;
     }
-    const token = localStorage.getItem('token');
-    axios
-      .post(
-        `${REACT_APP_API_URI}/api/v1/product`,
-        {
+    try {
+      await ProductApi.registerProduct(name, price, content, profileUrl);
+      clearField();
+      handleCloseTooltips();
+      setProducts(
+        products.concat({
+          id: products[products.length - 1].id + 1,
           name,
           price,
           content,
-          profileUrl,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-      .then(() => {
-        clearField();
-        handleCloseTooltips();
-        setProducts(
-          products.concat({
-            id: products[products.length - 1].id + 1,
-            name,
-            price,
-            content,
-            profile_url: profileUrl,
-          }),
-        );
-      })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
-    window.location.reload();
+          profile_url: profileUrl,
+        }),
+      );
+      window.location.reload();
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
-  const fileOnChange = (e) => {
+  const fileOnChange = async (e) => {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
-    axios
-      .post(`${REACT_APP_API_URI}/api/v1/upload`, formData)
-      .then((response) => {
-        setProfileUrl(response.data.data);
-      });
+    const response = await UploadApi.uploadFile(formData);
+    setProfileUrl(response.data.data);
   };
   return (
     <Dialog

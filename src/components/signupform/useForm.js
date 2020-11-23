@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 
-const { REACT_APP_API_URI } = process.env;
+import AuthApi from 'apis/AuthApi';
+import AuthService from 'services/AuthService';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
@@ -22,28 +22,26 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const validateError = validate(values);
     setErrors(validateError);
     if (Object.keys(validateError).length !== 0) {
       e.preventDefault();
       return;
     }
-    axios
-      .post(`${REACT_APP_API_URI}/api/v1/signup/local`, {
-        email: values.email,
-        name: values.username,
-        password: values.password,
-      })
-      .then((response) => {
-        localStorage.setItem('token', response.data.data);
-        history.push('/board');
-      })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
-    e.preventDefault();
-    setIsSubmitting(true);
+    try {
+      const response = await AuthApi.localSignUp(
+        values.email,
+        values.username,
+        values.password,
+      );
+      AuthService.setAuthToken(response.data.data);
+      history.push('/board');
+      setIsSubmitting(true);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   return { handleChange, values, handleSubmit, errors };

@@ -1,35 +1,31 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import GoogleButton from 'components/auth/GoogleButton';
-import './LoginMain.css';
-import AuthService from '../../services/AuthService';
 
-const LoginForm = (props) => {
+import GoogleButton from 'components/auth/GoogleButton';
+import AuthApi from 'apis/AuthApi';
+import 'containers/login/LoginMain.css';
+
+const LoginForm = () => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const OnChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
+    setEmail(e.target.value);
   };
   const OnChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
+    setPassword(e.target.value);
   };
 
-  const onSubmitLogin = (e) => {
+  const onSubmitLogin = async (e) => {
     e.preventDefault();
-
-    AuthService.login(email, password).then(() => {
-      const token = localStorage.getItem('token');
-      if (token) {
-        history.push('/board');
-        window.location.reload();
-      } else {
-        history.push('/signup');
-      }
-    });
+    try {
+      const response = await AuthApi.localLogin(email, password);
+      localStorage.setItem('token', response.data.data);
+      history.push('/board');
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   return (

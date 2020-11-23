@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles, List, Grid } from '@material-ui/core';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
+import ProductApi from 'apis/ProductApi';
 import MyProductItemList from 'components/myProduct/MyProductItemList';
-
-const { REACT_APP_API_URI } = process.env;
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,14 +21,7 @@ export default function MyProduct() {
   const [myProducts, setMyProducts] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    axios
-      .get(`${REACT_APP_API_URI}/api/v1/product/my`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
+    ProductApi.retrieveMyProduct()
       .then((response) => {
         setMyProducts(response.data.data);
       })
@@ -40,25 +31,16 @@ export default function MyProduct() {
       });
   }, [history]);
 
-  const onDeleteButtonClick = (productId) => {
+  const onDeleteButtonClick = async (productId) => {
     if (!window.confirm('정말 삭제하시겠습니까?')) {
       return;
     }
-
-    const token = localStorage.getItem('token');
-    axios
-      .delete(`${REACT_APP_API_URI}/api/v1/product?productId=${productId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(() => {
-        setMyProducts(myProducts.filter((product) => product.id !== productId));
-      })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
+    try {
+      await ProductApi.deleteMyProduct(productId);
+      setMyProducts(myProducts.filter((product) => product.id !== productId));
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   const onDetailButtonOnClick = () => {

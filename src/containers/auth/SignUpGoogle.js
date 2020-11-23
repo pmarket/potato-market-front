@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-
 import { makeStyles, TextField, Icon, Grid } from '@material-ui/core';
-import potato from 'assets/images/gamza1.jpg';
 
 import Paper from 'elements/Paper';
 import Avatar from 'elements/Avatar';
 import Button from 'elements/Button';
+import AuthApi from 'apis/AuthApi';
+import AuthService from 'services/AuthService';
 
-const { REACT_APP_API_URI } = process.env;
+import potato from 'assets/images/gamza1.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,16 +46,17 @@ const SignUpGoogle = ({ googleProfile }) => {
   }, [history, googleProfile.email]);
 
   const signUpButtonOnClick = async () => {
-    const response = await axios.post(
-      `${REACT_APP_API_URI}/api/v1/signup/google`,
-      {
-        email: googleProfile.email,
+    try {
+      const response = await AuthApi.googleSignUp(
+        googleProfile.email,
         name,
-        profileUrl: googleProfile.profileUrl,
-      },
-    );
-    localStorage.setItem('token', response.data.data);
-    history.push('/');
+        googleProfile.profileUrl,
+      );
+      AuthService.setAuthToken(response.data.data);
+      history.push('/');
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   const onChangeName = (e) => {

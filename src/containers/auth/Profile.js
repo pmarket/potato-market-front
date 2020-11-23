@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { makeStyles, Grid, Avatar, Button, TextField } from '@material-ui/core';
-import Paper from 'elements/Paper';
 
-const { REACT_APP_API_URI } = process.env;
+import Paper from 'elements/Paper';
+import AuthApi from 'apis/AuthApi';
+import AuthService from 'services/AuthService';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,14 +44,7 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    axios
-      .get(`${REACT_APP_API_URI}/api/v1/member`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
+    AuthApi.getProfile()
       .then((response) => {
         setProfile(response.data.data);
       })
@@ -62,7 +55,7 @@ const Profile = () => {
   }, [history]);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    AuthService.logout();
     history.push('/');
   };
 
@@ -76,28 +69,13 @@ const Profile = () => {
     });
   };
 
-  const handleUpdateProfile = () => {
-    const token = localStorage.getItem('token');
-    axios
-      .put(
-        `${REACT_APP_API_URI}/api/v1/member`,
-        {
-          name: profile.name,
-          profileUrl: profile.profileUrl,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-      .then(() => {
-        alert('수정되었습니다');
-      })
-      .catch((error) => {
-        alert(error.response.data.message);
-      });
+  const handleUpdateProfile = async () => {
+    try {
+      await AuthApi.updateProfile(profile.name, profile.profileUrl);
+      alert('수정되었습니다');
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   return (
