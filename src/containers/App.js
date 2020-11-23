@@ -27,6 +27,7 @@ const App = () => {
         <Navigator
           navOpen={state.navOpen}
           navigationDrawersHandler={navigationDrawersHandler}
+          isloggedin={isloggedin}
         />
         <Header isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
       </div>
