@@ -11,8 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import DetailPage from '../components/DetailPage';
 import { Link } from 'react-router-dom';
+import DetailPage from '../components/DetailPage';
+import './Board.css';
 
 const useStyles = makeStyles(() => ({
   root: {

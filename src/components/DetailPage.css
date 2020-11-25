@@ -1,16 +1,36 @@
+/*----------LAYOUT-----------*/
 .detail-container {
-  margin: auto;
+  margin: 40px auto;
+  display: grid;
+  width: 600px;
+  height: auto;
+  grid-template-rows: 400px 100px 200px 400px;
 }
 
 .detail-container-top {
-  display: flex;
-  flex-direction: row;
+  margin: 5px auto;
 }
-.dct-left {
+
+.detail-container-mid1 {
+  margin: 10px 100px;
+  border-bottom: rgb(221, 218, 218) solid;
+}
+.detail-container-mid2 {
+  margin: 10px 100px;
+}
+.detail-container-bot {
+  margin: 10px 100px;
+}
+/*----------LAYOUT END-----------*/
+.detail-container-top img {
   width: 400px;
   height: 400px;
 }
-.dct-left img {
-  width: 400px;
-  height: 400px;
+
+.mid1-img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+  object-fit: cover;
 }
