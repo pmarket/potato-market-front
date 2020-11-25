@@ -6,3 +6,11 @@
   display: flex;
   flex-direction: row;
 }
+.dct-left {
+  width: 400px;
+  height: 400px;
+}
+.dct-left img {
+  width: 400px;
+  height: 400px;
+}
