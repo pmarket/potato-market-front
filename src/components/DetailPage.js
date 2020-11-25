@@ -26,11 +26,12 @@ const DetailPage = () => {
         </div>
         <div className="dct-right">
           <h1>제목:{product.name}</h1>
+          <h4>가격:{product.price}</h4>
           <h4>판매자:{sender.name}</h4>
+          <h4>판매자이메일:{sender.email}</h4>
         </div>
       </div>
       <div>
-        <h4>판매자이메일:{sender.email}</h4>
         <h4>내용:{product.content}</h4>
       </div>
     </div>
