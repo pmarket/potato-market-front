@@ -9,6 +9,7 @@ import Home from 'containers/Home';
 import GamzaSignup from 'components/signupform/GamzaSignup';
 import LoginMain from 'containers/login/LoginMain';
 import MyProduct from 'containers/myProduct/MyProduct';
+import DetailPage from 'components/DetailPage';
 
 const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
   <Switch>
@@ -44,6 +45,7 @@ const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
       component={() => <LoginMain setIsloggedin={setIsloggedin} />}
     />
     <Route exact path="/myproduct" component={MyProduct} />
+    <Route path="/detailpage" component={DetailPage} />
     <Route component={NotFound} />
   </Switch>
 );

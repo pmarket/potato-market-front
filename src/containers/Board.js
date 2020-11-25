@@ -5,6 +5,7 @@ import List from './List';
 import './Board.css';
 import MarketLine from './MarketLine';
 import Pagination from '../components/Pagination';
+import ProductApi from 'apis/ProductApi';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -31,7 +32,9 @@ const Board = () => {
       <div className="row">
         <div className="row center">
           {products.map((product) => (
-            <List key={product.id} product={product} />
+            <List key={product.id} product={product}>
+              {products.profileUrl}
+            </List>
           ))}
         </div>
       </div>
