@@ -5,14 +5,15 @@ import gamza from '../assets/images/logingamza.jpg';
 
 const { REACT_APP_API_URI } = process.env;
 
-const DetailPage = ({ match }) => {
+const DetailPage = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
+    const productId = window.location.href.split('detailpage/')[1];
     axios
-      .get(`${REACT_APP_API_URI}/api/v1/product?productId=${match.params.id}`)
+      .get(`${REACT_APP_API_URI}/api/v1/product?productId=${productId}`)
       .then((response) => {
-        setProduct(response.data);
+        setProduct(response.data.data.product);
       });
   }, []);
 

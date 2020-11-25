@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
+import DetailPage from '../components/DetailPage';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -32,57 +34,43 @@ const List = (props) => {
   const { product } = props;
   return (
     <div key={product.id} className="card">
-      <Card className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar
-              aria-label={product.senderName}
-              className={classes.avatar}
-              alt={product.senderName}
-            />
-          }
-          title={product.name}
-          subheader={product.createdDateTime}
-        />
+      <Link to={`/detailpage/${product.id}`} components={DetailPage}>
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={
+              <Avatar
+                aria-label={product.senderName}
+                className={classes.avatar}
+                alt={product.senderName}
+              />
+            }
+            title={product.name}
+            subheader={product.createdDateTime}
+          />
 
-        <CardMedia
-          className={classes.media}
-          image={product.profileUrl}
-          title={product.name}
-        />
+          <CardMedia
+            className={classes.media}
+            image={product.profileUrl}
+            title={product.name}
+          />
 
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {product.price}원
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </CardActions>
-      </Card>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {product.price}원
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </Link>
     </div>
   );
 };
 
 export default List;
-
-/*
-return (
-  <div key={product.id} className="card">
-    <a href="">
-      <img className="medium" src={product.profile_url}></img>
-    </a>
-    <div className="card-body">
-      <a href="">
-        <h2>{product.name}</h2>
-      </a>
-      <div className="price">{product.price}</div>
-    </div>
-  </div>
-);
-*/

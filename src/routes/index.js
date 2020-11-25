@@ -45,7 +45,7 @@ const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
       component={() => <LoginMain setIsloggedin={setIsloggedin} />}
     />
     <Route exact path="/myproduct" component={MyProduct} />
-    <Route exact path="/detailpage" component={DetailPage} />
+    <Route path="/detailpage" component={DetailPage} />
     <Route component={NotFound} />
   </Switch>
 );
