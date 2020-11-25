@@ -3,8 +3,10 @@ import querystring from 'querystring';
 import axios from 'axios';
 import List from './List';
 import './Board.css';
+import { Link } from 'react-router-dom';
 import MarketLine from './MarketLine';
 import Pagination from '../components/Pagination';
+import DetailPage from '../components/DetailPage';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -31,7 +33,9 @@ const Board = () => {
       <div className="row">
         <div className="row center">
           {products.map((product) => (
-            <List key={product.id} product={product} />
+            <Link to={`/detailpage/${products.id}`} components={DetailPage}>
+              <List key={product.id} product={product} />
+            </Link>
           ))}
         </div>
       </div>

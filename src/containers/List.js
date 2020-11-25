@@ -11,8 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import { Link } from 'react-router-dom';
-import DetailPage from '../components/DetailPage';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -46,13 +44,13 @@ const List = (props) => {
           title={product.name}
           subheader={product.createdDateTime}
         />
-        <Link to="/detailpage" components={DetailPage}>
-          <CardMedia
-            className={classes.media}
-            image={product.profileUrl}
-            title={product.name}
-          />
-        </Link>
+
+        <CardMedia
+          className={classes.media}
+          image={product.profileUrl}
+          title={product.name}
+        />
+
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
             {product.price}원

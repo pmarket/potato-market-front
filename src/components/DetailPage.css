@@ -1,0 +1,8 @@
+.detail-container {
+  margin: auto;
+}
+
+.detail-container-top {
+  display: flex;
+  flex-direction: row;
+}
