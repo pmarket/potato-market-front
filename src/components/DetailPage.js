@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './DetailPage.css';
 import gamza from '../assets/images/logingamza.jpg';
+import { Link } from 'react-router-dom';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -20,26 +21,30 @@ const DetailPage = () => {
   }, []);
 
   return (
-    <div className="detail-container">
-      <div className="detail-container-top">
-        <img src={product.profileUrl} alt="" />
-      </div>
-      <div className="detail-container-mid1">
-        <img className="mid1-img" src={sender.profileUrl} alt="pf" />
-        <h5>
-          {sender.name}({sender.email})
-        </h5>
-      </div>
-      <div className="detail-container-mid2">
-        <div className="">
-          <h1>제목:{product.name}</h1>
-          <h4>가격:{product.price}</h4>
+    <>
+      <Link to="/board">게시판으로 돌아가기</Link>
+      <div className="detail-container">
+        <div className="detail-container-top">
+          <img src={product.profileUrl} alt="" />
+        </div>
+        <div className="detail-container-mid1">
+          <img className="mid1-img" src={sender.profileUrl} alt="pf" />
+          <div className="mid1-info">
+            {sender.name}({sender.email})<br />
+            <h6>작성시간:{product.createdDateTime}</h6>
+          </div>
+        </div>
+        <div className="detail-container-mid2">
+          <div className="mid2-info">
+            <h1>{product.name}</h1>
+            {product.price}원
+          </div>
+        </div>
+        <div className="detail-container-bot">
+          <h4>{product.content}</h4>
         </div>
       </div>
-      <div className="detail-container-bot">
-        <h4>내용:{product.content}</h4>
-      </div>
-    </div>
+    </>
   );
 };
 
