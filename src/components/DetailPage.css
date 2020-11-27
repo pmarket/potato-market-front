@@ -14,11 +14,11 @@
 
 .detail-container-mid1 {
   margin: 20px 50px 20px 50px;
-  border-bottom: rgb(179, 179, 179) solid;
+  border-bottom: solid 1px #ababab;
 }
 .detail-container-mid2 {
   margin: 0px 50px 5px 50px;
-  border-bottom: rgb(179, 179, 179) solid;
+  border-bottom: solid 1px #ababab;
 }
 .detail-container-bot {
   margin: 10px 50px;
@@ -50,4 +50,25 @@
 .mid2-info {
   font-weight: bold;
   margin: 20px;
+}
+
+/*-----------------------------comment-----*/
+.comment_container {
+  margin: 10px 40px;
+  border-top: solid 1px #ababab;
+}
+
+.comment_container h4 {
+}
+.comment_write {
+  height: 150px;
+  border-bottom: solid 1px #ababab;
+}
+.comment_write textarea {
+  width: 80%;
+  padding: 10px;
+  resize: none;
+  font-size: 15px;
+  line-height: 25px;
+  margin-left: 30px;
 }

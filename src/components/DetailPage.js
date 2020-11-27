@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './DetailPage.css';
-import gamza from '../assets/images/logingamza.jpg';
 import { Link } from 'react-router-dom';
+import './DetailPage.css';
+import Comment from './Comment';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -43,6 +43,7 @@ const DetailPage = () => {
         <div className="detail-container-bot">
           <h4>{product.content}</h4>
         </div>
+        <Comment />
       </div>
     </>
   );
