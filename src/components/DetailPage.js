@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './DetailPage.css';
 import Comment from './Comment';
-import gamza from '../assets/images/gamzaicon.png';
+import gamzapf from '../assets/images/profilepic.jpg';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -31,7 +31,7 @@ const DetailPage = () => {
         </div>
         <div className="detail-container-mid1">
           {!sender.profileUrl ? (
-            <img className="mid1-img" src={gamza} alt="" />
+            <img className="mid1-img" src={gamzapf} alt="" />
           ) : (
             <img className="mid1-img" src={sender.profileUrl} alt="" />
           )}
