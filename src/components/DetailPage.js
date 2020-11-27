@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './DetailPage.css';
 import Comment from './Comment';
+import gamza from '../assets/images/gamzaicon.png';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -12,6 +13,7 @@ const DetailPage = () => {
 
   useEffect(() => {
     const productId = window.location.href.split('detailpage/')[1];
+
     axios
       .get(`${REACT_APP_API_URI}/api/v1/product?productId=${productId}`)
       .then((response) => {
@@ -28,7 +30,12 @@ const DetailPage = () => {
           <img src={product.profileUrl} alt="" />
         </div>
         <div className="detail-container-mid1">
-          <img className="mid1-img" src={sender.profileUrl} alt="pf" />
+          {!sender.profileUrl ? (
+            <img className="mid1-img" src={gamza} alt="" />
+          ) : (
+            <img className="mid1-img" src={sender.profileUrl} alt="" />
+          )}
+
           <div className="mid1-info">
             {sender.name}({sender.email})<br />
             <h6>작성시간:{product.createdDateTime}</h6>
