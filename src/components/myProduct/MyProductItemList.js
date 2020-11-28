@@ -3,14 +3,15 @@ import { Grid, Typography, ListItemSecondaryAction } from '@material-ui/core';
 
 import MyProductItem from 'components/myProduct/MyProductItem';
 import DeleteButton from 'components/myProduct/DeleteButton';
-import SoldOutButton from 'components/myProduct/SoldOutButton';
+import SoldOutButton from 'components/myProduct/SoldOutBotton';
+
 const MyProductItemList = ({
   myProducts,
   onDetailButtonOnClick,
   onDeleteButtonClick,
   title,
   deleteButton,
-  soldoutbutton,
+  onSoldOutButtonClick,
 }) => {
   return (
     <Grid item xs={12} md={6}>
@@ -38,11 +39,11 @@ const MyProductItemList = ({
               ) : (
                 <></>
               )}
-              {soldoutbutton ? (
+              {deleteButton ? (
                 <ListItemSecondaryAction>
                   <SoldOutButton
                     product={product}
-                    soldoutbutton={soldoutbutton}
+                    onSoldOutButtonClick={onSoldOutButtonClick}
                   />
                 </ListItemSecondaryAction>
               ) : (

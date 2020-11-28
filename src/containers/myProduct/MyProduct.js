@@ -47,6 +47,11 @@ export default function MyProduct() {
     history.push(`/detailpage/${productId}`);
   };
 
+  const onSoldOutButtonClick = (productId) => {
+    // TODO 여기다가 구현
+    alert('판매 완료 버튼');
+  };
+
   return (
     <div className={classes.root}>
       <List className={classes.list}>
@@ -55,12 +60,12 @@ export default function MyProduct() {
             myProducts={myProducts}
             onDetailButtonOnClick={onDetailButtonOnClick}
             onDeleteButtonClick={onDeleteButtonClick}
+            onSoldOutButtonClick={onSoldOutButtonClick}
             title="판매 중인 리스트"
             deleteButton
           />
           <MyProductItemList
-            myProducts={myProducts}
-            // myProducts={myProducts.filter((product) => product.is_sold)}
+            myProducts={myProducts.filter((product) => product.is_sold)}
             onDetailButtonOnClick={onDetailButtonOnClick}
             title="판매 완료된 물건 리스트 (임시 데이터)"
           />
