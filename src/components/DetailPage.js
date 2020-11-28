@@ -32,7 +32,12 @@ const DetailPage = () => {
   const commentslist = comments.map((comment) => (
     <li key={comment.id}>
       {comment.commenter.name}: {comment.content}
-      <button type="button" onClick={deleteComment(comment.id)}>
+      <button
+        type="button"
+        onClick={() => {
+          deleteComment(comment.id);
+        }}
+      >
         x
       </button>
     </li>
@@ -73,6 +78,7 @@ const DetailPage = () => {
       )
       .then(() => {
         setIsChanged(!isChanged);
+        setInput('');
       });
   };
 
