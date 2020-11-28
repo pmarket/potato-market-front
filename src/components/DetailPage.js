@@ -11,9 +11,31 @@ const DetailPage = () => {
   const [sender, setSender] = useState([]);
   const [comments, setComments] = useState([]);
   const [isChanged, setIsChanged] = useState(false);
+  const token = localStorage.getItem('token');
+
+  const deleteComment = (commentId) => {
+    axios
+      .delete(
+        `${REACT_APP_API_URI}/api/v1/product/comment?commentId=${commentId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then(() =>
+        setComments(comments.filter((comment) => comment.id !== commentId)),
+      );
+  };
 
   const commentslist = comments.map((comment) => (
-    <li key={comments.id}>{comment.content}</li>
+    <li key={comment.id}>
+      {comment.commenter.name}: {comment.content}
+      <button type="button" onClick={deleteComment(comment.id)}>
+        x
+      </button>
+    </li>
   ));
 
   const [input, setInput] = useState([]);
@@ -35,7 +57,6 @@ const DetailPage = () => {
   }, [isChanged]);
 
   const AddComment = () => {
-    const token = localStorage.getItem('token');
     axios
       .post(
         `${REACT_APP_API_URI}/api/v1/product/comment`,
