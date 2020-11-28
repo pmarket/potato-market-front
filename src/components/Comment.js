@@ -3,14 +3,11 @@ import axios from 'axios';
 
 const { REACT_APP_API_URI } = process.env;
 
-const Comment = () => {
-  const [comment, setComment] = useState({
-    content: '',
-    productId: '',
-  });
+const Comment = ({ product }) => {
+  const [input, setInput] = useState([]);
 
   const handleComment = (e) => {
-    setComment(e.target.value);
+    setInput(e.target.value);
   };
 
   const AddComment = () => {
@@ -18,8 +15,8 @@ const Comment = () => {
     axios.post(
       `${REACT_APP_API_URI}/api/v1/product/comment`,
       {
-        content: comment.content,
-        productId: comment.productId,
+        content: input.content,
+        productId: product.Id,
       },
       {
         headers: {
@@ -38,7 +35,7 @@ const Comment = () => {
         <div className="comment_write">
           <textarea
             rows="3"
-            value={comment}
+            value={input}
             onChange={handleComment}
             maxLength="100"
             placeholder="댓글을 입력하시오."
@@ -47,9 +44,6 @@ const Comment = () => {
             등록
           </button>
         </div>
-      </div>
-      <div className="comment_list_container">
-        <div></div>
       </div>
     </>
   );

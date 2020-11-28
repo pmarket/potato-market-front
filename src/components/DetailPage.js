@@ -10,6 +10,17 @@ const { REACT_APP_API_URI } = process.env;
 const DetailPage = () => {
   const [product, setProduct] = useState([]);
   const [sender, setSender] = useState([]);
+  const [comments, setComments] = useState([]);
+
+  const commentslist = comments.map((comment) => (
+    <li key={comments.id}>{comment.content}</li>
+  ));
+
+  const [input, setInput] = useState([]);
+
+  const handleComment = (e) => {
+    setInput(e.target.value);
+  };
 
   useEffect(() => {
     const productId = window.location.href.split('detailpage/')[1];
@@ -19,8 +30,30 @@ const DetailPage = () => {
       .then((response) => {
         setProduct(response.data.data.product);
         setSender(response.data.data.sender);
+        setComments(response.data.data.comments);
       });
   }, []);
+
+  const AddComment = () => {
+    const token = localStorage.getItem('token');
+    axios
+      .post(
+        `${REACT_APP_API_URI}/api/v1/product/comment`,
+        {
+          content: input,
+          productId: product.Id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+      .then((response) => {});
+
+    window.location.reload();
+  };
 
   return (
     <>
@@ -50,7 +83,24 @@ const DetailPage = () => {
         <div className="detail-container-bot">
           <h4>{product.content}</h4>
         </div>
-        <Comment />
+        <div className="comment_container">
+          <h4> 댓글</h4>
+          <div className="comment_write">
+            <textarea
+              rows="3"
+              value={input}
+              onChange={handleComment}
+              maxLength="100"
+              placeholder="댓글을 입력하시오."
+            />
+            <button type="button" onClick={AddComment}>
+              등록
+            </button>
+          </div>
+        </div>
+        <div>
+          <ul>{commentslist}</ul>
+        </div>
       </div>
     </>
   );
