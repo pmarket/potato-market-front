@@ -23,6 +23,9 @@ const Board = () => {
       .then((response) => {
         setTotalCount(response.data.data.page.totalCount);
         setProducts(response.data.data.products);
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
       });
   }, [offset]);
   return (

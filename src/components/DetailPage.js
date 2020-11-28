@@ -26,7 +26,10 @@ const DetailPage = () => {
       )
       .then(() =>
         setComments(comments.filter((comment) => comment.id !== commentId)),
-      );
+      )
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   };
 
   const [input, setInput] = useState([]);
@@ -44,6 +47,9 @@ const DetailPage = () => {
         setProduct(response.data.data.product);
         setSender(response.data.data.sender);
         setComments(response.data.data.comments);
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
       });
   }, [isChanged]);
 
@@ -65,6 +71,9 @@ const DetailPage = () => {
       .then(() => {
         setIsChanged(!isChanged);
         setInput('');
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
       });
   };
 

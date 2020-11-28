@@ -50,7 +50,7 @@ const Profile = ({ setIsloggedin }) => {
       })
       .catch((error) => {
         alert(error.response.data.message);
-        history.push('/loginmain');
+        history.push('/');
       });
   }, [history]);
 
