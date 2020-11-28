@@ -29,6 +29,19 @@ const useStyles = makeStyles(() => ({
     backgroundColor: red[500],
   },
 }));
+function formatDate(date) {
+  const d = new Date(date),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear(),
+    hour = d.getHours(),
+    min = d.getMinutes();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return year + '년' + month + '월' + day + '일 ' + hour + '시' + min + '분';
+}
 
 const List = (props) => {
   const classes = useStyles();
@@ -46,7 +59,7 @@ const List = (props) => {
               />
             }
             title={product.name}
-            subheader={product.createdDateTime}
+            subheader={formatDate(product.createdDateTime)}
           />
 
           <CardMedia
