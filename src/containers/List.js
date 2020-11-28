@@ -53,6 +53,7 @@ const List = (props) => {
           <CardHeader
             avatar={
               <Avatar
+                src={product.senderProfileUrl}
                 aria-label={product.senderName}
                 className={classes.avatar}
                 alt={product.senderName}
