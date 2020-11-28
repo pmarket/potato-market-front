@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './DetailPage.css';
-import Comment from './Comment';
 import gamzapf from '../assets/images/profilepic.jpg';
 
 const { REACT_APP_API_URI } = process.env;
@@ -11,6 +10,7 @@ const DetailPage = () => {
   const [product, setProduct] = useState([]);
   const [sender, setSender] = useState([]);
   const [comments, setComments] = useState([]);
+  const [isChanged, setIsChanged] = useState(false);
 
   const commentslist = comments.map((comment) => (
     <li key={comments.id}>{comment.content}</li>
@@ -32,7 +32,7 @@ const DetailPage = () => {
         setSender(response.data.data.sender);
         setComments(response.data.data.comments);
       });
-  }, []);
+  }, [isChanged]);
 
   const AddComment = () => {
     const token = localStorage.getItem('token');
@@ -41,7 +41,7 @@ const DetailPage = () => {
         `${REACT_APP_API_URI}/api/v1/product/comment`,
         {
           content: input,
-          productId: product.Id,
+          productId: product.id,
         },
         {
           headers: {
@@ -50,9 +50,9 @@ const DetailPage = () => {
           },
         },
       )
-      .then((response) => {});
-
-    window.location.reload();
+      .then(() => {
+        setIsChanged(!isChanged);
+      });
   };
 
   return (
