@@ -32,6 +32,7 @@ const App = () => {
         <Header isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
       </div>
       <Routes
+        isloggedin={isloggedin}
         googleProfile={googleProfile}
         setGoogleProfile={setGoogleProfile}
         setIsloggedin={setIsloggedin}

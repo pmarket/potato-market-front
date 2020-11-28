@@ -11,7 +11,12 @@ import LoginMain from 'containers/login/LoginMain';
 import MyProduct from 'containers/myProduct/MyProduct';
 import DetailPage from 'components/DetailPage';
 
-const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
+const Routes = ({
+  googleProfile,
+  setGoogleProfile,
+  isloggedin,
+  setIsloggedin,
+}) => (
   <Switch>
     <Route exact path="/board" component={Board} />
     <Route
@@ -34,15 +39,19 @@ const Routes = ({ googleProfile, setGoogleProfile, setIsloggedin }) => (
       path="/signup/google"
       component={() => <SignUpGoogle googleProfile={googleProfile} />}
     />
-    <Route exact path="/" component={Home} />
+    <Route exact path="/" component={() => <Home isloggedin={isloggedin} />} />
     <Route
       path="/signup"
-      component={() => <GamzaSignup setIsloggedin={setIsloggedin} />}
+      component={() => (
+        <GamzaSignup isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
+      )}
     />
     <Route
       exact
       path="/loginmain"
-      component={() => <LoginMain setIsloggedin={setIsloggedin} />}
+      component={() => (
+        <LoginMain isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
+      )}
     />
     <Route exact path="/myproduct" component={MyProduct} />
     <Route path="/detailpage" component={DetailPage} />
