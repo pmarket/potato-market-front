@@ -103,6 +103,8 @@
   display: flex;
   flex-direction: row;
   border-bottom: solid 1px #ababab;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .li-container button {
