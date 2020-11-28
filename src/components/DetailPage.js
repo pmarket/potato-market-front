@@ -29,34 +29,6 @@ const DetailPage = () => {
       );
   };
 
-  const commentslist = comments.map((comment) => (
-    <li key={comment.id}>
-      <div className="li-container">
-        {!comment.commenter.profileUrl ? (
-          <img className="com-img" src={gamzapf} alt="" />
-        ) : (
-          <img className="com-img" src={comment.commenter.profileUrl} alt="" />
-        )}
-        <div className="commentline">
-          <div className="commentline-1">{comment.createdAt}</div>
-          <div>
-            <b>{comment.commenter.name}</b>: {comment.content}
-          </div>
-        </div>
-        <div>
-          <button
-            type="button"
-            onClick={() => {
-              deleteComment(comment.id);
-            }}
-          >
-            x
-          </button>
-        </div>
-      </div>
-    </li>
-  ));
-
   const [input, setInput] = useState([]);
 
   const handleComment = (e) => {
@@ -96,6 +68,47 @@ const DetailPage = () => {
       });
   };
 
+  function formatDate(date) {
+    const d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear(),
+      hour = d.getHours(),
+      min = d.getMinutes();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return year + '년' + month + '월' + day + '일 ' + hour + '시' + min + '분';
+  }
+
+  const commentslist = comments.map((comment) => (
+    <li key={comment.id}>
+      <div className="li-container">
+        {!comment.commenter.profileUrl ? (
+          <img className="com-img" src={gamzapf} alt="" />
+        ) : (
+          <img className="com-img" src={comment.commenter.profileUrl} alt="" />
+        )}
+        <div className="commentline">
+          <div className="commentline-1">{formatDate(comment.createdAt)}</div>
+          <div>
+            <b>{comment.commenter.name}</b>: {comment.content}
+          </div>
+        </div>
+        <div>
+          <button
+            type="button"
+            onClick={() => {
+              deleteComment(comment.id);
+            }}
+          >
+            x
+          </button>
+        </div>
+      </div>
+    </li>
+  ));
   return (
     <>
       <Link to="/board">게시판으로 돌아가기</Link>
@@ -112,7 +125,7 @@ const DetailPage = () => {
 
           <div className="mid1-info">
             {sender.name}({sender.email})<br />
-            <h6>작성시간:{product.createdDateTime}</h6>
+            <h6>작성시간:{formatDate(product.createdDateTime)}</h6>
           </div>
         </div>
         <div className="detail-container-mid2">
