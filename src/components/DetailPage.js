@@ -31,6 +31,11 @@ const DetailPage = () => {
 
   const commentslist = comments.map((comment) => (
     <li key={comment.id}>
+      {!comment.commenter.profileUrl ? (
+        <img className="com-img" src={gamzapf} alt="" />
+      ) : (
+        <img className="com-img" src={comment.commenter.profileUrl} alt="" />
+      )}
       {comment.commenter.name}: {comment.content}
       <button
         type="button"
@@ -111,7 +116,7 @@ const DetailPage = () => {
           <h4>{product.content}</h4>
         </div>
         <div className="comment_container">
-          <h4> 댓글</h4>
+          <h4> 댓글 {comments.length}</h4>
           <div className="comment_write">
             <textarea
               rows="3"
