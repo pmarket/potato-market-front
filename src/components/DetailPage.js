@@ -31,20 +31,29 @@ const DetailPage = () => {
 
   const commentslist = comments.map((comment) => (
     <li key={comment.id}>
-      {!comment.commenter.profileUrl ? (
-        <img className="com-img" src={gamzapf} alt="" />
-      ) : (
-        <img className="com-img" src={comment.commenter.profileUrl} alt="" />
-      )}
-      {comment.commenter.name}: {comment.content}
-      <button
-        type="button"
-        onClick={() => {
-          deleteComment(comment.id);
-        }}
-      >
-        x
-      </button>
+      <div className="li-container">
+        {!comment.commenter.profileUrl ? (
+          <img className="com-img" src={gamzapf} alt="" />
+        ) : (
+          <img className="com-img" src={comment.commenter.profileUrl} alt="" />
+        )}
+        <div className="commentline">
+          <div className="commentline-1">{comment.createdAt}</div>
+          <div>
+            <b>{comment.commenter.name}</b>: {comment.content}
+          </div>
+        </div>
+        <div>
+          <button
+            type="button"
+            onClick={() => {
+              deleteComment(comment.id);
+            }}
+          >
+            x
+          </button>
+        </div>
+      </div>
     </li>
   ));
 
@@ -130,7 +139,7 @@ const DetailPage = () => {
             </button>
           </div>
         </div>
-        <div>
+        <div className="commentctr">
           <ul>{commentslist}</ul>
         </div>
       </div>

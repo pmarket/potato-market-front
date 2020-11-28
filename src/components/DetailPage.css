@@ -91,4 +91,28 @@
   height: 50px;
   border-radius: 30%;
   object-fit: cover;
+  float: left;
+}
+
+.commentline-1 {
+  color: gray;
+  font-size: 10px;
+}
+
+.li-container {
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px #ababab;
+}
+
+.li-container button {
+  border: transparent;
+  background: none;
+  font-size: 15px;
+  display: block;
+  color: #ababab;
+}
+
+.commentctr {
+  margin-right: 50px;
 }
