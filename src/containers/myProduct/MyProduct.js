@@ -43,8 +43,8 @@ export default function MyProduct() {
     }
   };
 
-  const onDetailButtonOnClick = () => {
-    alert('개발 중 - 세부 정보 및 수정 폼');
+  const onDetailButtonOnClick = (productId) => {
+    history.push(`/detailpage/${productId}`);
   };
 
   return (

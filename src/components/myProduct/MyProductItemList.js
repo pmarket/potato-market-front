@@ -23,7 +23,9 @@ const MyProductItemList = ({
             <MyProductItem
               key={product.id}
               product={product}
-              onDetailButtonOnClick={onDetailButtonOnClick}
+              onDetailButtonOnClick={() => {
+                onDetailButtonOnClick(product.id);
+              }}
             >
               {deleteButton ? (
                 <ListItemSecondaryAction>
