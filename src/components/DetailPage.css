@@ -114,7 +114,10 @@
   display: block;
   color: #ababab;
 }
-
+.li-container button:hover {
+  cursor: pointer;
+  color: #858383;
+}
 .commentctr {
   margin-right: 50px;
 }
