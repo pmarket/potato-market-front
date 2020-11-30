@@ -48,42 +48,40 @@ const List = (props) => {
   const { product } = props;
   return (
     <div key={product.id} className="card">
-      <Link to={`/detailpage/${product.id}`} components={DetailPage}>
-        <Card className={classes.root}>
-          <CardHeader
-            avatar={
-              <Avatar
-                src={product.senderProfileUrl}
-                aria-label={product.senderName}
-                className={classes.avatar}
-                alt={product.senderName}
-              />
-            }
-            title={product.name}
-            subheader={formatDate(product.createdDateTime)}
-          />
-
+      <Card className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar
+              src={product.senderProfileUrl}
+              aria-label={product.senderName}
+              className={classes.avatar}
+              alt={product.senderName}
+            />
+          }
+          title={product.name}
+          subheader={formatDate(product.createdDateTime)}
+        />
+        <Link to={`/detailpage/${product.id}`} components={DetailPage}>
           <CardMedia
             className={classes.media}
             image={product.profileUrl}
             title={product.name}
           />
-
-          <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {product.price}원
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-          </CardActions>
-        </Card>
-      </Link>
+        </Link>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {product.price}원
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
     </div>
   );
 };
