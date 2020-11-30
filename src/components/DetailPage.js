@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './DetailPage.css';
+import writer from 'assets/images/wrr.png';
 import gamzapf from '../assets/images/profilepic.jpg';
 
 const { REACT_APP_API_URI } = process.env;
@@ -102,7 +103,13 @@ const DetailPage = () => {
         <div className="commentline">
           <div className="commentline-1">{formatDate(comment.createdAt)}</div>
           <div>
-            <b>{comment.commenter.name}</b>: {comment.content}
+            <b>{comment.commenter.name}</b>
+            {comment.commenter.email === sender.email ? (
+              <img src={writer} className="writericon" alt="d" />
+            ) : (
+              ''
+            )}
+            : {comment.content}
           </div>
         </div>
         <div>
