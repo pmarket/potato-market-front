@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import formatDate from 'utils/DateUtils';
 import './DetailPage.css';
 import writer from 'assets/images/wrr.png';
 import gamzapf from '../assets/images/profilepic.jpg';
@@ -77,20 +78,6 @@ const DetailPage = () => {
         alert(error.response.data.message);
       });
   };
-
-  function formatDate(date) {
-    const d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear(),
-      hour = d.getHours(),
-      min = d.getMinutes();
-
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-
-    return year + '년' + month + '월' + day + '일 ' + hour + '시' + min + '분';
-  }
 
   const commentslist = comments.map((comment) => (
     <li key={comment.id}>
