@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "99092b23b397d8df5145f6e9bfd748a3",
+    "revision": "a5a78fd8ec1e94d7eef089c2218cf88d",
     "url": "/potato-market-front/index.html"
   },
   {
-    "revision": "ff2972637b84e5af3e59",
-    "url": "/potato-market-front/static/css/main.7fce7204.chunk.css"
+    "revision": "0f7e361bd23830ff67d3",
+    "url": "/potato-market-front/static/css/main.a76745ea.chunk.css"
   },
   {
-    "revision": "b4d852dbc4099b74ad04",
-    "url": "/potato-market-front/static/js/2.d11c53e5.chunk.js"
+    "revision": "4929578f66dd26f1f25f",
+    "url": "/potato-market-front/static/js/2.3ae1b365.chunk.js"
   },
   {
     "revision": "89b0379e7bcda1a468d8b0343aeb4e53",
-    "url": "/potato-market-front/static/js/2.d11c53e5.chunk.js.LICENSE.txt"
+    "url": "/potato-market-front/static/js/2.3ae1b365.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ff2972637b84e5af3e59",
-    "url": "/potato-market-front/static/js/main.152d8dfa.chunk.js"
+    "revision": "0f7e361bd23830ff67d3",
+    "url": "/potato-market-front/static/js/main.152917b7.chunk.js"
   },
   {
     "revision": "f069b6a259dd7575afcc",
