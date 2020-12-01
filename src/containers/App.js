@@ -9,7 +9,7 @@ const App = () => {
     nav: false,
     toolTipsOpen: false,
   });
-  const [isloggedin, setIsloggedin] = useState(undefined);
+  const [isloggedin, setIsloggedin] = useState(false);
 
   const navigationDrawersHandler = (open) => (event) => {
     if (

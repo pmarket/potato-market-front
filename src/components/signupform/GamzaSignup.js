@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Form from './Form';
 
-const GamzaSignup = ({ isloggedin, setIsloggedin }) => {
+const GamzaSignup = ({ isloggedin }) => {
   const history = useHistory();
   useEffect(() => {
     if (isloggedin) {
@@ -12,7 +12,7 @@ const GamzaSignup = ({ isloggedin, setIsloggedin }) => {
   });
   return (
     <div>
-      <Form setIsloggedin={setIsloggedin} />
+      <Form />
     </div>
   );
 };

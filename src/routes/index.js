@@ -37,14 +37,17 @@ const Routes = ({
     <Route
       exact
       path="/signup/google"
-      component={() => <SignUpGoogle googleProfile={googleProfile} />}
+      component={() => (
+        <SignUpGoogle
+          googleProfile={googleProfile}
+          setIsloggedin={setIsloggedin}
+        />
+      )}
     />
     <Route exact path="/" component={() => <Home isloggedin={isloggedin} />} />
     <Route
       path="/signup"
-      component={() => (
-        <GamzaSignup isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
-      )}
+      component={() => <GamzaSignup isloggedin={isloggedin} />}
     />
     <Route
       exact

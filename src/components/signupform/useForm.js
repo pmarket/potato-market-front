@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import AuthApi from 'apis/AuthApi';
-import AuthService from 'services/AuthService';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
@@ -30,13 +29,8 @@ const useForm = (callback, validate) => {
       return;
     }
     try {
-      const response = await AuthApi.localSignUp(
-        values.email,
-        values.username,
-        values.password,
-      );
-      AuthService.setAuthToken(response.data.data);
-      history.push('/board');
+      await AuthApi.localSignUp(values.email, values.username, values.password);
+      history.push('/loginmain');
     } catch (error) {
       alert(error.response.data.message);
     }

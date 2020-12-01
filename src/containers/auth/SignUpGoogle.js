@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUpGoogle = ({ googleProfile }) => {
+const SignUpGoogle = ({ googleProfile, setIsloggedin }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -53,6 +53,7 @@ const SignUpGoogle = ({ googleProfile }) => {
         googleProfile.profileUrl,
       );
       AuthService.setAuthToken(response.data.data);
+      setIsloggedin(true);
       history.push('/');
     } catch (error) {
       alert(error.response.data.message);
