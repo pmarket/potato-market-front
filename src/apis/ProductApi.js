@@ -30,5 +30,7 @@ const deleteMyProduct = (productId) => {
     HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };
-
+/*const soldMyProduct = (productId) =>{
+return;
+};*/
 export default { registerProduct, retrieveMyProduct, deleteMyProduct };

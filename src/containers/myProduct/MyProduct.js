@@ -47,10 +47,18 @@ export default function MyProduct() {
     history.push(`/detailpage/${productId}`);
   };
 
-  const onSoldOutButtonClick = (productId) => {
-    // TODO 여기다가 구현
-    alert('판매 완료 버튼');
+  const onSoldOutButtonClick = async (productId) => {
+    if (!window.confirm('판매완료 하시겠습니까?')){
+      return;
+    }
+    try {
+      await ProductApi.deleteMyProduct(productId);
+      setMyProducts(myProducts.filter((product) => product.id !== productId));
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
+
 
   return (
     <div className={classes.root}>
