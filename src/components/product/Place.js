@@ -8,7 +8,7 @@ const Place = ({ handleOnClickPlace }) => {
         <label className="placelabel">
           <input
             type="radio"
-            value="main"
+            value="본관"
             name="places"
             onChange={handleOnClickPlace}
           />
@@ -18,7 +18,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="graduate"
+            value="대학원관"
             onChange={handleOnClickPlace}
           />
           대학원관
@@ -26,7 +26,7 @@ const Place = ({ handleOnClickPlace }) => {
         <label className="placelabel">
           <input
             type="radio"
-            value="student"
+            value="학생회관"
             name="places"
             onChange={handleOnClickPlace}
           />
@@ -36,7 +36,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="science"
+            value="이공관"
             onChange={handleOnClickPlace}
           />
           이공관
@@ -45,7 +45,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="vision"
+            value="비전관"
             onChange={handleOnClickPlace}
           />
           비전관
@@ -56,7 +56,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="design"
+            value="디자인관"
             onChange={handleOnClickPlace}
           />
           디자인관
@@ -65,7 +65,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="music"
+            value="음악관"
             onChange={handleOnClickPlace}
           />
           음악관
@@ -74,7 +74,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="lodem"
+            value="로뎀관"
             onChange={handleOnClickPlace}
           />
           로뎀관
@@ -83,7 +83,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="yongbi"
+            value="영산비전센터"
             onChange={handleOnClickPlace}
           />
           영산비전센터
@@ -92,7 +92,7 @@ const Place = ({ handleOnClickPlace }) => {
           <input
             type="radio"
             name="places"
-            value="theology"
+            value="신학관"
             onChange={handleOnClickPlace}
           />
           신학관
