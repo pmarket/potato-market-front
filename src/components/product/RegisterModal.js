@@ -4,8 +4,7 @@ import Dialog from 'elements/Dialog';
 import RegisterCard from 'components/product/RegisterCard';
 import ProductApi from 'apis/ProductApi';
 import UploadApi from 'apis/UploadApi';
-
-const baseImage = 'https://byline.network/wp-content/uploads/2017/07/mac_1.jpg';
+import baseImage from 'assets/images/gamza1.jpg';
 
 const RegisterModal = ({
   toolTipsOpen,
