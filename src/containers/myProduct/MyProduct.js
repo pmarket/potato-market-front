@@ -54,13 +54,10 @@ export default function MyProduct() {
     }
     try {
       await ProductApi.soldMyProduct(productId);
+      setIsChanged(!isChanged);
     } catch (error) {
       alert(error.response.data.message);
     }
-  };
-
-  const customSetIsChanged = () => {
-    setIsChanged(!isChanged);
   };
 
   return (
@@ -68,7 +65,6 @@ export default function MyProduct() {
       <List className={classes.list}>
         <Grid container spacing={2} alignContent="center">
           <MyProductItemList
-            setIsChanged={customSetIsChanged}
             myProducts={myProducts.filter((product) => !product.is_sold)}
             onDetailButtonOnClick={onDetailButtonOnClick}
             onDeleteButtonClick={onDeleteButtonClick}
