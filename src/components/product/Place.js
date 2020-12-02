@@ -1,7 +1,7 @@
 import React from 'react';
 import './Place.css';
 
-const Place = (handleOnClickPlace) => {
+const Place = (handleOnClickPlace, place) => {
   return (
     <div className="place-container">
       <div className="pradiocontainer">
