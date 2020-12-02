@@ -1,0 +1,18 @@
+.place-container {
+  color: rgb(14, 14, 136);
+  font-weight: bold;
+}
+.placelabel {
+}
+.pradiocontainer {
+  margin-top: 10px;
+  margin-left: 120px;
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pmodalcontiner {
+  margin-bottom: 5px;
+  margin-left: 415px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
-
+import Place from './Place';
 import { TextField, Card, makeStyles, IconButton } from '@material-ui/core';
+import TransitionsModal from './Placemodal';
 import { PhotoCamera } from '@material-ui/icons';
 
 const useStyles = makeStyles(() => ({
@@ -71,6 +72,8 @@ const RegisterCard = ({
               </IconButton>
             </label>
           </div>
+          <TransitionsModal />
+          <Place />
           <TextField
             id="outlined-name"
             label="Title"
