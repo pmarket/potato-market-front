@@ -19,18 +19,18 @@ export default function MyProduct() {
   const classes = useStyles();
   const history = useHistory();
   const [myProducts, setMyProducts] = useState([]);
+  const [isChanged, setIsChanged] = useState(false);
 
   useEffect(() => {
     ProductApi.retrieveMyProduct()
       .then((response) => {
         setMyProducts(response.data.data);
-        console.log(response);
       })
       .catch((error) => {
         alert(error.response.data.message);
         history.push('/');
       });
-  }, [history]);
+  }, [history, isChanged]);
 
   const onDeleteButtonClick = async (productId) => {
     if (!window.confirm('정말 삭제하시겠습니까?')) {
@@ -59,11 +59,16 @@ export default function MyProduct() {
     }
   };
 
+  const customSetIsChanged = () => {
+    setIsChanged(!isChanged);
+  };
+
   return (
     <div className={classes.root}>
       <List className={classes.list}>
         <Grid container spacing={2} alignContent="center">
           <MyProductItemList
+            setIsChanged={customSetIsChanged}
             myProducts={myProducts.filter((product) => !product.is_sold)}
             onDetailButtonOnClick={onDetailButtonOnClick}
             onDeleteButtonClick={onDeleteButtonClick}

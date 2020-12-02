@@ -6,6 +6,7 @@ import DeleteButton from 'components/myProduct/DeleteButton';
 import SoldOutButton from 'components/myProduct/SoldOutBotton';
 
 const MyProductItemList = ({
+  setIsChanged,
   myProducts,
   onDetailButtonOnClick,
   onDeleteButtonClick,
@@ -41,6 +42,7 @@ const MyProductItemList = ({
               <ListItemSecondaryAction>
                 <SoldOutButton
                   product={product}
+                  setIsChanged={setIsChanged}
                   onSoldOutButtonClick={onSoldOutButtonClick}
                 />
               </ListItemSecondaryAction>
