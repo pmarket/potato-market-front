@@ -19,6 +19,7 @@ export default function MyProduct() {
   const classes = useStyles();
   const history = useHistory();
   const [myProducts, setMyProducts] = useState([]);
+  const [isChanged, setIsChanged] = useState(false);
 
   useEffect(() => {
     ProductApi.retrieveMyProduct()
@@ -29,7 +30,7 @@ export default function MyProduct() {
         alert(error.response.data.message);
         history.push('/');
       });
-  }, [history]);
+  }, [history, isChanged]);
 
   const onDeleteButtonClick = async (productId) => {
     if (!window.confirm('정말 삭제하시겠습니까?')) {
@@ -47,20 +48,37 @@ export default function MyProduct() {
     history.push(`/detailpage/${productId}`);
   };
 
+  const onSoldOutButtonClick = async (productId) => {
+    if (!window.confirm('판매완료 하시겠습니까?')) {
+      return;
+    }
+    try {
+      await ProductApi.soldMyProduct(productId);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
+
+  const customSetIsChanged = () => {
+    setIsChanged(!isChanged);
+  };
+
   return (
     <div className={classes.root}>
       <List className={classes.list}>
         <Grid container spacing={2} alignContent="center">
           <MyProductItemList
-            myProducts={myProducts}
+            setIsChanged={customSetIsChanged}
+            myProducts={myProducts.filter((product) => !product.is_sold)}
             onDetailButtonOnClick={onDetailButtonOnClick}
             onDeleteButtonClick={onDeleteButtonClick}
+            onSoldOutButtonClick={onSoldOutButtonClick}
             title="판매 중인 리스트"
             deleteButton
+            soldoutButton
           />
           <MyProductItemList
-            myProducts={myProducts}
-            // myProducts={myProducts.filter((product) => product.is_sold)}
+            myProducts={myProducts.filter((product) => product.is_sold)}
             onDetailButtonOnClick={onDetailButtonOnClick}
             title="판매 완료된 물건 리스트 (임시 데이터)"
           />

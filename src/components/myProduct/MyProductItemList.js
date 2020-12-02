@@ -3,43 +3,55 @@ import { Grid, Typography, ListItemSecondaryAction } from '@material-ui/core';
 
 import MyProductItem from 'components/myProduct/MyProductItem';
 import DeleteButton from 'components/myProduct/DeleteButton';
+import SoldOutButton from 'components/myProduct/SoldOutBotton';
 
 const MyProductItemList = ({
+  setIsChanged,
   myProducts,
   onDetailButtonOnClick,
   onDeleteButtonClick,
   title,
   deleteButton,
+  onSoldOutButtonClick,
 }) => {
   return (
     <Grid item xs={12} md={6}>
       <Typography variant="h6" align="center" gutterBottom>
         {title}
       </Typography>
-      {myProducts
-        .filter((product) => !product.is_sold)
-        .map((product) => {
-          return (
-            <MyProductItem
-              key={product.id}
-              product={product}
-              onDetailButtonOnClick={() => {
-                onDetailButtonOnClick(product.id);
-              }}
-            >
-              {deleteButton ? (
-                <ListItemSecondaryAction>
-                  <DeleteButton
-                    product={product}
-                    onDeleteButtonClick={onDeleteButtonClick}
-                  />
-                </ListItemSecondaryAction>
-              ) : (
-                <></>
-              )}
-            </MyProductItem>
-          );
-        })}
+      {myProducts.map((product) => {
+        return (
+          <MyProductItem
+            key={product.id}
+            product={product}
+            onDetailButtonOnClick={() => {
+              onDetailButtonOnClick(product.id);
+            }}
+          >
+            {deleteButton ? (
+              <ListItemSecondaryAction>
+                <DeleteButton
+                  product={product}
+                  onDeleteButtonClick={onDeleteButtonClick}
+                />
+              </ListItemSecondaryAction>
+            ) : (
+              <></>
+            )}
+            {deleteButton ? (
+              <ListItemSecondaryAction>
+                <SoldOutButton
+                  product={product}
+                  setIsChanged={setIsChanged}
+                  onSoldOutButtonClick={onSoldOutButtonClick}
+                />
+              </ListItemSecondaryAction>
+            ) : (
+              <></>
+            )}
+          </MyProductItem>
+        );
+      })}
     </Grid>
   );
 };
