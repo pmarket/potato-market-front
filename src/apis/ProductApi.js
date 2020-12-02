@@ -31,6 +31,9 @@ const deleteMyProduct = (productId) => {
   );
 };
 /*const soldMyProduct = (productId) =>{
-return;
+return axios.soldout(
+  `${REACT_APP_API_URI}/api/v1/product?productId=${productId}`,
+  HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
+);
 };*/
 export default { registerProduct, retrieveMyProduct, deleteMyProduct };
