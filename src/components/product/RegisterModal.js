@@ -16,6 +16,7 @@ const RegisterModal = ({
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [content, setContent] = useState('');
+  const [place, setPlace] = useState('');
   const [profileUrl, setProfileUrl] = useState(baseImage);
 
   const clearField = () => {
@@ -23,6 +24,7 @@ const RegisterModal = ({
     setPrice(0);
     setContent('');
     setProfileUrl(baseImage);
+    setPlace('');
   };
 
   const handleOnCloseTooltips = () => {
@@ -42,13 +44,17 @@ const RegisterModal = ({
     setContent(event.target.value);
   };
 
+  const handleOnClickPlace = (event) => {
+    setPlace(event.target.value);
+  };
+
   const onClickRegisterButton = async () => {
     if (!(name && price)) {
       alert('정보를 입력해주세요!');
       return;
     }
     try {
-      await ProductApi.registerProduct(name, price, content, profileUrl);
+      await ProductApi.registerProduct(name, price, content, profileUrl, place);
       clearField();
       handleCloseTooltips();
       setProducts(
@@ -58,6 +64,7 @@ const RegisterModal = ({
           price,
           content,
           profile_url: profileUrl,
+          place,
         }),
       );
       window.location.reload();
@@ -82,9 +89,11 @@ const RegisterModal = ({
         name={name}
         price={price}
         content={content}
+        place={place}
         handleChange={handleChange}
         handleOnChangePrice={handleOnChangePrice}
         handleOnChangeContent={handleOnChangeContent}
+        handleOnClickPlace={handleOnClickPlace}
         profileUrl={profileUrl}
         fileOnChange={fileOnChange}
       />

@@ -38,6 +38,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const RegisterCard = ({
+  place,
+  handleOnClickPlace,
   name,
   price,
   handleChange,
@@ -73,7 +75,7 @@ const RegisterCard = ({
             </label>
           </div>
           <TransitionsModal />
-          <Place />
+          <Place place={place} handleOnClickPlace={handleOnClickPlace} />
           <TextField
             id="outlined-name"
             label="Title"

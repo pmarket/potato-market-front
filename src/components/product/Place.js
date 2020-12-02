@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Place.css';
 
-const Place = () => {
-  const [place, setPlace] = useState('');
-
-  const handleOnClickPlace = (e) => {
-    setPlace(e.target.value);
-  };
-
+const Place = (handleOnClickPlace) => {
   return (
     <div className="place-container">
       <div className="pradiocontainer">
@@ -15,17 +9,17 @@ const Place = () => {
           <input
             type="radio"
             value="main"
-            onClick={handleOnClickPlace}
-            checked={place === 'main'}
+            name="places"
+            onChange={() => handleOnClickPlace}
           />
           본관
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="graduate"
-            onClick={handleOnClickPlace}
-            checked={place === 'graduate'}
+            onChange={() => handleOnClickPlace}
           />
           대학원관
         </label>
@@ -33,26 +27,26 @@ const Place = () => {
           <input
             type="radio"
             value="student"
-            onClick={handleOnClickPlace}
-            checked={place === 'student'}
+            name="places"
+            onChange={() => handleOnClickPlace}
           />
           학생회관
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="science"
-            onClick={handleOnClickPlace}
-            checked={place === 'science'}
+            onChange={() => handleOnClickPlace}
           />
           이공관
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="vision"
-            onClick={handleOnClickPlace}
-            checked={place === 'vision'}
+            onChange={() => handleOnClickPlace}
           />
           비전관
         </label>
@@ -61,45 +55,45 @@ const Place = () => {
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="design"
-            onClick={handleOnClickPlace}
-            checked={place === 'design'}
+            onChange={() => handleOnClickPlace}
           />
           디자인관
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="music"
-            onClick={handleOnClickPlace}
-            checked={place === 'music'}
+            onChange={() => handleOnClickPlace}
           />
           음악관
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="lodem"
-            onClick={handleOnClickPlace}
-            checked={place === 'lodem'}
+            onChange={() => handleOnClickPlace}
           />
           로뎀관
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="yongbi"
-            onClick={handleOnClickPlace}
-            checked={place === 'yongbi'}
+            onChange={() => handleOnClickPlace}
           />
           영산비전센터
         </label>
         <label className="placelabel">
           <input
             type="radio"
+            name="places"
             value="theology"
-            onClick={handleOnClickPlace}
-            checked={place === 'theology'}
+            onChange={() => handleOnClickPlace}
           />
           신학관
         </label>

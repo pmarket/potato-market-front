@@ -78,7 +78,6 @@ const DetailPage = () => {
         alert(error.response.data.message);
       });
   };
-
   const commentslist = comments.map((comment) => (
     <li key={comment.id}>
       <div className="li-container">
@@ -112,6 +111,7 @@ const DetailPage = () => {
       </div>
     </li>
   ));
+  console.log(product);
   return (
     <>
       <Link to="/board">게시판으로 돌아가기</Link>
