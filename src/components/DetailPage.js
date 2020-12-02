@@ -78,7 +78,6 @@ const DetailPage = () => {
         alert(error.response.data.message);
       });
   };
-
   const commentslist = comments.map((comment) => (
     <li key={comment.id}>
       <div className="li-container">
@@ -112,6 +111,7 @@ const DetailPage = () => {
       </div>
     </li>
   ));
+
   return (
     <>
       <Link to="/board">게시판으로 돌아가기</Link>
@@ -133,8 +133,9 @@ const DetailPage = () => {
         </div>
         <div className="detail-container-mid2">
           <div className="mid2-info">
-            <h1>{product.name}</h1>
-            {product.price}원
+            <div className="t1">제목:{product.name}</div>
+            <div className="t2">거래위치:{product.place}</div>
+            가격:{product.price}원
           </div>
         </div>
         <div className="detail-container-bot">

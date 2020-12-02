@@ -4,7 +4,7 @@ import AuthService from 'services/AuthService';
 
 const { REACT_APP_API_URI } = process.env;
 
-const registerProduct = (name, price, content, profileUrl) => {
+const registerProduct = (name, price, content, profileUrl, place) => {
   return axios.post(
     `${REACT_APP_API_URI}/api/v1/product`,
     {
@@ -12,6 +12,7 @@ const registerProduct = (name, price, content, profileUrl) => {
       price,
       content,
       profileUrl,
+      place,
     },
     HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
