@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { makeStyles } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
@@ -19,6 +20,15 @@ const NotFound = () => {
         <AlertTitle>404 Error</AlertTitle>
         Not Found
       </Alert>
+=======
+import gamza from 'assets/images/gamza.jpg';
+
+const NotFound = () => {
+  return (
+    <div className="App">
+      404 not pages !
+      <img src={gamza} alt="Not Found" />
+>>>>>>> 4a2a354749f76d50d2789380882bcc66a7e81657
     </div>
   );
 };
