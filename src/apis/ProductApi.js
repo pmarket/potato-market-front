@@ -33,6 +33,9 @@ const deleteMyProduct = (productId) => {
 const soldMyProduct = (productId) => {
   return axios.put(
     `${REACT_APP_API_URI}/api/v1/product/is_done`,
+    {
+      productId,
+    },
     HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };

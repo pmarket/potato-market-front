@@ -24,6 +24,7 @@ export default function MyProduct() {
     ProductApi.retrieveMyProduct()
       .then((response) => {
         setMyProducts(response.data.data);
+        console.log(response);
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -53,7 +54,6 @@ export default function MyProduct() {
     }
     try {
       await ProductApi.soldMyProduct(productId);
-      setMyProducts(myProducts.filter((product) => product.id !== productId));
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -64,7 +64,7 @@ export default function MyProduct() {
       <List className={classes.list}>
         <Grid container spacing={2} alignContent="center">
           <MyProductItemList
-            myProducts={myProducts}
+            myProducts={myProducts.filter((product) => !product.is_sold)}
             onDetailButtonOnClick={onDetailButtonOnClick}
             onDeleteButtonClick={onDeleteButtonClick}
             onSoldOutButtonClick={onSoldOutButtonClick}

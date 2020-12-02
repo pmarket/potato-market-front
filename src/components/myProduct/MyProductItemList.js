@@ -18,40 +18,38 @@ const MyProductItemList = ({
       <Typography variant="h6" align="center" gutterBottom>
         {title}
       </Typography>
-      {myProducts
-        .filter((product) => !product.is_sold)
-        .map((product) => {
-          return (
-            <MyProductItem
-              key={product.id}
-              product={product}
-              onDetailButtonOnClick={() => {
-                onDetailButtonOnClick(product.id);
-              }}
-            >
-              {deleteButton ? (
-                <ListItemSecondaryAction>
-                  <DeleteButton
-                    product={product}
-                    onDeleteButtonClick={onDeleteButtonClick}
-                  />
-                </ListItemSecondaryAction>
-              ) : (
-                <></>
-              )}
-              {deleteButton ? (
-                <ListItemSecondaryAction>
-                  <SoldOutButton
-                    product={product}
-                    onSoldOutButtonClick={onSoldOutButtonClick}
-                  />
-                </ListItemSecondaryAction>
-              ) : (
-                <></>
-              )}
-            </MyProductItem>
-          );
-        })}
+      {myProducts.map((product) => {
+        return (
+          <MyProductItem
+            key={product.id}
+            product={product}
+            onDetailButtonOnClick={() => {
+              onDetailButtonOnClick(product.id);
+            }}
+          >
+            {deleteButton ? (
+              <ListItemSecondaryAction>
+                <DeleteButton
+                  product={product}
+                  onDeleteButtonClick={onDeleteButtonClick}
+                />
+              </ListItemSecondaryAction>
+            ) : (
+              <></>
+            )}
+            {deleteButton ? (
+              <ListItemSecondaryAction>
+                <SoldOutButton
+                  product={product}
+                  onSoldOutButtonClick={onSoldOutButtonClick}
+                />
+              </ListItemSecondaryAction>
+            ) : (
+              <></>
+            )}
+          </MyProductItem>
+        );
+      })}
     </Grid>
   );
 };
