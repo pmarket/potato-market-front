@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => ({
 const List = (props) => {
   const classes = useStyles();
   const { product } = props;
+
   return (
     <div key={product.id} className="card">
       <Card className={classes.root}>
@@ -49,11 +50,21 @@ const List = (props) => {
           subheader={formatDate(product.createdDateTime)}
         />
         <Link to={`/detailpage/${product.id}`}>
-          <CardMedia
-            className={classes.media}
-            image={product.profileUrl}
-            title={product.name}
-          />
+          {product.isSold ? (
+            // 판매 완료시
+            <CardMedia
+              className={classes.media}
+              image={product.profileUrl}
+              title={product.name}
+            />
+          ) : (
+            // 아직 판매 중일 경우
+            <CardMedia
+              className={classes.media}
+              image={product.profileUrl}
+              title={product.name}
+            />
+          )}
         </Link>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
