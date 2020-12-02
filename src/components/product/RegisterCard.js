@@ -1,8 +1,8 @@
 import React from 'react';
-import Place from './Place';
 import { TextField, Card, makeStyles, IconButton } from '@material-ui/core';
-import TransitionsModal from './Placemodal';
 import { PhotoCamera } from '@material-ui/icons';
+import TransitionsModal from './Placemodal';
+import Place from './Place';
 
 const useStyles = makeStyles(() => ({
   root: {
