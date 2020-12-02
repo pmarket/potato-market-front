@@ -48,17 +48,16 @@ export default function MyProduct() {
   };
 
   const onSoldOutButtonClick = async (productId) => {
-    if (!window.confirm('판매완료 하시겠습니까?')){
+    if (!window.confirm('판매완료 하시겠습니까?')) {
       return;
     }
     try {
-      await ProductApi.deleteMyProduct(productId);
+      await ProductApi.soldMyProduct(productId);
       setMyProducts(myProducts.filter((product) => product.id !== productId));
     } catch (error) {
       alert(error.response.data.message);
     }
   };
-
 
   return (
     <div className={classes.root}>
@@ -71,6 +70,7 @@ export default function MyProduct() {
             onSoldOutButtonClick={onSoldOutButtonClick}
             title="판매 중인 리스트"
             deleteButton
+            soldoutButton
           />
           <MyProductItemList
             myProducts={myProducts.filter((product) => product.is_sold)}

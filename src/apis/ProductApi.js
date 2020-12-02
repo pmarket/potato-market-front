@@ -30,10 +30,15 @@ const deleteMyProduct = (productId) => {
     HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };
-/*const soldMyProduct = (productId) =>{
-return axios.soldout(
-  `${REACT_APP_API_URI}/api/v1/product?productId=${productId}`,
-  HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
-);
-};*/
-export default { registerProduct, retrieveMyProduct, deleteMyProduct };
+const soldMyProduct = (productId) => {
+  return axios.put(
+    `${REACT_APP_API_URI}/api/v1/product/is_done`,
+    HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
+  );
+};
+export default {
+  registerProduct,
+  retrieveMyProduct,
+  deleteMyProduct,
+  soldMyProduct,
+};
