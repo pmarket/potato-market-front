@@ -1,26 +1,27 @@
 {
   "files": {
     "main.css": "/potato-market-front/static/css/main.0f4b4e8b.chunk.css",
-    "main.js": "/potato-market-front/static/js/main.527a9fc2.chunk.js",
-    "main.js.map": "/potato-market-front/static/js/main.527a9fc2.chunk.js.map",
+    "main.js": "/potato-market-front/static/js/main.9c34992c.chunk.js",
+    "main.js.map": "/potato-market-front/static/js/main.9c34992c.chunk.js.map",
     "runtime-main.js": "/potato-market-front/static/js/runtime-main.9595b021.js",
     "runtime-main.js.map": "/potato-market-front/static/js/runtime-main.9595b021.js.map",
-    "static/js/2.39bf4289.chunk.js": "/potato-market-front/static/js/2.39bf4289.chunk.js",
-    "static/js/2.39bf4289.chunk.js.map": "/potato-market-front/static/js/2.39bf4289.chunk.js.map",
+    "static/js/2.97f7c53b.chunk.js": "/potato-market-front/static/js/2.97f7c53b.chunk.js",
+    "static/js/2.97f7c53b.chunk.js.map": "/potato-market-front/static/js/2.97f7c53b.chunk.js.map",
     "index.html": "/potato-market-front/index.html",
-    "precache-manifest.8aa2cf47d806cfea5f6bc1eae612a579.js": "/potato-market-front/precache-manifest.8aa2cf47d806cfea5f6bc1eae612a579.js",
+    "precache-manifest.728daaced439a15fb1f9fefb4cd69d4a.js": "/potato-market-front/precache-manifest.728daaced439a15fb1f9fefb4cd69d4a.js",
     "service-worker.js": "/potato-market-front/service-worker.js",
     "static/css/main.0f4b4e8b.chunk.css.map": "/potato-market-front/static/css/main.0f4b4e8b.chunk.css.map",
-    "static/js/2.39bf4289.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.39bf4289.chunk.js.LICENSE.txt",
+    "static/js/2.97f7c53b.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.97f7c53b.chunk.js.LICENSE.txt",
     "static/media/gamza.jpg": "/potato-market-front/static/media/gamza.77b701be.jpg",
     "static/media/Home.css": "/potato-market-front/static/media/gamza1.8ad44ac4.jpg",
     "static/media/location.png": "/potato-market-front/static/media/location.55a02cf9.png",
-    "static/media/logingamza.jpg": "/potato-market-front/static/media/logingamza.48276648.jpg"
+    "static/media/logingamza.jpg": "/potato-market-front/static/media/logingamza.48276648.jpg",
+    "static/media/soldout.jpg": "/potato-market-front/static/media/soldout.77151b49.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.9595b021.js",
-    "static/js/2.39bf4289.chunk.js",
+    "static/js/2.97f7c53b.chunk.js",
     "static/css/main.0f4b4e8b.chunk.css",
-    "static/js/main.527a9fc2.chunk.js"
+    "static/js/main.9c34992c.chunk.js"
   ]
 }
