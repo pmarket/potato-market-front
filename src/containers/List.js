@@ -14,6 +14,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import { Link } from 'react-router-dom';
 import formatDate from 'utils/DateUtils';
 import './Board.css';
+import soldout from 'assets/images/soldout.jpg';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -54,7 +55,7 @@ const List = (props) => {
             // 판매 완료시
             <CardMedia
               className={classes.media}
-              image={product.profileUrl}
+              image={soldout}
               title={product.name}
             />
           ) : (
