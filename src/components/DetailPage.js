@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import formatDate from 'utils/DateUtils';
 import './DetailPage.css';
 import writer from 'assets/images/wrr.png';
@@ -114,7 +113,6 @@ const DetailPage = () => {
 
   return (
     <>
-      <Link to="/board">게시판으로 돌아가기</Link>
       <div className="detail-container">
         <div className="detail-container-top">
           <img src={product.profileUrl} alt="" />

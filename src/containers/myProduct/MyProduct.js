@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles, List, Grid } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import ProductApi from 'apis/ProductApi';
 import MyProductItemList from 'components/myProduct/MyProductItemList';
 
 const useStyles = makeStyles(() => ({
   root: {
-    marginLeft: '7%',
-    width: '86%',
+    marginLeft: '30%',
+    width: '35%',
+  },
+  bottom: {
+    backgroundColor: '#eacca8',
+    position: 'fixed',
+    width: '100%',
+    bottom: 0,
   },
   list: {
-    backgroundColor: '#eacca8',
+    marginTop: '10%',
+    backgroundColor: 'white',
   },
 }));
 
@@ -20,6 +31,7 @@ export default function MyProduct() {
   const history = useHistory();
   const [myProducts, setMyProducts] = useState([]);
   const [isChanged, setIsChanged] = useState(false);
+  const [isSoldout, setIsSoldOut] = React.useState(false);
 
   useEffect(() => {
     ProductApi.retrieveMyProduct()
@@ -61,25 +73,46 @@ export default function MyProduct() {
   };
 
   return (
-    <div className={classes.root}>
-      <List className={classes.list}>
-        <Grid container spacing={2} alignContent="center">
-          <MyProductItemList
-            myProducts={myProducts.filter((product) => !product.is_sold)}
-            onDetailButtonOnClick={onDetailButtonOnClick}
-            onDeleteButtonClick={onDeleteButtonClick}
-            onSoldOutButtonClick={onSoldOutButtonClick}
-            title="판매 중인 리스트"
-            deleteButton
-            soldoutButton
-          />
-          <MyProductItemList
-            myProducts={myProducts.filter((product) => product.is_sold)}
-            onDetailButtonOnClick={onDetailButtonOnClick}
-            title="판매 완료된 물건 리스트 (임시 데이터)"
-          />
-        </Grid>
-      </List>
+    <div>
+      <div className={classes.root}>
+        <List className={classes.list}>
+          <Grid container spacing={2} alignContent="center">
+            {isSoldout ? (
+              <MyProductItemList
+                myProducts={myProducts.filter((product) => product.is_sold)}
+                onDetailButtonOnClick={onDetailButtonOnClick}
+              />
+            ) : (
+              <MyProductItemList
+                myProducts={myProducts.filter((product) => !product.is_sold)}
+                onDetailButtonOnClick={onDetailButtonOnClick}
+                onDeleteButtonClick={onDeleteButtonClick}
+                onSoldOutButtonClick={onSoldOutButtonClick}
+                deleteButton
+              />
+            )}
+          </Grid>
+        </List>
+      </div>
+      <BottomNavigation
+        value={isSoldout}
+        onChange={(event, newValue) => {
+          setIsSoldOut(newValue);
+        }}
+        showLabels
+        className={classes.bottom}
+      >
+        <BottomNavigationAction
+          label="판매 중인 상품"
+          value={false}
+          icon={<RestoreIcon />}
+        />
+        <BottomNavigationAction
+          label="판매 완료 상품"
+          value
+          icon={<FavoriteIcon />}
+        />
+      </BottomNavigation>
     </div>
   );
 }

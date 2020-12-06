@@ -8,11 +8,14 @@ import {
 
 const MyProductItem = ({ children, product, onDetailButtonOnClick }) => {
   return (
-    <ListItem button onClick={onDetailButtonOnClick} dense divider>
+    <ListItem button onClick={onDetailButtonOnClick} divider>
       <ListItemAvatar>
         <Avatar src={product.profile_url} />
       </ListItemAvatar>
-      <ListItemText primary={product.name} secondary={`${product.price}원`} />
+      <ListItemText
+        primary={product.name}
+        secondary={`${product.place} ${product.price}원`}
+      />
       {children}
     </ListItem>
   );

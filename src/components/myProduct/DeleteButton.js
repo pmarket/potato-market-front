@@ -7,6 +7,7 @@ const DeleteButton = ({ onDeleteButtonClick, product }) => {
     <IconButton
       edge="end"
       aria-label="delete"
+      color="primary"
       onClick={() => {
         onDeleteButtonClick(product.id);
       }}

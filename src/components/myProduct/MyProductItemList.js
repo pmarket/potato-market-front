@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, ListItemSecondaryAction } from '@material-ui/core';
+import { Grid, ListItemSecondaryAction } from '@material-ui/core';
 
 import MyProductItem from 'components/myProduct/MyProductItem';
 import DeleteButton from 'components/myProduct/DeleteButton';
@@ -9,15 +9,11 @@ const MyProductItemList = ({
   myProducts,
   onDetailButtonOnClick,
   onDeleteButtonClick,
-  title,
   deleteButton,
   onSoldOutButtonClick,
 }) => {
   return (
-    <Grid item xs={12} md={6}>
-      <Typography variant="h6" align="center" gutterBottom>
-        {title}
-      </Typography>
+    <Grid item xs={6} md={12}>
       {myProducts.map((product) => {
         return (
           <MyProductItem

@@ -1,14 +1,19 @@
 import React from 'react';
-import { List } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
+import { List } from '@material-ui/core';
 import NavigationItem from 'components/navigator/NavigationItem';
+import NavigationCustomItem from 'components/navigator/NavigationCustomItem';
+import {
+  Backspace as BackspaceIcon,
+  Home as HomeIcon,
+} from '@material-ui/icons';
 
 const navigatorList = [
-  { id: 1, title: '메인 페이지', link: '/', logout: true, login: true },
   { id: 2, title: '거래 게시판', link: '/board', logout: false, login: true },
   {
     id: 3,
-    title: '나의 판매 관리',
+    title: '판매 관리',
     link: '/myproduct',
     logout: false,
     login: true,
@@ -19,6 +24,15 @@ const navigatorList = [
 ];
 
 const NavigatorList = ({ navigationDrawersHandler, isloggedin }) => {
+  const history = useHistory();
+
+  const buttonOnClick = (link) => {
+    history.push(link);
+  };
+
+  const buttonGoBackOnClick = () => {
+    history.goBack(1);
+  };
   return (
     <div
       role="presentation"
@@ -26,12 +40,27 @@ const NavigatorList = ({ navigationDrawersHandler, isloggedin }) => {
       onKeyDown={navigationDrawersHandler(false)}
     >
       <List>
+        <NavigationCustomItem
+          title="뒤로가기"
+          buttonOnClick={buttonGoBackOnClick}
+        >
+          <BackspaceIcon />
+        </NavigationCustomItem>
+        <NavigationCustomItem
+          title="메인 페이지"
+          buttonOnClick={() => buttonOnClick('/')}
+        >
+          <HomeIcon />
+        </NavigationCustomItem>
         {isloggedin ? (
           <div>
             {navigatorList
               .filter((navigator) => navigator.login)
               .map((navigator, index) => (
                 <NavigationItem
+                  buttonOnClick={() => {
+                    buttonOnClick(navigator.link);
+                  }}
                   navigator={navigator}
                   key={navigator.id}
                   index={index}
@@ -44,6 +73,9 @@ const NavigatorList = ({ navigationDrawersHandler, isloggedin }) => {
               .filter((navigator) => navigator.logout)
               .map((navigator, index) => (
                 <NavigationItem
+                  buttonOnClick={() => {
+                    buttonOnClick(navigator.link);
+                  }}
                   navigator={navigator}
                   key={navigator.id}
                   index={index}

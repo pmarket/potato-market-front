@@ -1,22 +1,16 @@
 import React from 'react';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { Inbox as InboxIcon, Mail as MailIcon } from '@material-ui/icons';
-import { useHistory } from 'react-router-dom';
+import { Favorite as FavoriteIcon, Loyalty } from '@material-ui/icons';
 
 const listItemTextStyle = {
   paddingRight: '10vh',
 };
 
-const NavigationItem = ({ navigator, index }) => {
-  const history = useHistory();
-
-  const buttonOnClick = (link) => {
-    history.push(link);
-  };
+const NavigationItem = ({ navigator, index, buttonOnClick }) => {
   return (
-    <ListItem button onClick={() => buttonOnClick(navigator.link)}>
+    <ListItem button onClick={buttonOnClick}>
       <ListItemIcon>
-        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+        {index % 2 === 0 ? <FavoriteIcon /> : <Loyalty />}
       </ListItemIcon>
       <ListItemText primary={navigator.title} style={listItemTextStyle} />
     </ListItem>

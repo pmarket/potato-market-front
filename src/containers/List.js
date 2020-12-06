@@ -75,7 +75,8 @@ const List = (props) => {
         </Link>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {product.price}원
+            {product.place === '' ? '미정' : product.place},{' '}
+            {product.price <= 0 ? '무료나눔' : `${product.price}원`}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
