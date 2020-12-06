@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -34,6 +34,12 @@ const useStyles = makeStyles(() => ({
 const List = (props) => {
   const classes = useStyles();
   const { product } = props;
+  const [clicked, setClicked] = useState(false);
+
+  const onClickFav = () => {
+    if (clicked === true) setClicked(false);
+    if (clicked === false) setClicked(true);
+  };
 
   return (
     <div key={product.id} className="card">
@@ -73,8 +79,12 @@ const List = (props) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+          <IconButton aria-label="add to favorites" onClick={onClickFav}>
+            {clicked ? (
+              <FavoriteIcon style={{ fill: 'red' }} />
+            ) : (
+              <FavoriteIcon />
+            )}
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
