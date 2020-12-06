@@ -29,19 +29,13 @@ const MyProductItemList = ({
           >
             {deleteButton ? (
               <ListItemSecondaryAction>
-                <DeleteButton
-                  product={product}
-                  onDeleteButtonClick={onDeleteButtonClick}
-                />
-              </ListItemSecondaryAction>
-            ) : (
-              <></>
-            )}
-            {deleteButton ? (
-              <ListItemSecondaryAction>
                 <SoldOutButton
                   product={product}
                   onSoldOutButtonClick={onSoldOutButtonClick}
+                />
+                <DeleteButton
+                  product={product}
+                  onDeleteButtonClick={onDeleteButtonClick}
                 />
               </ListItemSecondaryAction>
             ) : (
