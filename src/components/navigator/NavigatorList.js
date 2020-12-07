@@ -14,7 +14,7 @@ const navigatorList = [
   {
     id: 3,
     title: '판매 관리',
-    link: '/myproduct',
+    link: '/board/myboard',
     logout: false,
     login: true,
   },

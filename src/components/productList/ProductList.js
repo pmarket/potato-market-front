@@ -62,7 +62,7 @@ const ProductList = (props) => {
           title={product.name}
           subheader={formatDate(product.createdDateTime)}
         />
-        <Link to={`/detailpage/${product.id}`}>
+        <Link to={`/board/detail/${product.id}`}>
           {product.isSold ? (
             // 판매 완료시
             <CardMedia

@@ -42,7 +42,7 @@ const DetailPage = () => {
   };
 
   useEffect(() => {
-    const productId = window.location.href.split('detailpage/')[1];
+    const productId = window.location.href.split('detail/')[1];
 
     axios
       .get(`${REACT_APP_API_URI}/api/v1/product?productId=${productId}`)

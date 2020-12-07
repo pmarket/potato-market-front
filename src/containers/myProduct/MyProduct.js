@@ -57,7 +57,7 @@ export default function MyProduct() {
   };
 
   const onDetailButtonOnClick = (productId) => {
-    history.push(`/detailpage/${productId}`);
+    history.push(`/board/detail/${productId}`);
   };
 
   const onSoldOutButtonClick = async (productId) => {
