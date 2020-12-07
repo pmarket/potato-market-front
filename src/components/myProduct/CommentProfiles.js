@@ -40,9 +40,7 @@ export default function ShowAvatarModal({ product }) {
           {product.commenters.map((comment) => (
             <Avatar alt="" src={comment} />
           ))}
-
-          <Avatar />
-        </AvatarGroup>{' '}
+        </AvatarGroup>
       </IconButton>
 
       <Modal
