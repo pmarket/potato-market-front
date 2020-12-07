@@ -8,7 +8,7 @@ import Button from 'elements/Button';
 import AuthApi from 'apis/AuthApi';
 import AuthService from 'services/AuthService';
 
-import potato from 'assets/images/gamza1.jpg';
+import potato from 'assets/images/gamza.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {

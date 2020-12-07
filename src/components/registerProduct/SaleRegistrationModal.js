@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Button, DialogActions, DialogTitle } from '@material-ui/core';
+
 import Dialog from 'elements/Dialog';
-import RegisterCard from 'components/product/RegisterCard';
+import SaleRegistrationCard from 'components/registerProduct/SaleRegistrationCard';
 import ProductApi from 'apis/ProductApi';
 import UploadApi from 'apis/UploadApi';
-import baseImage from 'assets/images/gamza1.jpg';
 
-const RegisterModal = ({
+import baseImage from 'assets/images/gamza.jpg';
+
+const SaleRegistrationModal = ({
   toolTipsOpen,
   handleCloseTooltips,
   products,
@@ -84,7 +86,7 @@ const RegisterModal = ({
       handleCloseTooltips={handleCloseTooltips}
     >
       <DialogTitle id="alert-dialog-slide-title">상품 등록하기</DialogTitle>
-      <RegisterCard
+      <SaleRegistrationCard
         name={name}
         price={price}
         content={content}
@@ -107,4 +109,4 @@ const RegisterModal = ({
     </Dialog>
   );
 };
-export default RegisterModal;
+export default SaleRegistrationModal;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import GOOGLE_OAUTH_URL from 'constants/GoogleOAuth';
 import googleIcon from 'assets/icon/google_icon.png';
 

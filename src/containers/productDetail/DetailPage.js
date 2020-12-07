@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 import formatDate from 'utils/DateUtils';
-import './DetailPage.css';
+import 'containers/productDetail/DetailPage.css';
+
 import writer from 'assets/images/wrr.png';
-import gamzapf from '../assets/images/profilepic.jpg';
+import gamzapf from 'assets/images/profilepic.jpg';
 
 const { REACT_APP_API_URI } = process.env;
 
@@ -112,53 +114,51 @@ const DetailPage = () => {
   ));
 
   return (
-    <>
-      <div className="detail-container">
-        <div className="detail-container-top">
-          <img src={product.profileUrl} alt="" />
-        </div>
-        <div className="detail-container-mid1">
-          {!sender.profileUrl ? (
-            <img className="mid1-img" src={gamzapf} alt="" />
-          ) : (
-            <img className="mid1-img" src={sender.profileUrl} alt="" />
-          )}
+    <div className="detail-container">
+      <div className="detail-container-top">
+        <img src={product.profileUrl} alt="" />
+      </div>
+      <div className="detail-container-mid1">
+        {!sender.profileUrl ? (
+          <img className="mid1-img" src={gamzapf} alt="" />
+        ) : (
+          <img className="mid1-img" src={sender.profileUrl} alt="" />
+        )}
 
-          <div className="mid1-info">
-            {sender.name}({sender.email})<br />
-            <h6>작성시간:{formatDate(product.createdDateTime)}</h6>
-          </div>
-        </div>
-        <div className="detail-container-mid2">
-          <div className="mid2-info">
-            <div className="t1">제목:{product.name}</div>
-            <div className="t2">거래위치:{product.place}</div>
-            가격:{product.price}원
-          </div>
-        </div>
-        <div className="detail-container-bot">
-          <h4>{product.content}</h4>
-        </div>
-        <div className="comment_container">
-          <h4> 댓글 {comments.length}</h4>
-          <div className="comment_write">
-            <textarea
-              rows="3"
-              value={input}
-              onChange={handleComment}
-              maxLength="100"
-              placeholder="댓글을 입력하시오."
-            />
-            <button type="button" onClick={AddComment}>
-              등록
-            </button>
-          </div>
-        </div>
-        <div className="commentctr">
-          <ul>{commentslist}</ul>
+        <div className="mid1-info">
+          {sender.name}({sender.email})<br />
+          <h6>작성시간:{formatDate(product.createdDateTime)}</h6>
         </div>
       </div>
-    </>
+      <div className="detail-container-mid2">
+        <div className="mid2-info">
+          <div className="t1">제목:{product.name}</div>
+          <div className="t2">거래위치:{product.place}</div>
+          가격:{product.price}원
+        </div>
+      </div>
+      <div className="detail-container-bot">
+        <h4>{product.content}</h4>
+      </div>
+      <div className="comment_container">
+        <h4> 댓글 {comments.length}</h4>
+        <div className="comment_write">
+          <textarea
+            rows="3"
+            value={input}
+            onChange={handleComment}
+            maxLength="100"
+            placeholder="댓글을 입력하시오."
+          />
+          <button type="button" onClick={AddComment}>
+            등록
+          </button>
+        </div>
+      </div>
+      <div className="commentctr">
+        <ul>{commentslist}</ul>
+      </div>
+    </div>
   );
 };
 

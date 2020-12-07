@@ -1,15 +1,16 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import NotFound from 'containers/NotFound';
-import Board from 'containers/Board';
-import Profile from 'containers/auth/Profile';
-import SignUpGoogle from 'containers/auth/SignUpGoogle';
-import GoogleAuthCallback from 'containers/auth/GoogleAuthCallback';
-import Home from 'containers/Home';
-import GamzaSignup from 'components/signupform/GamzaSignup';
+
+import NotFound from 'containers/notFound/NotFound';
+import ProductBoard from 'containers/productList/ProductBoard';
+import Profile from 'containers/myProfile/Profile';
+import SignUpGoogle from 'containers/googleAuth/SignUpGoogle';
+import GoogleAuthCallback from 'containers/googleAuth/GoogleAuthCallback';
+import Home from 'containers/home/Home';
+import GamzaSignup from 'components/signup/GamzaSignup';
 import LoginMain from 'containers/login/LoginMain';
 import MyProduct from 'containers/myProduct/MyProduct';
-import DetailPage from 'components/DetailPage';
+import DetailPage from 'containers/productDetail/DetailPage';
 
 const Routes = ({
   googleProfile,
@@ -18,7 +19,7 @@ const Routes = ({
   setIsloggedin,
 }) => (
   <Switch>
-    <Route exact path="/board" component={Board} />
+    <Route exact path="/board" component={ProductBoard} />
     <Route
       exact
       path="/profile"

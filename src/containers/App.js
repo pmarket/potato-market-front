@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Routes from 'routes';
+
 import Navigator from 'components/navigator/Navigator';
-import Header from './Header';
+import Header from 'containers/header/Header';
 
 const App = () => {
   const [googleProfile, setGoogleProfile] = useState({});

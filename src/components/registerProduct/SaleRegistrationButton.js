@@ -1,9 +1,10 @@
 import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
-import Tooltips from 'elements/Tooltips';
-import RegisterModal from 'components/product/RegisterModal';
 
-const MarketLine = ({ token, setProducts, products }) => {
+import Tooltips from 'elements/Tooltips';
+import SaleRegistrationModal from 'components/registerProduct/SaleRegistrationModal';
+
+const SaleRegistrationButton = ({ token, setProducts, products }) => {
   const [state, setState] = React.useState({
     nav: false,
     toolTipsOpen: false,
@@ -19,7 +20,7 @@ const MarketLine = ({ token, setProducts, products }) => {
 
   return (
     <div>
-      <RegisterModal
+      <SaleRegistrationModal
         toolTipsOpen={state.toolTipsOpen}
         handleCloseTooltips={handleCloseTooltips}
         token={token}
@@ -33,4 +34,4 @@ const MarketLine = ({ token, setProducts, products }) => {
   );
 };
 
-export default MarketLine;
+export default SaleRegistrationButton;

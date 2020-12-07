@@ -1,5 +1,5 @@
 import React from 'react';
-import './Place.css';
+import 'components/registerProduct/Place.css';
 
 const Place = ({ handleOnClickPlace }) => {
   return (

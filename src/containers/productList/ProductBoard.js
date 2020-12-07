@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import querystring from 'querystring';
 import axios from 'axios';
-import List from './List';
-import './Board.css';
-import MarketLine from './MarketLine';
-import Pagination from '../components/Pagination';
+
+import ProductList from 'components/productList/ProductList';
+import 'containers/productList/ProductBoard.css';
+import SaleRegistrationButton from 'components/registerProduct/SaleRegistrationButton';
+import Pagination from 'components/productList/Pagination';
 
 const { REACT_APP_API_URI } = process.env;
 
-const Board = () => {
+const ProductBoard = () => {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(1);
 
@@ -30,13 +31,13 @@ const Board = () => {
   }, [offset]);
   return (
     <>
-      <MarketLine products={products} setProducts={setProducts} />
+      <SaleRegistrationButton products={products} setProducts={setProducts} />
       <div className="row">
         <div className="row center">
           {products.map((product) => (
-            <List key={product.id} product={product}>
+            <ProductList key={product.id} product={product}>
               {products.profileUrl}
-            </List>
+            </ProductList>
           ))}
         </div>
       </div>
@@ -45,4 +46,4 @@ const Board = () => {
   );
 };
 
-export default Board;
+export default ProductBoard;

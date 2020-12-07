@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import LoginForm from './LoginForm';
-import GAMZALOGIN from '../../assets/images/logingamza.jpg';
+import LoginForm from 'containers/login/LoginForm';
+import GAMZALOGIN from 'assets/images/logingamza.jpg';
 import './LoginMain.css';
 
 const LoginMain = ({ isloggedin, setIsloggedin }) => {

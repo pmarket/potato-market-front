@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Avatar,
+  IconButton,
+  Typography,
+} from '@material-ui/core';
+import {
+  Favorite as FavoriteIcon,
+  Share as ShareIcon,
+} from '@material-ui/icons';
+import { red } from '@material-ui/core/colors';
+
 import formatDate from 'utils/DateUtils';
-import './Board.css';
+import 'containers/productList/ProductBoard.css';
+
 import soldout from 'assets/images/soldout.jpg';
 
 const useStyles = makeStyles(() => ({
@@ -31,7 +37,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const List = (props) => {
+const ProductList = (props) => {
   const classes = useStyles();
   const { product } = props;
   const [clicked, setClicked] = useState(false);
@@ -96,4 +102,4 @@ const List = (props) => {
   );
 };
 
-export default List;
+export default ProductList;

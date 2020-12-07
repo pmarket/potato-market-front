@@ -1,13 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
 import { List } from '@material-ui/core';
-import NavigationItem from 'components/navigator/NavigationItem';
-import NavigationCustomItem from 'components/navigator/NavigationCustomItem';
 import {
   Backspace as BackspaceIcon,
   Home as HomeIcon,
 } from '@material-ui/icons';
+
+import NavigationItem from 'components/navigator/NavigationItem';
+import NavigationCustomItem from 'components/navigator/NavigationCustomItem';
 
 const navigatorList = [
   { id: 2, title: '거래 게시판', link: '/board', logout: false, login: true },

@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonSignUp from 'elements/ButtonSignUp';
-import './Home.css';
+import ButtonSignUp from 'components/signup/ButtonSignUp';
+import 'containers/home/Home.css';
 
 const Home = ({ isloggedin }) => {
   return (

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import AuthApi from 'apis/AuthApi';
 
-const useForm = (callback, validate) => {
+const useForm = (validate) => {
   const [values, setValues] = useState({
     username: '',
     email: '',

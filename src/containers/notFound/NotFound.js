@@ -1,11 +1,11 @@
 import React from 'react';
-import gamza from 'assets/images/gamza.jpg';
+import notFound from 'assets/images/notFound.jpg';
 
 const NotFound = () => {
   return (
     <div className="App">
       404 not pages !
-      <img src={gamza} alt="Not Found" />
+      <img src={notFound} alt="Not Found" />
     </div>
   );
 };
