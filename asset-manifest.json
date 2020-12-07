@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/potato-market-front/static/css/main.6bacaed3.chunk.css",
-    "main.js": "/potato-market-front/static/js/main.4d3a211b.chunk.js",
-    "main.js.map": "/potato-market-front/static/js/main.4d3a211b.chunk.js.map",
+    "main.css": "/potato-market-front/static/css/main.88da5690.chunk.css",
+    "main.js": "/potato-market-front/static/js/main.f4d5bc48.chunk.js",
+    "main.js.map": "/potato-market-front/static/js/main.f4d5bc48.chunk.js.map",
     "runtime-main.js": "/potato-market-front/static/js/runtime-main.9595b021.js",
     "runtime-main.js.map": "/potato-market-front/static/js/runtime-main.9595b021.js.map",
     "static/js/2.b4351cbe.chunk.js": "/potato-market-front/static/js/2.b4351cbe.chunk.js",
     "static/js/2.b4351cbe.chunk.js.map": "/potato-market-front/static/js/2.b4351cbe.chunk.js.map",
     "index.html": "/potato-market-front/index.html",
-    "precache-manifest.6093687f2c777adc1b4226ae83022025.js": "/potato-market-front/precache-manifest.6093687f2c777adc1b4226ae83022025.js",
+    "precache-manifest.b6405d6ab15966c5f8de600cb0758273.js": "/potato-market-front/precache-manifest.b6405d6ab15966c5f8de600cb0758273.js",
     "service-worker.js": "/potato-market-front/service-worker.js",
-    "static/css/main.6bacaed3.chunk.css.map": "/potato-market-front/static/css/main.6bacaed3.chunk.css.map",
+    "static/css/main.88da5690.chunk.css.map": "/potato-market-front/static/css/main.88da5690.chunk.css.map",
     "static/js/2.b4351cbe.chunk.js.LICENSE.txt": "/potato-market-front/static/js/2.b4351cbe.chunk.js.LICENSE.txt",
     "static/media/Home.css": "/potato-market-front/static/media/gamza.8ad44ac4.jpg",
     "static/media/location.png": "/potato-market-front/static/media/location.55a02cf9.png",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.9595b021.js",
     "static/js/2.b4351cbe.chunk.js",
-    "static/css/main.6bacaed3.chunk.css",
-    "static/js/main.4d3a211b.chunk.js"
+    "static/css/main.88da5690.chunk.css",
+    "static/js/main.f4d5bc48.chunk.js"
   ]
 }
