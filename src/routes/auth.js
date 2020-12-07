@@ -5,7 +5,7 @@ import NotFound from 'containers/notFound/NotFound';
 import Profile from 'containers/myProfile//Profile';
 import SignUpGoogle from 'containers/googleAuth/SignUpGoogle';
 import GoogleAuthCallback from 'containers/googleAuth/GoogleAuthCallback';
-import GamzaSignup from 'components/signup/GamzaSignup';
+import GamzaSignup from 'containers/signup/GamzaSignup';
 import LoginMain from 'containers/login/LoginMain';
 
 const Routes = ({

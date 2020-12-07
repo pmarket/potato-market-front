@@ -1,4 +1,4 @@
-export default function validateInfo(values) {
+export default function validateSignUpForm(values) {
   const errors = {};
 
   const emailRegex = /\S+@\S+\.\S+/;

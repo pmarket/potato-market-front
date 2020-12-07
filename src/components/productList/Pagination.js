@@ -6,7 +6,7 @@ import 'components/productList/Pagination.css';
 const Pagination = ({ productsperpage, totalPosts }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / productsperpage); i++) {
+  for (let i = 1; i <= Math.ceil(totalPosts / productsperpage); i += 1) {
     pageNumbers.push(i);
   }
 

@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 
 import GoogleButton from 'components/auth/GoogleButton';
 import useForm from 'components/signup/useForm';
-import validate from 'components/signup/validateInfo';
+import validateSignupForm from 'components/signup/validateSignUpForm';
 import 'components/signup/Form.css';
 
 const FormSignup = () => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validate);
+  const { handleChange, values, handleSubmit, errors } = useForm(
+    validateSignupForm,
+  );
   return (
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit}>
