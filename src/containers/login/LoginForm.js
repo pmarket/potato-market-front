@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import GoogleButton from 'components/auth/GoogleButton';
 import AuthApi from 'apis/AuthApi';
@@ -66,6 +66,9 @@ const LoginForm = ({ setIsloggedin }) => {
             height: '70%',
           }}
         />
+        <span className="form-input-login">
+          아직 계정이 없으신가요? 회원가입 <Link to="/auth/signup">HERE</Link>
+        </span>
       </form>
     </div>
   );

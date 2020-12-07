@@ -14,7 +14,7 @@ const MyProductItemList = ({
   onSoldOutButtonClick,
 }) => {
   return (
-    <Grid item xs={6} md={12}>
+    <Grid item xs={12} md={12}>
       {myProducts.map((product) => {
         return (
           <MyProductItem
