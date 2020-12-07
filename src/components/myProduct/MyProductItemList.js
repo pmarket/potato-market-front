@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Avatar,
-  Grid,
-  IconButton,
-  ListItemSecondaryAction,
-} from '@material-ui/core';
+import { Grid, ListItemSecondaryAction } from '@material-ui/core';
 
 import MyProductItem from 'components/myProduct/MyProductItem';
 import DeleteButton from 'components/myProduct/DeleteButton';

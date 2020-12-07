@@ -1,10 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import { IconButton } from '@material-ui/core';
-import { Avatar } from '@material-ui/core';
+import { IconButton, Avatar, Fade, Backdrop, Modal } from '@material-ui/core';
 import { AvatarGroup } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +34,7 @@ export default function ShowAvatarModal({ product }) {
       <IconButton onClick={handleOpen}>
         <AvatarGroup max={4}>
           {product.commenters.map((comment) => (
-            <Avatar alt="" src={comment} />
+            <Avatar key={comment} alt="" src={comment} />
           ))}
         </AvatarGroup>
       </IconButton>
@@ -60,6 +56,7 @@ export default function ShowAvatarModal({ product }) {
             <h1>댓글 쓴 사람들 목록</h1>
             {product.commenters.map((comment) => (
               <li
+                key={comment}
                 style={{ float: 'left', listStyle: 'none', marginLeft: '7px' }}
               >
                 <Avatar alt="" src={comment} />
