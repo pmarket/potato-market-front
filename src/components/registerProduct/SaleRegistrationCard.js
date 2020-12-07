@@ -1,6 +1,5 @@
 import React from 'react';
-import { TextField, Card, makeStyles, IconButton } from '@material-ui/core';
-import { PhotoCamera } from '@material-ui/icons';
+import { TextField, Card, makeStyles, Button } from '@material-ui/core';
 
 import TransitionsModal from 'components/registerProduct/Placemodal';
 import Place from 'components/registerProduct/Place';
@@ -34,7 +33,11 @@ const useStyles = makeStyles(() => ({
     display: 'none',
   },
   fileForm: {
-    marginLeft: '48%',
+    marginLeft: '45%',
+    marginBottom: '5%',
+  },
+  modal: {
+    marginTop: '20px',
   },
 }));
 
@@ -65,17 +68,12 @@ const SaleRegistrationCard = ({
             onChange={fileOnChange}
           />
           <label htmlFor="icon-button-file">
-            <IconButton
-              color="primary"
-              aria-label="upload profileUrl"
-              component="span"
-            >
-              <PhotoCamera />
-            </IconButton>
+            <Button variant="outlined" color="primary" component="span">
+              Upload
+            </Button>
           </label>
         </div>
-        <TransitionsModal />
-        <Place place={place} handleOnClickPlace={handleOnClickPlace} />
+
         <TextField
           id="outlined-name"
           label="Title"
@@ -100,6 +98,7 @@ const SaleRegistrationCard = ({
           type="number"
           required
         />
+
         <TextField
           id="standard-multiline-static"
           label="Content"
@@ -112,6 +111,11 @@ const SaleRegistrationCard = ({
           value={content}
           onChange={handleOnChangeContent}
         />
+        <Place place={place} handleOnClickPlace={handleOnClickPlace} />
+
+        <div className={classes.modal}>
+          <TransitionsModal />
+        </div>
       </form>
     </Card>
   );

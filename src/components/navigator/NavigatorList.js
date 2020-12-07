@@ -10,10 +10,16 @@ import NavigationItem from 'components/navigator/NavigationItem';
 import NavigationCustomItem from 'components/navigator/NavigationCustomItem';
 
 const navigatorList = [
-  { id: 2, title: '거래 게시판', link: '/board', logout: false, login: true },
+  {
+    id: 2,
+    title: '판매 게시판',
+    link: '/board',
+    logout: false,
+    login: true,
+  },
   {
     id: 3,
-    title: '판매 관리',
+    title: '나의 판매 관리',
     link: '/board/myboard',
     logout: false,
     login: true,
@@ -53,7 +59,7 @@ const NavigatorList = ({ navigationDrawersHandler, isloggedin }) => {
     >
       <List>
         <NavigationCustomItem
-          title="뒤로가기"
+          title="뒤로 가기"
           buttonOnClick={buttonGoBackOnClick}
         >
           <BackspaceIcon />

@@ -84,9 +84,6 @@ const Profile = ({ setIsloggedin }) => {
       <Paper variant="outlined">
         <Grid container wrap="nowrap" direction="column" justify="center">
           <Grid item>
-            <h2 className={classes.center}>마이 페이지</h2>
-          </Grid>
-          <Grid item>
             <Avatar
               alt="프로필 사진"
               src={profile.profileUrl}

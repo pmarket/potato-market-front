@@ -1,104 +1,61 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Grid,
+  FormControlLabel,
+  RadioGroup,
+  Radio,
+  Paper,
+  FormLabel,
+} from '@material-ui/core';
+
 import 'components/registerProduct/Place.css';
 
+const maps = [
+  '본관',
+  '대학원관',
+  '학생회관',
+  '이공관',
+  '비전관',
+  '다자인관',
+  '음악관',
+  '로뎀관',
+  '영상비전센터',
+  '신학관',
+];
+
+const useStyles = makeStyles(() => ({
+  root: {
+    width: '60%',
+    marginLeft: '20%',
+  },
+}));
+
 const Place = ({ handleOnClickPlace }) => {
+  const classes = useStyles();
   return (
-    <div className="place-container">
-      <div className="pradiocontainer">
-        <label className="placelabel">
-          <input
-            type="radio"
-            value="본관"
-            name="places"
-            onChange={handleOnClickPlace}
-          />
-          본관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="대학원관"
-            onChange={handleOnClickPlace}
-          />
-          대학원관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            value="학생회관"
-            name="places"
-            onChange={handleOnClickPlace}
-          />
-          학생회관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="이공관"
-            onChange={handleOnClickPlace}
-          />
-          이공관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="비전관"
-            onChange={handleOnClickPlace}
-          />
-          비전관
-        </label>
-      </div>
-      <div className="pradiocontainer">
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="디자인관"
-            onChange={handleOnClickPlace}
-          />
-          디자인관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="음악관"
-            onChange={handleOnClickPlace}
-          />
-          음악관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="로뎀관"
-            onChange={handleOnClickPlace}
-          />
-          로뎀관
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="영산비전센터"
-            onChange={handleOnClickPlace}
-          />
-          영산비전센터
-        </label>
-        <label className="placelabel">
-          <input
-            type="radio"
-            name="places"
-            value="신학관"
-            onChange={handleOnClickPlace}
-          />
-          신학관
-        </label>
-      </div>
-    </div>
+    <Grid container spacing={1} className={classes.root}>
+      <Paper>
+        <FormLabel>장소 선택</FormLabel>
+        <RadioGroup
+          aria-label="place"
+          name="place"
+          onChange={handleOnClickPlace}
+        >
+          <Grid container item xs={12} spacing={1}>
+            {maps.map((value) => (
+              <Grid item xs={4}>
+                <FormControlLabel
+                  value={value}
+                  control={<Radio color="primary" />}
+                  label={value}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </RadioGroup>
+      </Paper>
+    </Grid>
   );
 };
 

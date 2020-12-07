@@ -32,8 +32,8 @@ export default function TransitionsModal() {
 
   return (
     <div className="pmodalcontiner">
-      <Button variant="outlined" onClick={handleOpen}>
-        참고용 캠퍼스맵
+      <Button variant="outlined" onClick={handleOpen} color="primary">
+        캠퍼스맵 보기
       </Button>
 
       <Modal
@@ -50,7 +50,7 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">한세대학교 지도</h2>
+            <h2 id="transition-modal-title">캠퍼스맵</h2>
             <img src={MapPic} alt="d" />
           </div>
         </Fade>
