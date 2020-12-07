@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import NotFound from 'containers/notFound/NotFound';
 import ProductBoard from 'containers/productList/ProductBoard';
-import Profile from 'containers/myProfile/Profile';
+import Profile from 'containers/myProfile//Profile';
 import SignUpGoogle from 'containers/googleAuth/SignUpGoogle';
 import GoogleAuthCallback from 'containers/googleAuth/GoogleAuthCallback';
 import Home from 'containers/home/Home';
@@ -52,7 +52,7 @@ const Routes = ({
     />
     <Route
       exact
-      path="/loginmain"
+      path="/login"
       component={() => (
         <LoginMain isloggedin={isloggedin} setIsloggedin={setIsloggedin} />
       )}
