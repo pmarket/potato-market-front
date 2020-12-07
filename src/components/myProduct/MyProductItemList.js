@@ -1,9 +1,15 @@
 import React from 'react';
-import { Grid, ListItemSecondaryAction } from '@material-ui/core';
+import {
+  Avatar,
+  Grid,
+  IconButton,
+  ListItemSecondaryAction,
+} from '@material-ui/core';
 
 import MyProductItem from 'components/myProduct/MyProductItem';
 import DeleteButton from 'components/myProduct/DeleteButton';
 import SoldOutButton from 'components/myProduct/SoldOutBotton';
+import ShowAvatarModal from 'components/myProduct/CommentProfiles';
 
 const MyProductItemList = ({
   myProducts,
@@ -25,6 +31,8 @@ const MyProductItemList = ({
           >
             {deleteButton ? (
               <ListItemSecondaryAction>
+                <ShowAvatarModal product={product} />
+
                 <SoldOutButton
                   product={product}
                   onSoldOutButtonClick={onSoldOutButtonClick}
@@ -32,6 +40,7 @@ const MyProductItemList = ({
                 <DeleteButton
                   product={product}
                   onDeleteButtonClick={onDeleteButtonClick}
+                  style={{ marginLeft: '35px' }}
                 />
               </ListItemSecondaryAction>
             ) : (

@@ -12,7 +12,7 @@ import MyProductItemList from 'components/myProduct/MyProductItemList';
 const useStyles = makeStyles(() => ({
   root: {
     marginLeft: '30%',
-    width: '35%',
+    width: '50%',
   },
   bottom: {
     backgroundColor: '#eacca8',
