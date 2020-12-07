@@ -18,9 +18,21 @@ const navigatorList = [
     logout: false,
     login: true,
   },
-  { id: 4, title: '회원 가입', link: '/signup', logout: true, login: false },
-  { id: 5, title: '로그인', link: '/login', logout: true, login: false },
-  { id: 6, title: '마이 페이지', link: '/profile', logout: false, login: true },
+  {
+    id: 4,
+    title: '회원 가입',
+    link: '/auth/signup',
+    logout: true,
+    login: false,
+  },
+  { id: 5, title: '로그인', link: '/auth/login', logout: true, login: false },
+  {
+    id: 6,
+    title: '마이 페이지',
+    link: '/auth/profile',
+    logout: false,
+    login: true,
+  },
 ];
 
 const NavigatorList = ({ navigationDrawersHandler, isloggedin }) => {

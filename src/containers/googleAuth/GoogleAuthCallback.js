@@ -17,7 +17,7 @@ const GoogleAuthCallback = ({ setGoogleProfile, setIsloggedin }) => {
       .then((response) => {
         if (response.data.data.type === 'SIGN_UP') {
           setGoogleProfile(response.data.data);
-          history.push('/signup/google');
+          history.push('/auth/signup/google');
           return;
         }
         AuthService.setAuthToken(response.data.data.token);
@@ -26,7 +26,7 @@ const GoogleAuthCallback = ({ setGoogleProfile, setIsloggedin }) => {
       })
       .catch((error) => {
         alert(error.response.data.message);
-        history.push('/signup');
+        history.push('/auth/signup');
       });
   });
 

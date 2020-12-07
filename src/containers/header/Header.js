@@ -24,7 +24,7 @@ const Header = ({ isloggedin, setIsloggedin }) => {
             로그아웃
           </Link>
         ) : (
-          <Link to="/login" className="alogin">
+          <Link to="/auth/login" className="alogin">
             로그인
           </Link>
         )}

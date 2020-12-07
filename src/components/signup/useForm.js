@@ -30,7 +30,7 @@ const useForm = (validate) => {
     }
     try {
       await AuthApi.localSignUp(values.email, values.username, values.password);
-      history.push('/login');
+      history.push('/auth/login');
     } catch (error) {
       alert(error.response.data.message);
     }
