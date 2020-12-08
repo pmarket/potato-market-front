@@ -17,13 +17,17 @@ const ProductBoard = () => {
 
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(1);
-  const [isChanged, setIsChanged] = useState(false);
 
   const limit = 12; // 한 페이지에 보여줄 상품 갯수
   const offset = querystring.parse(window.location.search)['?offset'] || 0; // 페이지 번호
 
-  const toggleSetIsChanged = () => {
-    setIsChanged(!isChanged);
+  const toggleSetIsChanged = (productId, isLike) => {
+    const findProduct = products.filter((product) => product.id === productId);
+    const newProduct = findProduct;
+    newProduct[0].isLike = isLike;
+    setProducts(
+      products.filter((product) => product.id !== productId).concat(newProduct),
+    );
   };
 
   useEffect(() => {
@@ -40,7 +44,7 @@ const ProductBoard = () => {
         alert(error.response.data.message);
         history.push('/');
       });
-  }, [offset, history, isChanged]);
+  }, [offset, history]);
   return (
     <>
       <SaleRegistrationButton products={products} setProducts={setProducts} />

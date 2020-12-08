@@ -45,16 +45,21 @@ const useStyles = makeStyles(() => ({
 const ProductList = (props) => {
   const classes = useStyles();
   const { product, setIsChanged } = props;
-
   const onClickFav = (productId) => {
-    axios.put(
-      `${REACT_APP_API_URI}/api/v1/product/like`,
-      {
-        productId,
-      },
-      HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
-    );
-    setIsChanged();
+    axios
+      .put(
+        `${REACT_APP_API_URI}/api/v1/product/like`,
+        {
+          productId,
+        },
+        HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
+      )
+      .then((response) => {
+        setIsChanged(response.data.data.id, response.data.data.isLike);
+      })
+      .catch((error) => {
+        alert(error.response.data.message);
+      });
   };
 
   return (
