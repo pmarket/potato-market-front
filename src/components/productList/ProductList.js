@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Card,
@@ -17,10 +18,14 @@ import {
 } from '@material-ui/icons';
 import { red } from '@material-ui/core/colors';
 
+import HttpService from 'services/HttpService';
+import AuthService from 'services/AuthService';
 import formatDate from 'utils/DateUtils';
 import 'containers/productList/ProductBoard.css';
 
 import soldout from 'assets/images/soldout.jpg';
+
+const { REACT_APP_API_URI } = process.env;
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -39,12 +44,17 @@ const useStyles = makeStyles(() => ({
 
 const ProductList = (props) => {
   const classes = useStyles();
-  const { product } = props;
-  const [clicked, setClicked] = useState(false);
+  const { product, setIsChanged } = props;
 
-  const onClickFav = () => {
-    if (clicked === true) setClicked(false);
-    if (clicked === false) setClicked(true);
+  const onClickFav = (productId) => {
+    axios.put(
+      `${REACT_APP_API_URI}/api/v1/product/like`,
+      {
+        productId,
+      },
+      HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
+    );
+    setIsChanged();
   };
 
   return (
@@ -86,8 +96,11 @@ const ProductList = (props) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites" onClick={onClickFav}>
-            {clicked ? (
+          <IconButton
+            aria-label="add to favorites"
+            onClick={() => onClickFav(product.id)}
+          >
+            {product.isLike ? (
               <FavoriteIcon style={{ fill: 'red' }} />
             ) : (
               <FavoriteIcon />
