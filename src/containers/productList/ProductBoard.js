@@ -22,12 +22,10 @@ const ProductBoard = () => {
   const offset = querystring.parse(window.location.search)['?offset'] || 0; // 페이지 번호
 
   const toggleSetIsChanged = (productId, isLike) => {
-    const findProduct = products.filter((product) => product.id === productId);
-    const newProduct = findProduct;
-    newProduct[0].isLike = isLike;
-    setProducts(
-      products.filter((product) => product.id !== productId).concat(newProduct),
-    );
+    const temp = products.map((product) => {
+      return product.id === productId ? { ...product, isLike } : product;
+    });
+    setProducts(temp);
   };
 
   useEffect(() => {
