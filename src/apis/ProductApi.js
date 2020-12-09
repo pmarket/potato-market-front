@@ -41,9 +41,18 @@ const soldMyProduct = (productId) => {
     HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
   );
 };
+
+const MyLikesProducts = () => {
+  return axios.get(
+    `${REACT_APP_API_URI}/api/v1/product/like/my`,
+    HttpService.AuthorizationHeader(AuthService.getCurrentToken()),
+  );
+};
+
 export default {
   registerProduct,
   retrieveMyProduct,
   deleteMyProduct,
   soldMyProduct,
+  MyLikesProducts,
 };

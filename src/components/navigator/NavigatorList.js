@@ -39,6 +39,13 @@ const navigatorList = [
     logout: false,
     login: true,
   },
+  {
+    id: 7,
+    title: '나의 좋아요 목록',
+    link: '/board/mylikes',
+    logout: false,
+    login: true,
+  },
 ];
 
 const NavigatorList = ({ navigationDrawersHandler, isloggedin }) => {
