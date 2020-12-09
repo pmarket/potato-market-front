@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ProductApi from 'apis/ProductApi';
@@ -19,11 +20,16 @@ const useStyles = makeStyles((theme) => ({
 export default function InteractiveList() {
   const classes = useStyles();
   const [myLikes, setMyLikes] = useState([]);
+  const history = useHistory();
   useEffect(() => {
     ProductApi.MyLikesProducts().then((response) => {
       setMyLikes(response.data.data);
     });
   }, []);
+
+  const onDetailButtonOnClick = (productId) => {
+    history.push(`/board/detail/${productId}`);
+  };
 
   return (
     <List
@@ -36,7 +42,10 @@ export default function InteractiveList() {
         </ListSubheader>
       }
     >
-      <MyLikesList myLikes={myLikes} setMyLikes={setMyLikes} />
+      <MyLikesList
+        myLikes={myLikes}
+        onDetailButtonOnClick={onDetailButtonOnClick}
+      />
     </List>
   );
 }

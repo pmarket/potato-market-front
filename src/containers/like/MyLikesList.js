@@ -5,11 +5,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Favorite } from '@material-ui/icons';
 import { Avatar, ListItemAvatar } from '@material-ui/core';
 
-const MyLikesList = ({ myLikes, setMyLikes }) => {
+const MyLikesList = ({ myLikes, onDetailButtonOnClick }) => {
   return (
     <>
       {myLikes.map((product) => (
-        <ListItem button>
+        <ListItem button onClick={() => onDetailButtonOnClick(product.id)}>
           <ListItemAvatar>
             <Avatar src={product.profile_url} />
           </ListItemAvatar>
