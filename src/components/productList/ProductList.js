@@ -17,6 +17,7 @@ import {
   Share as ShareIcon,
 } from '@material-ui/icons';
 import { red } from '@material-ui/core/colors';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import HttpService from 'services/HttpService';
 import AuthService from 'services/AuthService';
@@ -41,6 +42,10 @@ const useStyles = makeStyles(() => ({
     backgroundColor: red[500],
   },
 }));
+
+const shareButtonOnClick = () => {
+  alert('링크가 복사되었습니다.');
+};
 
 const ProductList = (props) => {
   const classes = useStyles();
@@ -111,9 +116,13 @@ const ProductList = (props) => {
               <FavoriteIcon />
             )}
           </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+          <CopyToClipboard
+            text={`${window.location.href}/detail/${product.id}`}
+          >
+            <IconButton aria-label="share" onClick={shareButtonOnClick}>
+              <ShareIcon />
+            </IconButton>
+          </CopyToClipboard>
         </CardActions>
       </Card>
     </div>
