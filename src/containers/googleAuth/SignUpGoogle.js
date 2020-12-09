@@ -54,7 +54,7 @@ const SignUpGoogle = ({ googleProfile, setIsloggedin }) => {
       );
       AuthService.setAuthToken(response.data.data);
       setIsloggedin(true);
-      history.push('/');
+      history.push('/board');
     } catch (error) {
       alert(error.response.data.message);
     }
