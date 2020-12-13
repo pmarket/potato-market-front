@@ -117,7 +117,7 @@ const ProductList = (props) => {
             )}
           </IconButton>
           <CopyToClipboard
-            text={`${window.location.href}/detail/${product.id}`}
+            text={`${window.location.href.split('?')[0]}/detail/${product.id}`}
           >
             <IconButton aria-label="share" onClick={shareButtonOnClick}>
               <ShareIcon />
