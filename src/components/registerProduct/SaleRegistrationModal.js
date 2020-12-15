@@ -56,22 +56,22 @@ const SaleRegistrationModal = ({
     }
     try {
       await ProductApi.registerProduct(name, price, content, profileUrl, place);
-      clearField();
-      handleCloseTooltips();
-      setProducts(
-        products.concat({
-          id: products[products.length - 1].id + 1,
-          name,
-          price,
-          content,
-          profile_url: profileUrl,
-          place,
-        }),
-      );
-      window.location.reload();
     } catch (error) {
       alert(error.response.data.message);
     }
+    clearField();
+    handleCloseTooltips();
+    setProducts(
+      products.concat({
+        id: products.length + 1,
+        name,
+        price,
+        content,
+        profile_url: profileUrl,
+        place,
+      }),
+    );
+    window.location.reload();
   };
 
   const fileOnChange = async (e) => {

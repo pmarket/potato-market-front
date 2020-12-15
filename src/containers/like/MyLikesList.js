@@ -9,7 +9,11 @@ const MyLikesList = ({ myLikes, onDetailButtonOnClick }) => {
   return (
     <>
       {myLikes.map((product) => (
-        <ListItem button onClick={() => onDetailButtonOnClick(product.id)}>
+        <ListItem
+          key={product.id}
+          button
+          onClick={() => onDetailButtonOnClick(product.id)}
+        >
           <ListItemAvatar>
             <Avatar src={product.profile_url} />
           </ListItemAvatar>

@@ -11,7 +11,7 @@ import {
 
 import 'components/registerProduct/Place.css';
 
-const maps = [
+const places = [
   '본관',
   '대학원관',
   '학생회관',
@@ -43,8 +43,8 @@ const Place = ({ handleOnClickPlace }) => {
           onChange={handleOnClickPlace}
         >
           <Grid container item xs={12} spacing={1}>
-            {maps.map((value) => (
-              <Grid item xs={4}>
+            {places.map((value) => (
+              <Grid item xs={4} key={value}>
                 <FormControlLabel
                   value={value}
                   control={<Radio color="primary" />}
